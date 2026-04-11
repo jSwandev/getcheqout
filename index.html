@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHEQout — Camera-first POS for independent vendors</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F8F7F4;color:#1A1A1A}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 32px;border-bottom:1px solid #E2E1DE}
+.logo{font-size:24px;font-weight:800}.logo span{color:#2D6A4F}
+.nav-cta{background:#1A1A1A;color:#F8F7F4;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+.hero{text-align:center;padding:80px 24px 60px}
+.hero h1{font-size:48px;font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-1px}
+.hero h1 span{color:#2D6A4F}
+.hero p{font-size:18px;color:#666;max-width:520px;margin:0 auto 32px;line-height:1.6}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:#1A1A1A;color:#F8F7F4;border:none;border-radius:12px;padding:16px 32px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn-s{background:#F8F7F4;color:#1A1A1A;border:2px solid #E2E1DE;border-radius:12px;padding:14px 32px;font-size:16px;font-weight:700;text-decoration:none}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:60px 32px;max-width:1100px;margin:0 auto}
+.feature{background:#fff;border:1px solid #E2E1DE;border-radius:16px;padding:28px}
+.feature-icon{font-size:32px;margin-bottom:12px}
+.feature h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.feature p{font-size:14px;color:#666;line-height:1.6}
+.how{background:#1A1A1A;color:#F8F7F4;padding:60px 32px;text-align:center}
+.how h2{font-size:36px;font-weight:800;margin-bottom:40px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.step-num{font-size:36px;font-weight:800;color:#2D6A4F;margin-bottom:8px}
+.step h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.step p{font-size:14px;color:#888;line-height:1.5}
+.pricing{padding:60px 32px;text-align:center}
+.pricing h2{font-size:36px;font-weight:800;margin-bottom:8px}
+.price-card{display:inline-block;background:#fff;border:2px solid #1A1A1A;border-radius:20px;padding:40px;max-width:380px;width:100%;margin-top:24px}
+.price{font-size:52px;font-weight:800;color:#2D6A4F}
+.price-note{font-size:14px;color:#666;margin-top:4px;margin-bottom:24px}
+.price-features{list-style:none;text-align:left;margin-bottom:28px}
+.price-features li{padding:8px 0;border-bottom:1px solid #F0F0F0;font-size:15px}
+.price-features li:before{content:"✓ ";color:#2D6A4F;font-weight:700}
+footer{text-align:center;padding:32px;font-size:13px;color:#9A9A9A;border-top:1px solid #E2E1DE}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">CHEQ<span>out</span></div>
+  <a href="https://cheqout.store" class="nav-cta">Sign in →</a>
+</nav>
+<div class="hero">
+  <h1>The POS built for<br><span>the little guy</span></h1>
+  <p>Camera-first inventory logging, multi-vendor booth sharing, and QR payment links — everything independent vendors need to run a real business.</p>
+  <div class="cta-row">
+    <a href="https://cheqout.store" class="btn-p">Start selling free</a>
+    <a href="#how" class="btn-s">See how it works</a>
+  </div>
+</div>
+<div class="features">
+  <div class="feature"><div class="feature-icon">📷</div><h3>Camera-first logging</h3><p>Point your camera at any item. AI reads the label, identifies the brand, category, and condition — your inventory builds itself.</p></div>
+  <div class="feature"><div class="feature-icon">🏪</div><h3>Booth mode</h3><p>Multiple vendors, one device. Switch between seller tabs instantly. Every sale routes to the right vendor automatically.</p></div>
+  <div class="feature"><div class="feature-icon">📲</div><h3>QR payment links</h3><p>Customer scans, chooses Venmo, Zelle, Cash App, or card on their own phone. No card reader needed.</p></div>
+  <div class="feature"><div class="feature-icon">💰</div><h3>Real P&L tracking</h3><p>Enter what you paid for each item. CHEQout shows your profit, margin, and inventory value in real time.</p></div>
+  <div class="feature"><div class="feature-icon">🧾</div><h3>SMS receipts</h3><p>Customers get an itemized receipt with your store name sent straight to their phone.</p></div>
+  <div class="feature"><div class="feature-icon">📦</div><h3>Inventory management</h3><p>Track quantity, cost basis, and status for every item. Know exactly what sold, what's left, and what you made.</p></div>
+</div>
+<div class="how" id="how">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Log your items</h3><p>Snap a photo. AI fills in the details. Set your price.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Show the QR</h3><p>Customer scans and pays on their phone their way.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Batch out</h3><p>End of day summary shows exactly what you made.</p></div>
+  </div>
+</div>
+<div class="pricing">
+  <h2>Simple pricing</h2>
+  <p style="color:#666;font-size:16px">Free to use. We only make money when you do.</p>
+  <div class="price-card">
+    <div class="price">5%</div>
+    <div class="price-note">on digital sales only · cash is always free</div>
+    <ul class="price-features">
+      <li>Unlimited inventory items</li>
+      <li>Camera AI item logging</li>
+      <li>QR payment links</li>
+      <li>Booth mode (multi-vendor)</li>
+      <li>SMS receipts to customers</li>
+      <li>P&L dashboard</li>
+      <li>Cash sales always free</li>
+    </ul>
+    <a href="https://cheqout.store" class="btn-p" style="display:block;text-align:center">Get started free</a>
+  </div>
+</div>
+<footer>&copy; 2026 CHEQout · <a href="https://cheqout.store" style="color:#2D6A4F">cheqout.store</a></footer>
+</body>
+</html>
