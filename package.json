@@ -1,0 +1,9 @@
+{
+  "name": "cheqout-marketing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CHEQout marketing site at getcheqout.com — gated private preview",
+  "dependencies": {
+    "@vercel/edge": "^1.2.1"
+  }
+}

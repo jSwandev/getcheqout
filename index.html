@@ -1,91 +1,2284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHEQout — Camera-first POS for independent vendors</title>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CHEQout — Build your POS. Run your business. Own your life.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F8F7F4;color:#1A1A1A}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 32px;border-bottom:1px solid #E2E1DE}
-.logo{font-size:24px;font-weight:800}.logo span{color:#2D6A4F}
-.nav-cta{background:#1A1A1A;color:#F8F7F4;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
-.hero{text-align:center;padding:80px 24px 60px}
-.hero h1{font-size:48px;font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-1px}
-.hero h1 span{color:#2D6A4F}
-.hero p{font-size:18px;color:#666;max-width:520px;margin:0 auto 32px;line-height:1.6}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-p{background:#1A1A1A;color:#F8F7F4;border:none;border-radius:12px;padding:16px 32px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none}
-.btn-s{background:#F8F7F4;color:#1A1A1A;border:2px solid #E2E1DE;border-radius:12px;padding:14px 32px;font-size:16px;font-weight:700;text-decoration:none}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:60px 32px;max-width:1100px;margin:0 auto}
-.feature{background:#fff;border:1px solid #E2E1DE;border-radius:16px;padding:28px}
-.feature-icon{font-size:32px;margin-bottom:12px}
-.feature h3{font-size:18px;font-weight:700;margin-bottom:8px}
-.feature p{font-size:14px;color:#666;line-height:1.6}
-.how{background:#1A1A1A;color:#F8F7F4;padding:60px 32px;text-align:center}
-.how h2{font-size:36px;font-weight:800;margin-bottom:40px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto}
-.step-num{font-size:36px;font-weight:800;color:#2D6A4F;margin-bottom:8px}
-.step h3{font-size:16px;font-weight:700;margin-bottom:6px}
-.step p{font-size:14px;color:#888;line-height:1.5}
-.pricing{padding:60px 32px;text-align:center}
-.pricing h2{font-size:36px;font-weight:800;margin-bottom:8px}
-.price-card{display:inline-block;background:#fff;border:2px solid #1A1A1A;border-radius:20px;padding:40px;max-width:380px;width:100%;margin-top:24px}
-.price{font-size:52px;font-weight:800;color:#2D6A4F}
-.price-note{font-size:14px;color:#666;margin-top:4px;margin-bottom:24px}
-.price-features{list-style:none;text-align:left;margin-bottom:28px}
-.price-features li{padding:8px 0;border-bottom:1px solid #F0F0F0;font-size:15px}
-.price-features li:before{content:"✓ ";color:#2D6A4F;font-weight:700}
-footer{text-align:center;padding:32px;font-size:13px;color:#9A9A9A;border-top:1px solid #E2E1DE}
+  :root {
+    --cream: #F5EFE2;
+    --cream-card: #FFFFFF;
+    --cream-soft: #EDE6D6;
+    --ink: #0F0F0F;
+    --ink-soft: #1F1F1F;
+    --green: #1F5C3F;
+    --green-deep: #14422D;
+    --green-mint: #C8E5D2;
+    --green-mint-text: #1F5C3F;
+    --amber: #F4C77A;
+    --amber-text: #8A5A0F;
+    --rose: #F4C7C7;
+    --rose-text: #8A2A2A;
+    --yellow-hilite: #F4F4A8;
+    --skull-red: #C8453F;
+    --rule: #D8D0BE;
+    --rule-soft: #E5DEC9;
+    --mute: #6B6357;
+
+    --f-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+    --radius: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--f-body);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .wordmark {
+    font-family: var(--f-display);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+  .wordmark .out { color: var(--green); }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 239, 226, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar .wordmark { font-size: 26px; }
+  .topnav { display: flex; gap: 28px; align-items: center; font-size: 14px; }
+  .topnav a { color: var(--ink); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .topnav a:hover { color: var(--green); }
+  .topnav .cta {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+  }
+  .topnav .cta:hover { background: var(--green); color: var(--cream); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 32px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    background: var(--cream-card);
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 28px;
+    border: 1px solid var(--rule-soft);
+  }
+  .hero-eyebrow .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  .hero-headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(48px, 7.5vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+  .hero-headline .strike {
+    position: relative;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  .hero-headline .strike::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    top: 52%;
+    height: 6px;
+    background: var(--skull-red);
+    transform: rotate(-2deg);
+    border-radius: 3px;
+  }
+  .hero-headline .out-brand { color: var(--green); }
+
+  .hero-sub {
+    margin-top: 32px;
+    max-width: 540px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .hero-ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-family: var(--f-body);
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-primary:hover { background: var(--green); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(31, 92, 63, 0.25); }
+  .btn-ghost {
+    background: var(--cream-card);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .btn-ghost:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .btn .arrow { transition: transform 0.25s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  /* HERO PHONE */
+  .hero-phone {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    aspect-ratio: 380 / 760;
+    border-radius: 48px;
+    background: var(--ink);
+    padding: 12px;
+    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.3);
+    transform: rotate(-3deg);
+    transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+  }
+  .hero-phone:hover { transform: rotate(0deg) scale(1.02); }
+  .hero-phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    background: var(--cream);
+    padding: 32px 18px 18px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-phone-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+  .hero-phone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 4px;
+  }
+  .hero-phone-header .wordmark { font-size: 20px; }
+  .hero-phone-header .skull {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--cream-soft);
+    border: 2px solid var(--skull-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .hero-phone-date {
+    padding: 0 4px;
+    font-size: 11px;
+    color: var(--mute);
+    margin-bottom: 14px;
+  }
+  .hero-phone-card {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 14px;
+  }
+  .hero-phone-card-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(245,239,226,0.6);
+    margin-bottom: 6px;
+  }
+  .hero-phone-card-amount {
+    font-family: var(--f-display);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .hero-phone-card-detail {
+    font-size: 11px;
+    color: rgba(245,239,226,0.55);
+    margin-top: 4px;
+  }
+  .hero-phone-tile-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .hero-phone-tile {
+    background: var(--cream-card);
+    border-radius: 14px;
+    padding: 14px;
+  }
+  .hero-phone-tile-icon { width: 24px; height: 24px; margin-bottom: 8px; color: var(--ink); }
+  .hero-phone-tile-title { font-size: 13px; font-weight: 600; }
+  .hero-phone-tile-sub { font-size: 10px; color: var(--mute); margin-top: 2px; }
+  .hero-phone-pill {
+    display: inline-flex;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 9px;
+    font-weight: 700;
+    background: var(--green-mint);
+    color: var(--green-mint-text);
+  }
+  .hero-phone-section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--mute);
+    padding: 0 4px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hero-phone-pickup {
+    background: var(--cream-card);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .hero-phone-pickup-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8A4A3F, #C8853F);
+    flex-shrink: 0;
+  }
+  .hero-phone-pickup-info { flex: 1; min-width: 0; }
+  .hero-phone-pickup-title {
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero-phone-pickup-meta { font-size: 9px; color: var(--mute); margin-top: 2px; }
+
+  .hero-annotation {
+    position: absolute;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.3);
+    z-index: 5;
+  }
+  .hero-annotation::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+  .annotation-1 {
+    top: 10%;
+    right: -8%;
+    transform: rotate(4deg);
+  }
+  .annotation-1::before { left: -4px; top: 50%; margin-top: -6px; }
+  .annotation-2 {
+    bottom: 18%;
+    left: -10%;
+    transform: rotate(-3deg);
+    background: var(--green);
+  }
+  .annotation-2::before { background: var(--green); right: -4px; top: 50%; margin-top: -6px; }
+
+  /* SECTIONS */
+  section { padding: 110px 32px; position: relative; }
+  .section-inner { max-width: 1400px; margin: 0 auto; }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    background: var(--cream-card);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius-pill);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--ink);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .section-eyebrow .num { color: var(--green); }
+  .section-title {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(40px, 5.5vw, 80px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    max-width: 1100px;
+  }
+  .section-title .green-text { color: var(--green); }
+  .section-lede {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 700px;
+    color: var(--ink-soft);
+    margin-bottom: 56px;
+  }
+
+  /* MATH (4-rail interactive) */
+  .transparency { background: var(--cream-soft); }
+  .math-card {
+    background: var(--cream-card);
+    border-radius: var(--radius-lg);
+    padding: 56px 48px;
+    box-shadow: 0 1px 0 var(--rule-soft);
+  }
+  .math-control {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+    max-width: 720px;
+  }
+  .math-control-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .math-control-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+    text-transform: uppercase;
+    min-width: 100px;
+  }
+  .math-slider {
+    flex: 1;
+    min-width: 200px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: var(--cream-soft);
+    border-radius: var(--radius-pill);
+    outline: none;
+  }
+  .math-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid var(--cream-card);
+    box-shadow: 0 0 0 1px var(--ink);
+    transition: transform 0.15s;
+  }
+  .math-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .math-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid var(--cream-card);
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+
+  .math-tier-toggle, .math-rail-toggle {
+    display: flex;
+    background: var(--cream-soft);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .math-toggle-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    color: var(--ink);
+    transition: all 0.2s;
+    font-family: var(--f-body);
+  }
+  .math-toggle-btn.active {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .math-rails-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .rail-card {
+    background: var(--cream-soft);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .rail-card.featured {
+    background: var(--green-mint);
+    border-color: var(--green);
+  }
+  .rail-card.featured .rail-name { color: var(--green-deep); }
+  .rail-card.featured::before {
+    content: "Always free";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: var(--cream);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .rail-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .rail-amount {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    transition: all 0.3s;
+  }
+  .rail-breakdown {
+    margin-top: 8px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--mute);
+    line-height: 1.4;
+    min-height: 28px;
+  }
+  .rail-breakdown .info-tip {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--rule);
+    color: var(--cream-card);
+    font-size: 10px;
+    line-height: 14px;
+    cursor: help;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .math-flow {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 1fr auto 2fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .math-cell { text-align: center; padding: 20px 8px; }
+  .math-cell-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .math-amount {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .math-amount.win {
+    color: var(--ink);
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+  .math-amount.win::after {
+    content: "";
+    position: absolute;
+    left: -8px;
+    right: -8px;
+    bottom: 2px;
+    height: 38%;
+    background: var(--yellow-hilite);
+    z-index: -1;
+    border-radius: 4px;
+  }
+  .math-detail {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--mute);
+    margin-top: 8px;
+  }
+  .math-arrow {
+    font-size: 32px;
+    color: var(--green);
+    font-weight: 600;
+    opacity: 0.5;
+  }
+
+  .killshot {
+    margin-top: 64px;
+    padding: 40px 32px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  .killshot-text {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 44px);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .killshot-text .strike-light { color: rgba(245,239,226,0.4); position: relative; }
+  .killshot-text .strike-light::after {
+    content: "";
+    position: absolute;
+    left: -2px; right: -2px; top: 52%;
+    height: 4px; background: var(--skull-red);
+    transform: rotate(-2deg);
+    border-radius: 2px;
+  }
+  .killshot-text .punch { color: var(--green-mint); }
+
+  /* CHECKOUT MOCKUP */
+  .checkout-mockup {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .checkout-text h3 {
+    font-family: var(--f-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .checkout-text h3 .green-text { color: var(--green); }
+  .checkout-text p {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .checkout-text .small-note {
+    font-size: 14px;
+    color: var(--mute);
+    border-left: 3px solid var(--green);
+    padding: 8px 14px;
+    margin-top: 16px;
+    background: var(--cream-card);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .checkout-phone {
+    background: var(--ink);
+    border-radius: 32px;
+    padding: 12px;
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
+  }
+  .checkout-phone-screen {
+    background: var(--cream);
+    border-radius: 22px;
+    padding: 24px 20px;
+  }
+  .checkout-phone-vendor {
+    font-size: 11px;
+    color: var(--mute);
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .checkout-phone-item {
+    font-family: var(--f-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .checkout-cart {
+    background: var(--cream-card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    margin-top: 4px;
+  }
+  .checkout-cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 14px;
+  }
+  .checkout-cart-name {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .checkout-cart-price {
+    font-family: var(--f-display);
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .checkout-cart-subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px dashed var(--rule);
+    font-size: 13px;
+    color: var(--mute);
+    font-weight: 600;
+  }
+  .checkout-cart-subtotal span:last-child {
+    font-family: var(--f-display);
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .checkout-phone-rails-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .checkout-rail-option {
+    background: var(--cream-card);
+    border: 2px solid var(--rule-soft);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .checkout-rail-option:hover { border-color: var(--green); }
+  .checkout-rail-option.selected {
+    border-color: var(--ink);
+    background: var(--cream-soft);
+  }
+  .checkout-rail-option .rail-info { display: flex; flex-direction: column; gap: 2px; }
+  .checkout-rail-option .rail-title { font-size: 14px; font-weight: 600; }
+  .checkout-rail-option .rail-meta { font-size: 11px; color: var(--mute); }
+  .checkout-rail-option .rail-price-tag {
+    font-family: var(--f-display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .checkout-rail-option .rail-price-tag .info-i {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--rule);
+    color: var(--cream-card);
+    font-size: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+    font-style: italic;
+  }
+  .checkout-rail-option.featured {
+    background: var(--green-mint);
+    border-color: var(--green);
+  }
+  .checkout-rail-option.featured .rail-meta { color: var(--green-deep); font-weight: 600; }
+
+  .checkout-phone-confirm {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--radius-pill);
+    padding: 14px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  /* AFTER-PAY RAIL FLOW */
+  .afterpay-section {
+    margin-top: 96px;
+    padding-top: 64px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .afterpay-headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .afterpay-headline .green-text { color: var(--green); }
+  .afterpay-sub {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+  .afterpay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .afterpay-card {
+    background: var(--cream-card);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius-lg);
+    padding: 28px 28px 24px;
+    transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+  }
+  .afterpay-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px -16px rgba(0,0,0,0.1);
+    border-color: var(--green);
+  }
+  .afterpay-icon-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .afterpay-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--cream);
+  }
+  .afterpay-icon-cash { background: var(--green); }
+  .afterpay-icon-venmo { background: #008CFF; }
+  .afterpay-icon-zelle { background: #6D1ED4; }
+  .afterpay-icon-card { background: var(--ink); }
+  .afterpay-tag {
+    background: var(--cream-soft);
+    color: var(--mute);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .afterpay-card-title {
+    font-family: var(--f-display);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .afterpay-card-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .afterpay-card-text em {
+    background: var(--yellow-hilite);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .afterpay-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+  }
+  .afterpay-step {
+    background: var(--cream-soft);
+    color: var(--ink-soft);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .afterpay-step.done {
+    background: var(--green);
+    color: var(--cream);
+  }
+  .afterpay-step-arrow {
+    color: var(--mute);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  @media (max-width: 1000px) {
+    .afterpay-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .afterpay-flow { flex-direction: column; align-items: flex-start; }
+    .afterpay-step-arrow { transform: rotate(90deg); margin-left: 16px; }
+  }
+
+  /* COMPARISON */
+  .compare-card {
+    background: var(--cream-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 1px 0 var(--rule-soft);
+  }
+  .compare-header {
+    display: grid;
+    grid-template-columns: 2fr 1.1fr 1fr 1fr 1fr;
+    background: var(--cream-soft);
+    padding: 24px 28px;
+    align-items: end;
+  }
+  .compare-header-cell {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .compare-header-cell.us {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    margin: -8px 8px -8px 0;
+    position: relative;
+  }
+  .compare-header-cell.us::before {
+    content: "Us";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: var(--green);
+    color: var(--cream);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+  }
+  .compare-header-cell.us .wordmark { font-size: 18px; color: var(--cream); }
+  .compare-header-cell.us .wordmark .out { color: var(--green-mint); }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1.1fr 1fr 1fr 1fr;
+    padding: 22px 28px;
+    align-items: center;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .compare-row:hover { background: var(--cream-soft); }
+  .compare-feature {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    padding-right: 16px;
+  }
+  .compare-feature small {
+    display: block;
+    font-size: 12px;
+    color: var(--mute);
+    font-weight: 400;
+    margin-top: 3px;
+  }
+  .compare-cell { font-size: 14px; font-weight: 500; }
+  .compare-cell.us {
+    background: rgba(31, 92, 63, 0.06);
+    margin: -10px 8px -10px 0;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    color: var(--green-deep);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .compare-cell.us::before {
+    content: "✓";
+    width: 18px;
+    height: 18px;
+    background: var(--green);
+    color: var(--cream);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+  .compare-cell.no { color: var(--mute); font-weight: 400; }
+  .compare-cell.partial { color: var(--ink-soft); }
+
+  /* STACKS */
+  .stacks { background: var(--ink); color: var(--cream); overflow: hidden; }
+  .stacks .section-eyebrow {
+    background: var(--ink-soft);
+    border-color: rgba(245,239,226,0.15);
+    color: var(--cream);
+  }
+  .stacks .section-eyebrow .num { color: var(--green-mint); }
+  .stacks .section-title { color: var(--cream); }
+  .stacks .section-title .green-text { color: var(--green-mint); }
+  .stacks .section-lede { color: rgba(245,239,226,0.7); }
+  .stacks-demo {
+    display: grid;
+    grid-template-columns: 0.9fr 1.4fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .stacks-source {
+    background: var(--ink-soft);
+    border: 1px solid rgba(245,239,226,0.1);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+  }
+  .stacks-source-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--green-mint);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .stacks-source-amount {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .stacks-source-detail {
+    font-size: 13px;
+    color: rgba(245,239,226,0.5);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+  .stacks-source-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(31, 92, 63, 0.25);
+    color: var(--green-mint);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  .stacks-source-pill .dot { width: 6px; height: 6px; background: var(--green-mint); border-radius: 50%; animation: pulse 1.5s infinite; }
+  .stacks-buckets { display: flex; flex-direction: column; gap: 14px; }
+  .stack-row {
+    background: var(--ink-soft);
+    border: 1px solid rgba(245,239,226,0.08);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 24px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .stack-row:hover {
+    border-color: rgba(200, 229, 210, 0.3);
+    transform: translateX(4px);
+  }
+  .stack-row::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: var(--fill, 0%);
+    background: linear-gradient(90deg, rgba(31, 92, 63, 0.18), rgba(31, 92, 63, 0.04));
+    transition: width 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .stack-row.animate-in::before { width: var(--target-fill); }
+  .stack-info { position: relative; z-index: 1; }
+  .stack-name {
+    font-family: var(--f-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .stack-name small {
+    display: block;
+    font-family: var(--f-body);
+    font-size: 12px;
+    color: rgba(245,239,226,0.5);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .stack-pct {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--green-mint);
+    min-width: 50px;
+    text-align: right;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  .stack-amount {
+    font-family: var(--f-display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    min-width: 110px;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+  .stacks-cta {
+    margin-top: 56px;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(245,239,226,0.12);
+  }
+  .stacks-cta-text {
+    font-family: var(--f-display);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .stacks-cta-text em { color: var(--green-mint); font-style: normal; }
+
+  /* CHANNELS */
+  .channels { background: var(--cream); }
+  .channels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .channel-card {
+    background: var(--cream-card);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    border: 1px solid var(--rule-soft);
+    transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .channel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -16px rgba(0,0,0,0.12);
+    border-color: var(--green);
+  }
+  .channel-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .channel-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--cream-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+  }
+  .channel-tag {
+    background: var(--cream-soft);
+    color: var(--mute);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .channel-tag.empire {
+    background: var(--ink);
+    color: var(--green-mint);
+  }
+  .channel-name {
+    font-family: var(--f-display);
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .channel-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .channel-card .pulse-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--green);
+    transition: width 0.4s ease;
+  }
+  .channel-card:hover .pulse-line { width: 100%; }
+  .one-capture-banner {
+    margin-top: 56px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--radius-lg);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .one-capture-text {
+    font-family: var(--f-display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    max-width: 560px;
+  }
+  .one-capture-text em { color: var(--green-mint); font-style: normal; }
+
+  /* PRICING */
+  .pricing { background: var(--cream-soft); }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .tier {
+    background: var(--cream-card);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--rule-soft);
+    transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+  }
+  .tier:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -16px rgba(0,0,0,0.12);
+  }
+  .tier.featured {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+  .tier.featured .tier-name { color: var(--cream); }
+  .tier.featured .tier-price { color: var(--cream); }
+  .tier.featured .tier-fee-table { background: rgba(245,239,226,0.05); border-color: transparent; }
+  .tier.featured .tier-fee-row { border-bottom-color: rgba(245,239,226,0.12); }
+  .tier.featured .tier-fee-label { color: rgba(245,239,226,0.6); }
+  .tier.featured .tier-fee-value { color: var(--cream); }
+  .tier.featured .tier-fee-value.free { color: var(--green-mint); }
+  .tier.featured .tier-feature-list li { color: rgba(245,239,226,0.85); border-bottom-color: rgba(245,239,226,0.12); }
+  .tier.featured .tier-feature-list li::before { background: var(--green-mint); }
+  .tier.featured .tier-who { color: rgba(245,239,226,0.6); }
+  .tier.featured::before {
+    content: "Flagship";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--green-mint);
+    color: var(--ink);
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+  }
+  .tier-name {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .tier-who {
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.45;
+    margin-bottom: 24px;
+    min-height: 56px;
+  }
+  .tier-price {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: 52px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .tier-price small {
+    font-size: 16px;
+    color: var(--mute);
+    font-weight: 500;
+  }
+  .tier.featured .tier-price small { color: rgba(245,239,226,0.5); }
+
+  .tier-fee-table {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    background: var(--cream-soft);
+    border-radius: 12px;
+    padding: 6px 14px;
+  }
+  .tier-fee-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 12px;
+  }
+  .tier-fee-row:last-child { border-bottom: none; }
+  .tier-fee-label {
+    color: var(--mute);
+    font-weight: 500;
+    font-size: 11px;
+  }
+  .tier-fee-value {
+    font-family: var(--f-mono);
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 13px;
+  }
+  .tier-fee-value.free { color: var(--green); }
+
+  .tier-feature-list {
+    list-style: none;
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 16px;
+    flex: 1;
+  }
+  .tier-feature-list li {
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 10px 0 10px 22px;
+    border-bottom: 1px solid var(--rule-soft);
+    color: var(--ink-soft);
+    position: relative;
+  }
+  .tier-feature-list li:last-child { border-bottom: none; }
+  .tier-feature-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 12px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 1px;
+  }
+  .tier-cta {
+    margin-top: 24px;
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    background: var(--cream-soft);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  .tier-cta:hover { background: var(--ink); color: var(--cream); }
+  .tier.featured .tier-cta { background: var(--green-mint); color: var(--ink); }
+  .tier.featured .tier-cta:hover { background: var(--cream); }
+
+  /* FAQ */
+  .faq { background: var(--cream); }
+  .faq-list { margin-top: 16px; max-width: 980px; }
+  .faq-item {
+    background: var(--cream-card);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid var(--rule-soft);
+  }
+  .faq-item:hover { border-color: var(--green); }
+  .faq-q {
+    font-family: var(--f-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-q .toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--cream-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16px;
+    transition: all 0.3s;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .faq-item.open .toggle {
+    background: var(--green);
+    color: var(--cream);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(.2,.8,.2,1), margin-top 0.3s;
+  }
+  .faq-item.open .faq-a {
+    max-height: 500px;
+    margin-top: 14px;
+  }
+
+  /* CTA FOOTER */
+  .cta-footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 140px 32px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg-skull {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(300px, 50vw, 700px);
+    opacity: 0.03;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .cta-headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(48px, 8vw, 112px);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-headline .green-text { color: var(--green-mint); }
+  .cta-sub {
+    font-size: 18px;
+    color: rgba(245,239,226,0.7);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta-footer .btn-primary { background: var(--cream); color: var(--ink); }
+  .cta-footer .btn-primary:hover { background: var(--green-mint); }
+  .cta-footer .btn-ghost { background: transparent; border-color: rgba(245,239,226,0.25); color: var(--cream); }
+  .cta-footer .btn-ghost:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+  .footer-meta {
+    margin-top: 120px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(245,239,226,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(245,239,226,0.5);
+    flex-wrap: wrap;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-meta .wordmark { font-size: 18px; color: var(--cream); }
+  .footer-meta .wordmark .out { color: var(--green-mint); }
+
+  @media (max-width: 1000px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-phone { transform: rotate(0deg); max-width: 320px; }
+    .hero-annotation { display: none; }
+    .stacks-demo { grid-template-columns: 1fr; gap: 32px; }
+    .channels-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .compare-header, .compare-row { grid-template-columns: 2fr 1.2fr 1fr; }
+    .compare-cell:nth-child(4), .compare-cell:nth-child(5),
+    .compare-header-cell:nth-child(4), .compare-header-cell:nth-child(5) { display: none; }
+    .checkout-mockup { grid-template-columns: 1fr; }
+    .math-flow { grid-template-columns: 1fr; gap: 24px; }
+    .math-arrow { transform: rotate(90deg); }
+  }
+  @media (max-width: 720px) {
+    .topbar { padding: 14px 20px; }
+    .topnav { gap: 12px; }
+    .topnav a:not(.cta) { display: none; }
+    section { padding: 64px 20px; }
+    .hero { padding: 40px 20px 60px; }
+    .math-card { padding: 32px 24px; }
+    .math-rails-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .one-capture-banner { padding: 28px; }
+    .killshot { padding: 28px 20px; }
+    .footer-meta { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
-<nav>
-  <div class="logo">CHEQ<span>out</span></div>
-  <a href="https://cheqout.store" class="nav-cta">Sign in →</a>
-</nav>
-<div class="hero">
-  <h1>The POS built for<br><span>the little guy</span></h1>
-  <p>Camera-first inventory logging, multi-vendor booth sharing, and QR payment links — everything independent vendors need to run a real business.</p>
-  <div class="cta-row">
-    <a href="https://cheqout.store" class="btn-p">Start selling free</a>
-    <a href="#how" class="btn-s">See how it works</a>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="wordmark">CHEQ<span class="out">out</span></div>
+  <nav class="topnav">
+    <a href="#how">How it works</a>
+    <a href="#compare">Compare</a>
+    <a href="#stacks">Stacks</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#" class="cta">Start free</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span> Live · Beta open in LA</div>
+      <h1 class="hero-headline">
+        Other <span class="strike">POS apps</span><br>
+        just don't check out.<br>
+        Time to <span class="out-brand">CHEQout</span>.
+      </h1>
+      <p class="hero-sub">
+        Camera-first POS for independent sellers. Hardware-free. Phone-to-phone payments at the booth, the shop, the show. The fee math finally works in your favor.
+      </p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn btn-primary">Start free <span class="arrow">→</span></a>
+        <a href="#how" class="btn btn-ghost">See the math</a>
+      </div>
+    </div>
+
+    <div style="position: relative;">
+      <div class="hero-phone">
+        <div class="hero-phone-screen">
+          <div class="hero-phone-status">
+            <span>9:54</span>
+            <span>● ◗ ▮▮▯</span>
+          </div>
+          <div class="hero-phone-header">
+            <div class="wordmark">CHEQ<span class="out">out</span></div>
+            <div class="skull">💀</div>
+          </div>
+          <div class="hero-phone-date">Thursday, May 7</div>
+          <div class="hero-phone-card">
+            <div class="hero-phone-card-label">TODAY</div>
+            <div class="hero-phone-card-amount">$1,420</div>
+            <div class="hero-phone-card-detail">Your profit · 12 sales</div>
+          </div>
+          <div class="hero-phone-tile-row">
+            <div class="hero-phone-tile">
+              <svg class="hero-phone-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+              <div class="hero-phone-tile-title">Sell</div>
+              <div class="hero-phone-tile-sub">Start a sale</div>
+            </div>
+            <div class="hero-phone-tile">
+              <svg class="hero-phone-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <div class="hero-phone-tile-title">Quick sale</div>
+              <div class="hero-phone-tile-sub">42 in stock</div>
+            </div>
+          </div>
+          <div class="hero-phone-section-label">
+            <span>PICKUPS</span>
+            <span class="hero-phone-pill">1 awaiting</span>
+          </div>
+          <div class="hero-phone-pickup">
+            <div class="hero-phone-pickup-thumb"></div>
+            <div class="hero-phone-pickup-info">
+              <div class="hero-phone-pickup-title">Leopard Faux Fur Coat</div>
+              <div class="hero-phone-pickup-meta">$85 · pickup by Jun 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-annotation annotation-1">No card reader. No terminal.</div>
+      <div class="hero-annotation annotation-2">You net what you priced ✓</div>
+    </div>
   </div>
-</div>
-<div class="features">
-  <div class="feature"><div class="feature-icon">📷</div><h3>Camera-first logging</h3><p>Point your camera at any item. AI reads the label, identifies the brand, category, and condition — your inventory builds itself.</p></div>
-  <div class="feature"><div class="feature-icon">🏪</div><h3>Booth mode</h3><p>Multiple vendors, one device. Switch between seller tabs instantly. Every sale routes to the right vendor automatically.</p></div>
-  <div class="feature"><div class="feature-icon">📲</div><h3>QR payment links</h3><p>Customer scans, chooses Venmo, Zelle, Cash App, or card on their own phone. No card reader needed.</p></div>
-  <div class="feature"><div class="feature-icon">💰</div><h3>Real P&L tracking</h3><p>Enter what you paid for each item. CHEQout shows your profit, margin, and inventory value in real time.</p></div>
-  <div class="feature"><div class="feature-icon">🧾</div><h3>SMS receipts</h3><p>Customers get an itemized receipt with your store name sent straight to their phone.</p></div>
-  <div class="feature"><div class="feature-icon">📦</div><h3>Inventory management</h3><p>Track quantity, cost basis, and status for every item. Know exactly what sold, what's left, and what you made.</p></div>
-</div>
-<div class="how" id="how">
-  <h2>How it works</h2>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><h3>Log your items</h3><p>Snap a photo. AI fills in the details. Set your price.</p></div>
-    <div class="step"><div class="step-num">2</div><h3>Show the QR</h3><p>Customer scans and pays on their phone their way.</p></div>
-    <div class="step"><div class="step-num">3</div><h3>Batch out</h3><p>End of day summary shows exactly what you made.</p></div>
+</section>
+
+<!-- TRANSPARENCY / MATH -->
+<section id="how" class="transparency">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">01</span> · The fee math</div>
+    <h2 class="section-title">You set the price.<br><span class="green-text">The customer picks the rail.</span></h2>
+    <p class="section-lede">
+      Set what you want to make. Pick a tier and a payment rail to see what your customer actually pays. <strong>Cash is always free.</strong> Digital rails are tier-priced. Card adds Stripe's processor fee on top — same as everywhere, but visible. The customer always has a cheaper option.
+    </p>
+
+    <div class="math-card">
+      <div class="math-control">
+        <div class="math-control-row">
+          <span class="math-control-label">Net price</span>
+          <input type="range" min="10" max="500" value="100" step="5" class="math-slider" id="netSlider">
+          <span style="font-family: var(--f-mono); font-size: 14px; min-width: 60px; text-align: right; font-weight: 600;">$<span id="netDisplay">100</span></span>
+        </div>
+        <div class="math-control-row">
+          <span class="math-control-label">Your tier</span>
+          <div class="math-tier-toggle">
+            <button class="math-toggle-btn active" data-tier="hustle">Hustle</button>
+            <button class="math-toggle-btn" data-tier="shop">Shop</button>
+            <button class="math-toggle-btn" data-tier="pro">Pro</button>
+            <button class="math-toggle-btn" data-tier="empire">Empire</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="math-rails-grid">
+        <div class="rail-card featured">
+          <div class="rail-name">Cash</div>
+          <div class="rail-amount" id="cashAmount">$100</div>
+          <div class="rail-breakdown" id="cashBreakdown">no fee, ever</div>
+        </div>
+        <div class="rail-card">
+          <div class="rail-name">Venmo · Zelle · PayPal · Cash App</div>
+          <div class="rail-amount" id="vzpAmount">$105</div>
+          <div class="rail-breakdown" id="vzpBreakdown">+ 5% CHEQout</div>
+        </div>
+        <div class="rail-card">
+          <div class="rail-name">Card</div>
+          <div class="rail-amount" id="cardAmount">$108</div>
+          <div class="rail-breakdown" id="cardBreakdown">+ 5% CHEQout + 2.9% Stripe</div>
+        </div>
+      </div>
+
+      <div class="math-flow">
+        <div class="math-cell">
+          <div class="math-cell-label">You set</div>
+          <div class="math-amount">$<span id="netAmount">100</span></div>
+          <div class="math-detail">net price</div>
+        </div>
+        <div class="math-arrow">→</div>
+        <div class="math-cell" style="text-align: center;">
+          <div class="math-cell-label">Customer chooses</div>
+          <div style="font-family: var(--f-display); font-size: 17px; line-height: 1.4; color: var(--ink-soft); font-weight: 600; padding: 16px 0;">
+            <span style="color: var(--green); font-weight: 700;">3 cheaper rails available</span><br>
+            <span style="color: var(--mute); font-weight: 400; font-size: 14px;">Cash always free. Customer decides.</span>
+          </div>
+        </div>
+        <div class="math-arrow">→</div>
+        <div class="math-cell">
+          <div class="math-cell-label">You net</div>
+          <div class="math-amount win">$<span id="winAmount">100</span></div>
+          <div class="math-detail">every. single. time.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="killshot">
+      <div class="killshot-text">
+        <span class="strike-light">Square</span> charges you.&nbsp;
+        <span class="strike-light">Shopify</span> charges you.<br>
+        We charge <span class="punch">the transaction</span> &mdash; and we tell the customer what it costs.
+      </div>
+    </div>
+
+    <!-- CHECKOUT MOCKUP -->
+    <div class="checkout-mockup">
+      <div class="checkout-text">
+        <h3>Honest checkout. <span class="green-text">Customer picks.</span></h3>
+        <p>
+          When your buyer pays, they see every option side by side. Cash is free. Digital rails are cheap. Card costs the most because card <em>actually costs the most</em> — Stripe charges 2.9% + 30¢ to run that network and we don't hide it.
+        </p>
+        <p>
+          They tap the price they want to pay. One clean number. The (i) shows the breakdown if they want to see it. Most won't. They'll just pick the rail that fits.
+        </p>
+        <div class="small-note">
+          <strong>The kicker:</strong> Square hides the fee from the customer and charges you instead. We made it visible to the customer and gave them three cheaper alternatives. That's not extraction — that's choice.
+        </div>
+      </div>
+
+      <div class="checkout-phone">
+        <div class="checkout-phone-screen">
+          <div class="checkout-phone-vendor">VANESSA · THIS OR DIE BOUTIQUE</div>
+
+          <div class="checkout-cart">
+            <div class="checkout-cart-row">
+              <span class="checkout-cart-name">Vintage Levi's Trucker</span>
+              <span class="checkout-cart-price">$45</span>
+            </div>
+            <div class="checkout-cart-row">
+              <span class="checkout-cart-name">Silk Scarf</span>
+              <span class="checkout-cart-price">$25</span>
+            </div>
+            <div class="checkout-cart-row">
+              <span class="checkout-cart-name">Suede Boots</span>
+              <span class="checkout-cart-price">$80</span>
+            </div>
+            <div class="checkout-cart-subtotal">
+              <span>Subtotal · 3 items</span>
+              <span>$150</span>
+            </div>
+          </div>
+
+          <div class="checkout-phone-rails-label">Choose how to pay</div>
+
+          <div class="checkout-rail-option featured">
+            <div class="rail-info">
+              <span class="rail-title">Cash</span>
+              <span class="rail-meta">No fee · Vendor confirms receipt</span>
+            </div>
+            <div class="rail-price-tag">$150</div>
+          </div>
+
+          <div class="checkout-rail-option">
+            <div class="rail-info">
+              <span class="rail-title">Venmo · Zelle · PayPal · Cash App</span>
+              <span class="rail-meta">No card processor</span>
+            </div>
+            <div class="rail-price-tag">$158 <span class="info-i">i</span></div>
+          </div>
+
+          <div class="checkout-rail-option selected">
+            <div class="rail-info">
+              <span class="rail-title">Card</span>
+              <span class="rail-meta">Apple Pay · Google Pay · saved cards</span>
+            </div>
+            <div class="rail-price-tag">$164 <span class="info-i">i</span></div>
+          </div>
+
+          <div class="checkout-phone-confirm">Pay $164 →</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFTER PAY — what happens when each rail is tapped -->
+    <div class="afterpay-section">
+      <h3 class="afterpay-headline">After they tap pay,<br><span class="green-text">each rail does its job.</span></h3>
+      <p class="afterpay-sub">No app to download. No card to type. Each payment method takes the buyer where they already are — their banking app, their wallet, or just back to the vendor for a cash handshake.</p>
+
+      <div class="afterpay-grid">
+        <div class="afterpay-card">
+          <div class="afterpay-icon-row">
+            <div class="afterpay-icon afterpay-icon-cash">$</div>
+            <div class="afterpay-tag">Cash</div>
+          </div>
+          <h4 class="afterpay-card-title">The handshake</h4>
+          <p class="afterpay-card-text">Buyer taps Cash → vendor's phone lights up with <em>"Confirm $150 cash from this buyer?"</em> → vendor taps yes when bills hit hand. Both phones confirm at the same time. CHEQout records the sale.</p>
+          <div class="afterpay-flow">
+            <div class="afterpay-step">Tap Cash</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step">Vendor confirms</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step done">Sale logged</div>
+          </div>
+        </div>
+
+        <div class="afterpay-card">
+          <div class="afterpay-icon-row">
+            <div class="afterpay-icon afterpay-icon-venmo">V</div>
+            <div class="afterpay-tag">Venmo · PayPal · Cash App</div>
+          </div>
+          <h4 class="afterpay-card-title">Deep-link autofill</h4>
+          <p class="afterpay-card-text">Tap Venmo → Venmo opens with the amount, vendor handle, and note <em>"Great finds at Vanessa's"</em> already filled in. Buyer hits send. CHEQout watches for the receipt and closes the sale.</p>
+          <div class="afterpay-flow">
+            <div class="afterpay-step">Tap Venmo</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step">App autofills</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step done">Send · done</div>
+          </div>
+        </div>
+
+        <div class="afterpay-card">
+          <div class="afterpay-icon-row">
+            <div class="afterpay-icon afterpay-icon-zelle">Z</div>
+            <div class="afterpay-tag">Zelle</div>
+          </div>
+          <h4 class="afterpay-card-title">One-tap copy</h4>
+          <p class="afterpay-card-text">Zelle has no public deep link, so we get as close as anyone can. Tap Zelle → vendor's email is copied to the buyer's clipboard with a prompt: <em>"Open your bank app, paste in Zelle"</em>. About as frictionless as Zelle gets.</p>
+          <div class="afterpay-flow">
+            <div class="afterpay-step">Tap Zelle</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step">Email copied</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step done">Paste in bank</div>
+          </div>
+        </div>
+
+        <div class="afterpay-card">
+          <div class="afterpay-icon-row">
+            <div class="afterpay-icon afterpay-icon-card">⌬</div>
+            <div class="afterpay-tag">Card</div>
+          </div>
+          <h4 class="afterpay-card-title">Wallet autofill</h4>
+          <p class="afterpay-card-text">Tap Card → Apple Pay or Google Pay sheet pops up with the buyer's saved cards. Face ID, done. No card to type. (If they don't have a saved card, they can type one — but most won't need to.)</p>
+          <div class="afterpay-flow">
+            <div class="afterpay-step">Tap Card</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step">Wallet pops up</div>
+            <div class="afterpay-step-arrow">→</div>
+            <div class="afterpay-step done">Face ID · paid</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
-<div class="pricing">
-  <h2>Simple pricing</h2>
-  <p style="color:#666;font-size:16px">Free to use. We only make money when you do.</p>
-  <div class="price-card">
-    <div class="price">5%</div>
-    <div class="price-note">on digital sales only · cash is always free</div>
-    <ul class="price-features">
-      <li>Unlimited inventory items</li>
-      <li>Camera AI item logging</li>
-      <li>QR payment links</li>
-      <li>Booth mode (multi-vendor)</li>
-      <li>SMS receipts to customers</li>
-      <li>P&L dashboard</li>
-      <li>Cash sales always free</li>
-    </ul>
-    <a href="https://cheqout.store" class="btn-p" style="display:block;text-align:center">Get started free</a>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">02</span> · Head to head</div>
+    <h2 class="section-title">The receipts.<br><span class="green-text">Read them.</span></h2>
+    <p class="section-lede">
+      We get compared to legacy POS. So we made comparing easy. Every line below is structural — built into the architecture, not bolted on. This is what "vendor first" actually looks like.
+    </p>
+
+    <div class="compare-card">
+      <div class="compare-header">
+        <div class="compare-header-cell">Feature</div>
+        <div class="compare-header-cell us"><div class="wordmark">CHEQ<span class="out">out</span></div></div>
+        <div class="compare-header-cell">Square</div>
+        <div class="compare-header-cell">Shopify</div>
+        <div class="compare-header-cell">Lightspeed</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Cash sales · zero fee always <small>Vendor keeps 100% on physical cash</small></div>
+        <div class="compare-cell us">Free, all tiers</div>
+        <div class="compare-cell no">No cash rail</div>
+        <div class="compare-cell no">No cash rail</div>
+        <div class="compare-cell partial">Manual entry</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Vendor nets exactly the price they set <small>Fee absorbed via customer-side gross-up</small></div>
+        <div class="compare-cell us">Built in</div>
+        <div class="compare-cell no">Vendor eats fee</div>
+        <div class="compare-cell no">Vendor eats fee</div>
+        <div class="compare-cell no">Vendor eats fee</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Customer sees fee transparently at checkout <small>(i) tooltip shows the breakdown</small></div>
+        <div class="compare-cell us">Always visible</div>
+        <div class="compare-cell no">Hidden</div>
+        <div class="compare-cell no">Hidden</div>
+        <div class="compare-cell no">Hidden</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Camera-first AI item capture <small>Photo → category, fields, pricing</small></div>
+        <div class="compare-cell us">Native</div>
+        <div class="compare-cell no">Manual SKU</div>
+        <div class="compare-cell no">Manual SKU</div>
+        <div class="compare-cell partial">Barcode only</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Hardware-free phone-to-phone payments <small>Buyer scans QR · picks rail · pays</small></div>
+        <div class="compare-cell us">Built in</div>
+        <div class="compare-cell no">Reader required</div>
+        <div class="compare-cell no">Reader required</div>
+        <div class="compare-cell no">Terminal required</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Stacks <small>Auto-allocate net to named buckets</small></div>
+        <div class="compare-cell us">Native</div>
+        <div class="compare-cell no">Not available</div>
+        <div class="compare-cell no">Not available</div>
+        <div class="compare-cell no">Not available</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">One-capture multi-channel publish <small>One photo · TikTok Shop + Instagram</small></div>
+        <div class="compare-cell us">Empire tier</div>
+        <div class="compare-cell no">Not available</div>
+        <div class="compare-cell partial">Per-channel sync</div>
+        <div class="compare-cell no">Not available</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-feature">Per-location subscription pricing <small>One sub, every location</small></div>
+        <div class="compare-cell us">One flat sub</div>
+        <div class="compare-cell no">Per location</div>
+        <div class="compare-cell no">Per location</div>
+        <div class="compare-cell no">Per location</div>
+      </div>
+    </div>
   </div>
-</div>
-<footer>&copy; 2026 CHEQout · <a href="https://cheqout.store" style="color:#2D6A4F">cheqout.store</a></footer>
+</section>
+
+<!-- STACKS -->
+<section id="stacks" class="stacks">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">03</span> · Stacks</div>
+    <h2 class="section-title">Every dollar<br><span class="green-text">knows where to go.</span></h2>
+    <p class="section-lede">
+      Making money is the easy part. <em>Keeping</em> it is where most small businesses lose. <strong style="color:var(--cream)">Stacks</strong> automatically routes every sale's net proceeds into the buckets that matter — taxes, savings, equipment, payroll — by percentages you set once. Track them. Route them to real bank accounts. Stop scrambling on April 14th.
+    </p>
+
+    <div class="stacks-demo">
+      <div class="stacks-source">
+        <div class="stacks-source-label">Today's net</div>
+        <div class="stacks-source-amount">$2,840</div>
+        <div class="stacks-source-detail">After CHEQout fee. Auto-allocated below.</div>
+        <div class="stacks-source-pill"><span class="dot"></span> Live · 12 sales today</div>
+      </div>
+
+      <div class="stacks-buckets" id="stacksBuckets">
+        <div class="stack-row" style="--target-fill: 25%;">
+          <div class="stack-info">
+            <div class="stack-name">Tax Stack <small>Set aside for quarterly filings</small></div>
+          </div>
+          <div class="stack-pct">25%</div>
+          <div class="stack-amount">$710</div>
+        </div>
+        <div class="stack-row" style="--target-fill: 15%;">
+          <div class="stack-info">
+            <div class="stack-name">Rainy Day Stack <small>Emergency reserve</small></div>
+          </div>
+          <div class="stack-pct">15%</div>
+          <div class="stack-amount">$426</div>
+        </div>
+        <div class="stack-row" style="--target-fill: 10%;">
+          <div class="stack-info">
+            <div class="stack-name">Equipment Stack <small>New camera fund</small></div>
+          </div>
+          <div class="stack-pct">10%</div>
+          <div class="stack-amount">$284</div>
+        </div>
+        <div class="stack-row" style="--target-fill: 50%;">
+          <div class="stack-info">
+            <div class="stack-name">Operating <small>Inventory · rent · everything else</small></div>
+          </div>
+          <div class="stack-pct">50%</div>
+          <div class="stack-amount">$1,420</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stacks-cta">
+      <div class="stacks-cta-text">Name them whatever you want. <em>Make them however you want.</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section id="channels" class="channels">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">04</span> · One capture, everywhere live</div>
+    <h2 class="section-title">One photo.<br><span class="green-text">Every shelf you have.</span></h2>
+    <p class="section-lede">
+      Take the picture once. The item shows up at your booth, on your storefront, on TikTok Shop, on Instagram — instantly, with the right crop and metadata for each. Sell it on any channel, the others know in seconds. No double-booking. No second app.
+    </p>
+
+    <div class="channels-grid">
+      <div class="channel-card">
+        <div class="channel-card-header">
+          <div class="channel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <div class="channel-tag">Every tier</div>
+        </div>
+        <div class="channel-name">In-person POS</div>
+        <div class="channel-desc">Hardware-free phone-to-phone checkout. Booth, shop, show, anywhere there's cell signal. Buyer scans, picks how to pay, you're paid.</div>
+        <div class="pulse-line"></div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-card-header">
+          <div class="channel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="channel-tag">Shop tier and up</div>
+        </div>
+        <div class="channel-name">Your storefront</div>
+        <div class="channel-desc">yourname.cheqout.store, live the moment you have an item. Custom domain mapping at Pro and above.</div>
+        <div class="pulse-line"></div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-card-header">
+          <div class="channel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <div class="channel-tag empire">Empire only</div>
+        </div>
+        <div class="channel-name">TikTok Shop</div>
+        <div class="channel-desc">One photo, automatically formatted. Sales reconcile to your CHEQout dashboard. You never log into TikTok Seller Center.</div>
+        <div class="pulse-line"></div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-card-header">
+          <div class="channel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="channel-tag empire">Empire only</div>
+        </div>
+        <div class="channel-name">Instagram Shopping</div>
+        <div class="channel-desc">Catalog feeds Meta directly. Buyers tap, buy, you fulfill. Inventory updates everywhere the moment it sells.</div>
+        <div class="pulse-line"></div>
+      </div>
+    </div>
+
+    <div class="one-capture-banner">
+      <div class="one-capture-text">
+        Other platforms make you sync. <em>We make you appear.</em>
+      </div>
+      <a href="#pricing" class="btn btn-primary" style="background: var(--green-mint); color: var(--ink);">See Empire tier <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">05</span> · Pricing</div>
+    <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
+    <p class="section-lede">
+      Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital rails get cheaper as you upgrade. Card always shows Stripe's processing as a separate line — no hidden math.
+    </p>
+
+    <div class="pricing-grid">
+      <div class="tier">
+        <div class="tier-name">Hustle</div>
+        <div class="tier-who">Pop-up vendor. Weekend markets. The side hustle that pays for the trip.</div>
+        <div class="tier-price">$0<small>/mo</small></div>
+        <div class="tier-fee-table">
+          <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">5%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">7.9%</span></div>
+        </div>
+        <ul class="tier-feature-list">
+          <li>Camera-first POS</li>
+          <li>Inventory + tags</li>
+          <li>Stacks (basic)</li>
+          <li>All four payment rails</li>
+          <li>Tax data export</li>
+        </ul>
+        <a href="#" class="tier-cta">Start free</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Shop</div>
+        <div class="tier-who">You're real now. You want a presence between events.</div>
+        <div class="tier-price">$39<small>/mo</small></div>
+        <div class="tier-fee-table">
+          <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">3.4%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">6.3%</span></div>
+        </div>
+        <ul class="tier-feature-list">
+          <li>Everything in Hustle</li>
+          <li>yourname.cheqout.store</li>
+          <li>Photo enhancement (basic AI)</li>
+          <li>SMS receipt opt-in</li>
+          <li>Basic analytics</li>
+        </ul>
+        <a href="#" class="tier-cta">Choose Shop</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Pro</div>
+        <div class="tier-who">This is your livelihood. You run it like one.</div>
+        <div class="tier-price">$129<small>/mo</small></div>
+        <div class="tier-fee-table">
+          <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">1.9%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">4.8%</span></div>
+        </div>
+        <ul class="tier-feature-list">
+          <li>Everything in Shop</li>
+          <li>Editorial AI scenes</li>
+          <li>Holds + reservations</li>
+          <li>Buyer messaging via CHEQin</li>
+          <li>Custom domain mapping</li>
+          <li>Stacks → linked accounts</li>
+          <li>Branding removed</li>
+        </ul>
+        <a href="#" class="tier-cta">Choose Pro</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-name">Empire</div>
+        <div class="tier-who">Multi-channel. Multi-location. The whole operation, one capture.</div>
+        <div class="tier-price">$249<small>/mo</small></div>
+        <div class="tier-fee-table">
+          <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">1.4%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">4.3%</span></div>
+        </div>
+        <ul class="tier-feature-list">
+          <li>Everything in Pro</li>
+          <li>One-capture multi-channel</li>
+          <li>TikTok Shop + Instagram</li>
+          <li>Multi-location hierarchy</li>
+          <li>Anomaly detection + analytics</li>
+          <li>Tax integration included</li>
+          <li>Unlimited Stack accounts</li>
+          <li>Direct human support</li>
+        </ul>
+        <a href="#" class="tier-cta">Build your Empire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">06</span> · Questions</div>
+    <h2 class="section-title">Plain English,<br><span class="green-text">no fine print.</span></h2>
+
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">Is cash really free, or is there a catch? <span class="toggle">+</span></div>
+        <div class="faq-a">Really free. No fee on physical cash sales, ever, on every tier. Cash money in hand, log it in CHEQout, you keep 100%. We make our money on subscription, on digital P2P rails (Venmo, Zelle, PayPal, Cash App), and on card transactions where there's an actual processing cost. Cash gets you on the platform and in our data — that's the trade and we're happy with it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why does card cost more than the other rails? <span class="toggle">+</span></div>
+        <div class="faq-a">Because card actually costs more. Stripe charges 2.9% + 30¢ to run a credit card transaction — that's their network fee, not ours. We add our tier fee on top, and we show the customer the total honestly. They can always pick Cash (free), or Venmo/Zelle/PayPal/Cash App (cheaper than card). The customer has real choice. Square hides the card fee from the buyer and charges the vendor instead. We made it visible and gave the customer an out.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does the gross-up actually work? <span class="toggle">+</span></div>
+        <div class="faq-a">You set a net price — what you want to make. At checkout, we calculate what the customer needs to pay so that after our fee (and Stripe's, on cards), you're left with exactly what you priced. The customer picks a rail and sees one clean number. The (i) tooltip breaks it down if they want to see it. You always net what you set. No deduction from your payout, no surprise reconciliation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need any hardware? <span class="toggle">+</span></div>
+        <div class="faq-a">No. Your phone is the POS. The buyer's phone is the card reader. They scan a QR, pick how they want to pay, confirm. No $300 terminal to ship. No reader to lose at the booth. The architecture was designed this way from day one.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I switch tiers? <span class="toggle">+</span></div>
+        <div class="faq-a">Up or down, any time, no penalty. Stay on the right tier for where your business actually is.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does CHEQout actually take? <span class="toggle">+</span></div>
+        <div class="faq-a">A subscription ($0–$249/mo) and a percentage on non-cash sales (built into the customer-facing price via gross-up). Cash is free across every tier. We don't charge per-transaction fixed fees, per-location surcharges, or onboarding fees. We don't sell your data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer">
+  <div class="cta-bg-skull">💀</div>
+  <h2 class="cta-headline">
+    Build your POS.<br>
+    Run your business.<br>
+    <span class="green-text">Own your life.</span>
+  </h2>
+  <p class="cta-sub">Built in LA by people who actually run this software. Free to start. Cancel any time. No reader to ship.</p>
+  <div class="cta-ctas">
+    <a href="#" class="btn btn-primary">Start free <span class="arrow">→</span></a>
+    <a href="#" class="btn btn-ghost">See a demo</a>
+  </div>
+
+  <div class="footer-meta">
+    <div class="wordmark">CHEQ<span class="out">out</span></div>
+    <span>© 2026 · Upsetting Industries · Los Angeles</span>
+    <span>cheqout.store · upsetting.software</span>
+  </div>
+</section>
+
+<script>
+  // ===== Tier fee structure =====
+  const TIER_FEES = {
+    hustle: { vzp: 0.05, card: 0.05 },
+    shop:   { vzp: 0.034, card: 0.034 },
+    pro:    { vzp: 0.019, card: 0.019 },
+    empire: { vzp: 0.014, card: 0.014 }
+  };
+  const STRIPE_PCT = 0.029;
+  const STRIPE_FIXED = 0.30;
+
+  let currentTier = 'hustle';
+
+  const netSlider = document.getElementById('netSlider');
+  const netDisplay = document.getElementById('netDisplay');
+  const netAmount = document.getElementById('netAmount');
+  const winAmount = document.getElementById('winAmount');
+  const cashAmount = document.getElementById('cashAmount');
+  const vzpAmount = document.getElementById('vzpAmount');
+  const cardAmount = document.getElementById('cardAmount');
+  const cashBreakdown = document.getElementById('cashBreakdown');
+  const vzpBreakdown = document.getElementById('vzpBreakdown');
+  const cardBreakdown = document.getElementById('cardBreakdown');
+
+  function updateMath() {
+    const net = parseInt(netSlider.value);
+    const fees = TIER_FEES[currentTier];
+    const tierLabel = currentTier.charAt(0).toUpperCase() + currentTier.slice(1);
+
+    netDisplay.textContent = net;
+    netAmount.textContent = net;
+    winAmount.textContent = net;
+
+    // Cash always free
+    cashAmount.textContent = '$' + net;
+    cashBreakdown.textContent = 'no fee, ever';
+
+    // VZP: tier fee only
+    const vzpTotal = Math.ceil(net * (1 + fees.vzp));
+    vzpAmount.textContent = '$' + vzpTotal;
+    vzpBreakdown.textContent = '+ ' + (fees.vzp * 100).toFixed(1).replace('.0','') + '% CHEQout (' + tierLabel + ')';
+
+    // Card: tier fee + Stripe fee, gross-up formula
+    const totalRate = fees.card + STRIPE_PCT;
+    const cardTotal = Math.ceil((net + STRIPE_FIXED) / (1 - totalRate));
+    cardAmount.textContent = '$' + cardTotal;
+    const totalPctDisplay = ((fees.card + STRIPE_PCT) * 100).toFixed(1);
+    cardBreakdown.textContent = '+ ' + (fees.card * 100).toFixed(1).replace('.0','') + '% CHEQout + 2.9% Stripe';
+  }
+
+  netSlider.addEventListener('input', updateMath);
+
+  document.querySelectorAll('.math-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.math-toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentTier = btn.dataset.tier;
+      updateMath();
+    });
+  });
+
+  updateMath();
+
+  // Stacks animation
+  const stacksObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const rows = document.querySelectorAll('#stacksBuckets .stack-row');
+        rows.forEach((row, i) => {
+          setTimeout(() => row.classList.add('animate-in'), i * 200);
+        });
+        stacksObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  stacksObserver.observe(document.getElementById('stacksBuckets'));
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
 </body>
 </html>

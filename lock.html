@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>CHEQout — Private Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5EFE2;
+      --cream-card: #FFFFFF;
+      --ink: #0F0F0F;
+      --green: #1F5C3F;
+      --green-mint: #C8E5D2;
+      --rule: #D8D0BE;
+      --mute: #6B6357;
+      --skull-red: #C8453F;
+      --yellow-hilite: #F4F4A8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .lock-container {
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+    }
+    .wordmark {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 56px;
+      margin-bottom: 36px;
+      line-height: 1;
+    }
+    .wordmark .out { color: var(--green); }
+    .lock-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      background: var(--cream-card);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid var(--rule);
+    }
+    .lock-eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--skull-red);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    h1 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    p.lede {
+      color: var(--mute);
+      font-size: 16px;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .lock-form {
+      background: var(--cream-card);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--rule);
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 18px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-align: center;
+      background: var(--yellow-hilite);
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      outline: none;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    input[type="password"]::placeholder { color: var(--mute); font-weight: 500; letter-spacing: 0.1em; }
+    button {
+      width: 100%;
+      padding: 16px;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover { background: var(--green); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(31, 92, 63, 0.25); }
+    button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .error {
+      color: var(--skull-red);
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 14px;
+      min-height: 18px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--mute);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <main class="lock-container">
+    <div class="wordmark">CHEQ<span class="out">out</span></div>
+    <div class="lock-eyebrow"><span class="dot"></span> Private Beta · Invitation only</div>
+    <h1>This is a private preview.</h1>
+    <p class="lede">If you've been given an access code, enter it below.</p>
+
+    <form class="lock-form" id="lockForm">
+      <input
+        type="password"
+        id="passcode"
+        placeholder="ACCESS CODE"
+        autocomplete="off"
+        autocapitalize="characters"
+        spellcheck="false"
+        required
+        autofocus
+      >
+      <button type="submit" id="submitBtn">Enter →</button>
+      <div class="error" id="error"></div>
+    </form>
+
+    <footer>© 2026 · Upsetting Industries · Los Angeles</footer>
+  </main>
+
+  <script>
+    const form = document.getElementById('lockForm');
+    const passcode = document.getElementById('passcode');
+    const errorEl = document.getElementById('error');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorEl.textContent = '';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Checking...';
+
+      try {
+        const res = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: passcode.value.trim() })
+        });
+
+        if (res.ok) {
+          submitBtn.textContent = 'Welcome →';
+          window.location.href = '/';
+        } else {
+          errorEl.textContent = 'Wrong code. Try again.';
+          passcode.value = '';
+          passcode.focus();
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enter →';
+        }
+      } catch (err) {
+        errorEl.textContent = 'Something broke. Refresh and try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter →';
+      }
+    });
+  </script>
+</body>
+</html>
