@@ -605,6 +605,42 @@
     font-weight: 600;
     opacity: 0.5;
   }
+  .math-bottom-line {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule-soft);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .math-bottom-pill {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  .math-bottom-pill::before {
+    content: "";
+    position: absolute;
+    inset: -3px -8px;
+    background: var(--yellow-hilite);
+    border-radius: var(--radius-pill);
+    z-index: -1;
+  }
+  .math-bottom-text {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--mute);
+    font-weight: 500;
+  }
 
   .killshot {
     margin-top: 64px;
@@ -927,6 +963,171 @@
   @media (max-width: 720px) {
     .afterpay-flow { flex-direction: column; align-items: flex-start; }
     .afterpay-step-arrow { transform: rotate(90deg); margin-left: 16px; }
+  }
+
+  /* STOREFRONT — the 24/7 store */
+  .storefront {
+    background: var(--cream-soft);
+  }
+  .storefront-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .storefront-tag {
+    font-family: var(--f-display);
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 36px;
+    padding: 20px 24px;
+    background: var(--cream-card);
+    border-left: 4px solid var(--green);
+    border-radius: 0 12px 12px 0;
+  }
+  .storefront-tag em {
+    font-style: italic;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .storefront-points {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .storefront-point {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .storefront-point-num {
+    font-family: var(--f-display);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    font-style: italic;
+  }
+  .storefront-point h4 {
+    font-family: var(--f-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 4px;
+  }
+  .storefront-point p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .storefront-tier-note {
+    background: var(--cream-card);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .storefront-tier-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .storefront-tier-text {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .storefront-tier-text strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .storefront-tier-text em {
+    color: var(--mute);
+    font-style: italic;
+  }
+
+  /* Scrollable phone */
+  .storefront-phone-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 100px;
+  }
+  .storefront-phone {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 360 / 720;
+    background: var(--ink);
+    border-radius: 48px;
+    padding: 14px;
+    box-shadow:
+      0 30px 60px -12px rgba(0,0,0,0.3),
+      0 18px 36px -18px rgba(0,0,0,0.4),
+      inset 0 0 0 2px rgba(255,255,255,0.06);
+  }
+  .storefront-phone-notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 28px;
+    background: var(--ink);
+    border-radius: 0 0 18px 18px;
+    z-index: 3;
+  }
+  .storefront-phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    overflow: hidden;
+    background: var(--cream);
+    position: relative;
+  }
+  .storefront-phone-screen iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: var(--cream);
+  }
+  .storefront-phone-handle {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    z-index: 3;
+  }
+  .storefront-scroll-hint {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    text-align: center;
   }
 
   /* COMPARISON */
@@ -1526,6 +1727,8 @@
     .checkout-mockup { grid-template-columns: 1fr; }
     .math-flow { grid-template-columns: 1fr; gap: 24px; }
     .math-arrow { transform: rotate(90deg); }
+    .storefront-grid { grid-template-columns: 1fr; gap: 48px; }
+    .storefront-phone-wrap { position: static; }
   }
   @media (max-width: 720px) {
     .topbar { padding: 14px 20px; }
@@ -1539,6 +1742,8 @@
     .one-capture-banner { padding: 28px; }
     .killshot { padding: 28px 20px; }
     .footer-meta { flex-direction: column; align-items: flex-start; }
+    .storefront-phone { max-width: 280px; }
+    .storefront-tag { font-size: 18px; }
   }
 </style>
 </head>
@@ -1549,6 +1754,7 @@
   <div class="wordmark">CHEQ<span class="out">out</span></div>
   <nav class="topnav">
     <a href="#how">How it works</a>
+    <a href="#storefront">Storefront</a>
     <a href="#compare">Compare</a>
     <a href="#stacks">Stacks</a>
     <a href="#pricing">Pricing</a>
@@ -1668,26 +1874,9 @@
         </div>
       </div>
 
-      <div class="math-flow">
-        <div class="math-cell">
-          <div class="math-cell-label">You set</div>
-          <div class="math-amount">$<span id="netAmount">100</span></div>
-          <div class="math-detail">net price</div>
-        </div>
-        <div class="math-arrow">→</div>
-        <div class="math-cell" style="text-align: center;">
-          <div class="math-cell-label">Customer chooses</div>
-          <div style="font-family: var(--f-display); font-size: 17px; line-height: 1.4; color: var(--ink-soft); font-weight: 600; padding: 16px 0;">
-            <span style="color: var(--green); font-weight: 700;">3 cheaper rails available</span><br>
-            <span style="color: var(--mute); font-weight: 400; font-size: 14px;">Cash always free. Customer decides.</span>
-          </div>
-        </div>
-        <div class="math-arrow">→</div>
-        <div class="math-cell">
-          <div class="math-cell-label">You net</div>
-          <div class="math-amount win">$<span id="winAmount">100</span></div>
-          <div class="math-detail">every. single. time.</div>
-        </div>
+      <div class="math-bottom-line">
+        <span class="math-bottom-pill">You always net the price you set</span>
+        <span class="math-bottom-text">— every. single. time.</span>
       </div>
     </div>
 
@@ -1843,10 +2032,75 @@
   </div>
 </section>
 
+<!-- STOREFRONT - The 24/7 store -->
+<section id="storefront" class="storefront">
+  <div class="section-inner">
+    <div class="storefront-grid">
+      <div class="storefront-copy">
+        <div class="section-eyebrow"><span class="num">02</span> · Your 24/7 store</div>
+        <h2 class="section-title">And now for<br><span class="green-text">the best part.</span></h2>
+        <p class="storefront-tag">Your booth closes at 6. <em>Your storefront doesn't.</em></p>
+
+        <div class="storefront-points">
+          <div class="storefront-point">
+            <div class="storefront-point-num">i.</div>
+            <div>
+              <h4>Same item, two channels.</h4>
+              <p>Every item you log at the booth is live online the moment you tap publish. No double entry. No second app.</p>
+            </div>
+          </div>
+          <div class="storefront-point">
+            <div class="storefront-point-num">ii.</div>
+            <div>
+              <h4>yourname.cheqout.store</h4>
+              <p>Live the moment you have an item. Put it on your Instagram bio, your hangtags, the back of your business card. People shop with you when they get home.</p>
+            </div>
+          </div>
+          <div class="storefront-point">
+            <div class="storefront-point-num">iii.</div>
+            <div>
+              <h4>Pickup or ship — buyer picks.</h4>
+              <p>Local buyer can put it on hold and grab it at your next pop-up. Out-of-state buyer can pay and you ship. Same inventory, two fulfillment paths.</p>
+            </div>
+          </div>
+          <div class="storefront-point">
+            <div class="storefront-point-num">iv.</div>
+            <div>
+              <h4>Open while you sleep.</h4>
+              <p>Your booth has hours. Your storefront doesn't. While you're packing, eating dinner, at your kid's recital — your store is taking sales.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="storefront-tier-note">
+          <span class="storefront-tier-tag">Shop tier and up</span>
+          <span class="storefront-tier-text">Included starting at <strong>$39/mo</strong>. Custom domain at Pro.</span>
+        </div>
+      </div>
+
+      <div class="storefront-phone-wrap">
+        <div class="storefront-phone">
+          <div class="storefront-phone-notch"></div>
+          <div class="storefront-phone-screen">
+            <iframe
+              src="https://swan-test.cheqout.store"
+              title="Live CHEQout storefront — Mister Swan boutique"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="storefront-phone-handle"></div>
+        </div>
+        <div class="storefront-scroll-hint">↕ Scroll inside the phone · Real live storefront</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMPARISON -->
 <section id="compare">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">02</span> · Head to head</div>
+    <div class="section-eyebrow"><span class="num">03</span> · Head to head</div>
     <h2 class="section-title">The receipts.<br><span class="green-text">Read them.</span></h2>
     <p class="section-lede">
       We get compared to legacy POS. So we made comparing easy. Every line below is structural — built into the architecture, not bolted on. This is what "vendor first" actually looks like.
@@ -1923,7 +2177,7 @@
 <!-- STACKS -->
 <section id="stacks" class="stacks">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">03</span> · Stacks</div>
+    <div class="section-eyebrow"><span class="num">04</span> · Stacks</div>
     <h2 class="section-title">Every dollar<br><span class="green-text">knows where to go.</span></h2>
     <p class="section-lede">
       Making money is the easy part. <em>Keeping</em> it is where most small businesses lose. <strong style="color:var(--cream)">Stacks</strong> automatically routes every sale's net proceeds into the buckets that matter — taxes, savings, equipment, payroll — by percentages you set once. Track them. Route them to real bank accounts. Stop scrambling on April 14th.
@@ -1978,7 +2232,7 @@
 <!-- CHANNELS -->
 <section id="channels" class="channels">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">04</span> · One capture, everywhere live</div>
+    <div class="section-eyebrow"><span class="num">05</span> · One capture, everywhere live</div>
     <h2 class="section-title">One photo.<br><span class="green-text">Every shelf you have.</span></h2>
     <p class="section-lede">
       Take the picture once. The item shows up at your booth, on your storefront, on TikTok Shop, on Instagram — instantly, with the right crop and metadata for each. Sell it on any channel, the others know in seconds. No double-booking. No second app.
@@ -2046,7 +2300,7 @@
 <!-- PRICING -->
 <section id="pricing" class="pricing">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">05</span> · Pricing</div>
+    <div class="section-eyebrow"><span class="num">06</span> · Pricing</div>
     <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
     <p class="section-lede">
       Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital rails get cheaper as you upgrade. Card always shows Stripe's processing as a separate line — no hidden math.
@@ -2140,7 +2394,7 @@
 <!-- FAQ -->
 <section class="faq">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">06</span> · Questions</div>
+    <div class="section-eyebrow"><span class="num">07</span> · Questions</div>
     <h2 class="section-title">Plain English,<br><span class="green-text">no fine print.</span></h2>
 
     <div class="faq-list">
