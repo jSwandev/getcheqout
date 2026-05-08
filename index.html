@@ -121,6 +121,16 @@
     50% { opacity: 0.6; transform: scale(0.85); }
   }
 
+  .hero-scene {
+    font-family: var(--f-display);
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--mute);
+    letter-spacing: -0.005em;
+    margin: 20px 0 24px;
+    line-height: 1.4;
+  }
   .hero-headline {
     font-family: var(--f-display);
     font-weight: 800;
@@ -146,6 +156,16 @@
     border-radius: 3px;
   }
   .hero-headline .out-brand { color: var(--green); }
+  .hero-headline .hero-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.42em;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--mute);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
 
   .hero-sub {
     margin-top: 32px;
@@ -1144,6 +1164,160 @@
     text-align: center;
   }
 
+  /* CATEGORY STATEMENT — magazine-style positioning */
+  .category {
+    background: var(--cream-soft);
+    padding: 120px 40px;
+  }
+  .category-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .category-wrap .section-eyebrow {
+    margin: 0 auto 32px;
+  }
+  .category-headline {
+    font-family: var(--f-display);
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0 0 56px;
+  }
+  .category-list {
+    font-family: var(--f-display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 40px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .category-thesis {
+    font-family: var(--f-body);
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 32px;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .category-thesis .hilite {
+    font-family: var(--f-display);
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--yellow-hilite);
+    padding: 1px 6px;
+    border-radius: 4px;
+    letter-spacing: -0.01em;
+  }
+  .category-thesis .rails {
+    font-style: italic;
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+  .category-storefront {
+    font-family: var(--f-body);
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 56px;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .category-storefront em {
+    font-style: italic;
+    color: var(--green);
+    font-weight: 600;
+  }
+  .category-storefront strong {
+    color: var(--ink);
+    font-weight: 700;
+    font-family: var(--f-mono);
+    font-size: 0.95em;
+    background: var(--cream-card);
+    padding: 1px 8px;
+    border-radius: 4px;
+  }
+  .category-loop {
+    font-family: var(--f-body);
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 56px;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .category-loop em {
+    font-style: italic;
+    font-weight: 700;
+    font-family: var(--f-display);
+    color: var(--ink);
+    font-size: 1.08em;
+    letter-spacing: -0.01em;
+  }
+  .category-loop .tier-aside {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.85em;
+    color: var(--mute);
+    font-style: italic;
+  }
+  .category-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--ink);
+    margin: 0 auto 48px;
+  }
+  .category-close {
+    font-family: var(--f-display);
+    font-size: clamp(17px, 1.8vw, 21px);
+    line-height: 1.5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .category-close-line {
+    color: var(--mute);
+    font-weight: 500;
+  }
+  .category-close-line em {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .category-close-line.us {
+    color: var(--ink);
+    font-weight: 700;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .category-close-line.us em {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  @media (max-width: 720px) {
+    .category { padding: 72px 20px; }
+    .category-headline { margin-bottom: 36px; }
+    .category-list { margin-bottom: 28px; }
+    .category-thesis, .category-storefront, .category-loop { margin-bottom: 28px; }
+    .category-loop { margin-bottom: 36px; }
+    .category-divider { margin-bottom: 32px; }
+  }
+
   /* COMPARISON */
   .compare-card {
     background: var(--cream-card);
@@ -1235,8 +1409,73 @@
     flex-shrink: 0;
     font-weight: 700;
   }
-  .compare-cell.no { color: var(--mute); font-weight: 400; }
-  .compare-cell.partial { color: var(--ink-soft); }
+  .compare-cell.no, .compare-cell.partial, .compare-cell.yes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .compare-cell.yes {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .compare-cell.yes::before {
+    content: "✓";
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--green);
+    color: var(--green);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+  .compare-cell.yes em {
+    font-style: normal;
+    color: var(--mute);
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 2px;
+  }
+  .compare-cell.partial {
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .compare-cell.partial::before {
+    content: "–";
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--rule);
+    color: var(--mute);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .compare-cell.no {
+    color: var(--mute);
+    font-weight: 400;
+  }
+  .compare-cell.no::before {
+    content: "✕";
+    width: 18px;
+    height: 18px;
+    background: rgba(200, 69, 63, 0.08);
+    color: var(--skull-red);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
 
   /* STACKS */
   .stacks { background: var(--ink); color: var(--cream); overflow: hidden; }
@@ -1769,7 +2008,7 @@
   <nav class="topnav">
     <a href="#how">How it works</a>
     <a href="#storefront">Storefront</a>
-    <a href="#compare">Compare</a>
+    <a href="#category">Who it's for</a>
     <a href="#stacks">Stacks</a>
     <a href="#pricing">Pricing</a>
     <a href="#" class="cta">Start free</a>
@@ -1781,13 +2020,15 @@
   <div class="hero-grid">
     <div>
       <div class="hero-eyebrow"><span class="dot"></span> Live · Beta open in LA</div>
+      <div class="hero-scene">Your pop-up. Your market. Your craft fair.</div>
       <h1 class="hero-headline">
-        Other <span class="strike">POS apps</span><br>
-        just don't check out.<br>
-        Time to <span class="out-brand">CHEQout</span>.
+        Cataloged.<br>
+        Listed.<br>
+        <span class="out-brand">Sold.</span><br>
+        <span class="hero-tag">In one shot.</span>
       </h1>
       <p class="hero-sub">
-        Camera-first POS for independent sellers. Hardware-free. Phone-to-phone payments at the booth, the shop, the show. The fee math finally works in your favor.
+        Camera-first POS for vintage, oddities, and one-of-a-kind finds. <strong>12 items or 12,000</strong> — every one different. Finally control your pop-up like a boss <em>and</em> live on your storefront the moment you log it.
       </p>
       <div class="hero-ctas">
         <a href="#pricing" class="btn btn-primary">Start free <span class="arrow">→</span></a>
@@ -1843,10 +2084,44 @@
   </div>
 </section>
 
+<!-- CATEGORY STATEMENT -->
+<section id="category" class="category">
+  <div class="section-inner">
+    <div class="category-wrap">
+      <div class="section-eyebrow"><span class="num">02</span> · Who it's for</div>
+      <h2 class="category-headline">A new category,<br><span class="green-text">on purpose.</span></h2>
+
+      <p class="category-list">
+        Flea markets. Pop-ups. Craft fairs. Antique malls. Vintage shops. Salon racks. Estate sales. Friend's garage sales with intent. Curated boutiques.
+      </p>
+
+      <p class="category-thesis">
+        The category nobody built for: vendors with <span class="hilite">unique inventory at scale.</span> 12 items or 12,000 — every single one different. No UPCs to scan. No catalog to import. Just a phone and a stack of stuff worth selling — and you accept payments the way you already do: <em class="rails">cash, Venmo, Zelle, PayPal, Cash App, card.</em> All in one checkout.
+      </p>
+
+      <p class="category-storefront">
+        And when you close up shop, <em>your shop stays open.</em> Every item you log goes live on <strong>yourname.cheqout.store</strong> automatically. Buyers keep shopping while you're packing up, eating dinner, sleeping in.
+      </p>
+
+      <p class="category-loop">
+        <em>And every sale becomes a returning customer.</em> At checkout, buyers enter their phone and email. The phone becomes their login for next time. A receipt hits their inbox with a link straight back to your store. <span class="tier-aside">(Shop tier and up, you can email them where your next pop-up is or when new finds drop on your store.)</span>
+      </p>
+
+      <div class="category-divider"></div>
+
+      <p class="category-close">
+        <span class="category-close-line">Shopify assumes you have <em>product lines.</em></span>
+        <span class="category-close-line">Square assumes you have <em>a register.</em></span>
+        <span class="category-close-line us">CHEQout assumes you have <em>a folding table, a phone, and an eye for finds.</em></span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- TRANSPARENCY / MATH -->
 <section id="how" class="transparency">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">01</span> · The fee math</div>
+    <div class="section-eyebrow"><span class="num">03</span> · The fee math</div>
     <h2 class="section-title">You set the price.<br><span class="green-text">The customer picks the rail.</span></h2>
     <p class="section-lede">
       Set what you want to make. Pick a tier and a payment rail to see what your customer actually pays. <strong>Cash is always free.</strong> Digital rails are tier-priced. Card adds Stripe's processor fee on top — same as everywhere, but visible. The customer always has a cheaper option.
@@ -2051,7 +2326,7 @@
   <div class="section-inner">
     <div class="storefront-grid">
       <div class="storefront-copy">
-        <div class="section-eyebrow"><span class="num">02</span> · Your 24/7 store</div>
+        <div class="section-eyebrow"><span class="num">04</span> · Your 24/7 store</div>
         <h2 class="section-title">And now for<br><span class="green-text">the best part.</span></h2>
         <p class="storefront-tag">Your booth closes at 6. <em>Your storefront doesn't.</em></p>
 
@@ -2106,87 +2381,10 @@
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section id="compare">
-  <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">03</span> · Head to head</div>
-    <h2 class="section-title">The receipts.<br><span class="green-text">Read them.</span></h2>
-    <p class="section-lede">
-      We get compared to legacy POS. So we made comparing easy. Every line below is structural — built into the architecture, not bolted on. This is what "vendor first" actually looks like.
-    </p>
-
-    <div class="compare-card">
-      <div class="compare-header">
-        <div class="compare-header-cell">Feature</div>
-        <div class="compare-header-cell">Square</div>
-        <div class="compare-header-cell">Shopify</div>
-        <div class="compare-header-cell">Lightspeed</div>
-        <div class="compare-header-cell us"><div class="wordmark">CHEQ<span class="out">out</span></div></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Cash sales · zero fee always <small>Vendor keeps 100% on physical cash</small></div>
-        <div class="compare-cell no">No cash rail</div>
-        <div class="compare-cell no">No cash rail</div>
-        <div class="compare-cell partial">Manual entry</div>
-        <div class="compare-cell us">Free, all tiers</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Vendor nets exactly the price they set <small>Fee absorbed via customer-side gross-up</small></div>
-        <div class="compare-cell no">Vendor eats fee</div>
-        <div class="compare-cell no">Vendor eats fee</div>
-        <div class="compare-cell no">Vendor eats fee</div>
-        <div class="compare-cell us">Built in</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Customer sees fee transparently at checkout <small>(i) tooltip shows the breakdown</small></div>
-        <div class="compare-cell no">Hidden</div>
-        <div class="compare-cell no">Hidden</div>
-        <div class="compare-cell no">Hidden</div>
-        <div class="compare-cell us">Always visible</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Camera-first AI item capture <small>Photo → category, fields, pricing</small></div>
-        <div class="compare-cell no">Manual SKU</div>
-        <div class="compare-cell no">Manual SKU</div>
-        <div class="compare-cell partial">Barcode only</div>
-        <div class="compare-cell us">Native</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Hardware-free phone-to-phone payments <small>Buyer scans QR · picks rail · pays</small></div>
-        <div class="compare-cell no">Reader required</div>
-        <div class="compare-cell no">Reader required</div>
-        <div class="compare-cell no">Terminal required</div>
-        <div class="compare-cell us">Built in</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Stacks <small>Auto-allocate net to named buckets</small></div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell us">Native</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">One-capture multi-channel publish <small>One photo · TikTok Shop + Instagram</small></div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell partial">Per-channel sync</div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell us">Empire tier</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-feature">Per-location subscription pricing <small>One sub, every location</small></div>
-        <div class="compare-cell no">Per location</div>
-        <div class="compare-cell no">Per location</div>
-        <div class="compare-cell no">Per location</div>
-        <div class="compare-cell us">One flat sub</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- STACKS -->
 <section id="stacks" class="stacks">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">04</span> · Stacks</div>
+    <div class="section-eyebrow"><span class="num">05</span> · Stacks</div>
     <h2 class="section-title">Every dollar<br><span class="green-text">knows where to go.</span></h2>
     <p class="section-lede">
       Making money is the easy part. <em>Keeping</em> it is where most small businesses lose. <strong style="color:var(--cream)">Stacks</strong> automatically routes every sale's net proceeds into the buckets that matter — taxes, savings, equipment, payroll — by percentages you set once. Track them. Route them to real bank accounts. Stop scrambling on April 14th.
@@ -2241,7 +2439,7 @@
 <!-- CHANNELS -->
 <section id="channels" class="channels">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">05</span> · One capture, everywhere live</div>
+    <div class="section-eyebrow"><span class="num">06</span> · One capture, everywhere live</div>
     <h2 class="section-title">One photo.<br><span class="green-text">Every shelf you have.</span></h2>
     <p class="section-lede">
       Take the picture once. The item shows up at your booth, on your storefront, on TikTok Shop, on Instagram — instantly, with the right crop and metadata for each. Sell it on any channel, the others know in seconds. No double-booking. No second app.
@@ -2309,7 +2507,7 @@
 <!-- PRICING -->
 <section id="pricing" class="pricing">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">06</span> · Pricing</div>
+    <div class="section-eyebrow"><span class="num">07</span> · Pricing</div>
     <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
     <p class="section-lede">
       Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital rails get cheaper as you upgrade. Card always shows Stripe's processing as a separate line — no hidden math.
@@ -2403,7 +2601,7 @@
 <!-- FAQ -->
 <section class="faq">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">07</span> · Questions</div>
+    <div class="section-eyebrow"><span class="num">08</span> · Questions</div>
     <h2 class="section-title">Plain English,<br><span class="green-text">no fine print.</span></h2>
 
     <div class="faq-list">
