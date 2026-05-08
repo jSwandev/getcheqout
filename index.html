@@ -1099,16 +1099,30 @@
     width: 100%;
     height: 100%;
     border-radius: 36px;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     background: var(--cream);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
     position: relative;
   }
-  .storefront-phone-screen iframe {
+  .storefront-phone-screen::-webkit-scrollbar {
+    width: 4px;
+  }
+  .storefront-phone-screen::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .storefront-phone-screen::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 999px;
+  }
+  .storefront-phone-screen img {
     display: block;
     width: 100%;
-    height: 100%;
-    border: 0;
-    background: var(--cream);
+    height: auto;
+    pointer-events: none;
+    user-select: none;
   }
   .storefront-phone-handle {
     position: absolute;
@@ -2082,16 +2096,11 @@
         <div class="storefront-phone">
           <div class="storefront-phone-notch"></div>
           <div class="storefront-phone-screen">
-            <iframe
-              src="https://swan-test.cheqout.store"
-              title="Live CHEQout storefront — Mister Swan boutique"
-              loading="lazy"
-              referrerpolicy="no-referrer"
-            ></iframe>
+            <img src="/storefront-stitched.jpg" alt="A real CHEQout storefront — Mister Swan" />
           </div>
           <div class="storefront-phone-handle"></div>
         </div>
-        <div class="storefront-scroll-hint">↕ Scroll inside the phone · Real live storefront</div>
+        <div class="storefront-scroll-hint">↕ Scroll inside the phone</div>
       </div>
     </div>
   </div>
@@ -2462,8 +2471,6 @@
 
   const netSlider = document.getElementById('netSlider');
   const netDisplay = document.getElementById('netDisplay');
-  const netAmount = document.getElementById('netAmount');
-  const winAmount = document.getElementById('winAmount');
   const cashAmount = document.getElementById('cashAmount');
   const vzpAmount = document.getElementById('vzpAmount');
   const cardAmount = document.getElementById('cardAmount');
@@ -2477,8 +2484,6 @@
     const tierLabel = currentTier.charAt(0).toUpperCase() + currentTier.slice(1);
 
     netDisplay.textContent = net;
-    netAmount.textContent = net;
-    winAmount.textContent = net;
 
     // Cash always free
     cashAmount.textContent = '$' + net;
