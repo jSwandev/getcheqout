@@ -1153,7 +1153,7 @@
   }
   .compare-header {
     display: grid;
-    grid-template-columns: 2fr 1.1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.1fr;
     background: var(--cream-soft);
     padding: 24px 28px;
     align-items: end;
@@ -1170,14 +1170,14 @@
     color: var(--cream);
     padding: 14px 16px;
     border-radius: var(--radius);
-    margin: -8px 8px -8px 0;
+    margin: -8px 0 -8px 8px;
     position: relative;
   }
   .compare-header-cell.us::before {
     content: "Us";
     position: absolute;
     top: -10px;
-    right: 10px;
+    left: 10px;
     background: var(--green);
     color: var(--cream);
     font-size: 9px;
@@ -1190,7 +1190,7 @@
   .compare-header-cell.us .wordmark .out { color: var(--green-mint); }
   .compare-row {
     display: grid;
-    grid-template-columns: 2fr 1.1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.1fr;
     padding: 22px 28px;
     align-items: center;
     border-top: 1px solid var(--rule-soft);
@@ -1212,7 +1212,7 @@
   .compare-cell { font-size: 14px; font-weight: 500; }
   .compare-cell.us {
     background: rgba(31, 92, 63, 0.06);
-    margin: -10px 8px -10px 0;
+    margin: -10px 0 -10px 8px;
     padding: 10px 16px;
     border-radius: var(--radius);
     color: var(--green-deep);
@@ -1735,9 +1735,9 @@
     .stacks-demo { grid-template-columns: 1fr; gap: 32px; }
     .channels-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
-    .compare-header, .compare-row { grid-template-columns: 2fr 1.2fr 1fr; }
-    .compare-cell:nth-child(4), .compare-cell:nth-child(5),
-    .compare-header-cell:nth-child(4), .compare-header-cell:nth-child(5) { display: none; }
+    .compare-header, .compare-row { grid-template-columns: 2fr 1fr 1.2fr; }
+    .compare-cell:nth-child(3), .compare-cell:nth-child(4),
+    .compare-header-cell:nth-child(3), .compare-header-cell:nth-child(4) { display: none; }
     .checkout-mockup { grid-template-columns: 1fr; }
     .math-flow { grid-template-columns: 1fr; gap: 24px; }
     .math-arrow { transform: rotate(90deg); }
@@ -2088,7 +2088,7 @@
 
         <div class="storefront-tier-note">
           <span class="storefront-tier-tag">Shop tier and up</span>
-          <span class="storefront-tier-text">Included starting at <strong>$39/mo</strong>. Custom domain at Pro.</span>
+          <span class="storefront-tier-text">Included starting at <strong>$79/mo</strong>. Custom domain at Pro.</span>
         </div>
       </div>
 
@@ -2118,66 +2118,66 @@
     <div class="compare-card">
       <div class="compare-header">
         <div class="compare-header-cell">Feature</div>
-        <div class="compare-header-cell us"><div class="wordmark">CHEQ<span class="out">out</span></div></div>
         <div class="compare-header-cell">Square</div>
         <div class="compare-header-cell">Shopify</div>
         <div class="compare-header-cell">Lightspeed</div>
+        <div class="compare-header-cell us"><div class="wordmark">CHEQ<span class="out">out</span></div></div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Cash sales · zero fee always <small>Vendor keeps 100% on physical cash</small></div>
-        <div class="compare-cell us">Free, all tiers</div>
         <div class="compare-cell no">No cash rail</div>
         <div class="compare-cell no">No cash rail</div>
         <div class="compare-cell partial">Manual entry</div>
+        <div class="compare-cell us">Free, all tiers</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Vendor nets exactly the price they set <small>Fee absorbed via customer-side gross-up</small></div>
+        <div class="compare-cell no">Vendor eats fee</div>
+        <div class="compare-cell no">Vendor eats fee</div>
+        <div class="compare-cell no">Vendor eats fee</div>
         <div class="compare-cell us">Built in</div>
-        <div class="compare-cell no">Vendor eats fee</div>
-        <div class="compare-cell no">Vendor eats fee</div>
-        <div class="compare-cell no">Vendor eats fee</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Customer sees fee transparently at checkout <small>(i) tooltip shows the breakdown</small></div>
+        <div class="compare-cell no">Hidden</div>
+        <div class="compare-cell no">Hidden</div>
+        <div class="compare-cell no">Hidden</div>
         <div class="compare-cell us">Always visible</div>
-        <div class="compare-cell no">Hidden</div>
-        <div class="compare-cell no">Hidden</div>
-        <div class="compare-cell no">Hidden</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Camera-first AI item capture <small>Photo → category, fields, pricing</small></div>
-        <div class="compare-cell us">Native</div>
         <div class="compare-cell no">Manual SKU</div>
         <div class="compare-cell no">Manual SKU</div>
         <div class="compare-cell partial">Barcode only</div>
+        <div class="compare-cell us">Native</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Hardware-free phone-to-phone payments <small>Buyer scans QR · picks rail · pays</small></div>
-        <div class="compare-cell us">Built in</div>
         <div class="compare-cell no">Reader required</div>
         <div class="compare-cell no">Reader required</div>
         <div class="compare-cell no">Terminal required</div>
+        <div class="compare-cell us">Built in</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Stacks <small>Auto-allocate net to named buckets</small></div>
+        <div class="compare-cell no">Not available</div>
+        <div class="compare-cell no">Not available</div>
+        <div class="compare-cell no">Not available</div>
         <div class="compare-cell us">Native</div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell no">Not available</div>
-        <div class="compare-cell no">Not available</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">One-capture multi-channel publish <small>One photo · TikTok Shop + Instagram</small></div>
-        <div class="compare-cell us">Empire tier</div>
         <div class="compare-cell no">Not available</div>
         <div class="compare-cell partial">Per-channel sync</div>
         <div class="compare-cell no">Not available</div>
+        <div class="compare-cell us">Empire tier</div>
       </div>
       <div class="compare-row">
         <div class="compare-feature">Per-location subscription pricing <small>One sub, every location</small></div>
+        <div class="compare-cell no">Per location</div>
+        <div class="compare-cell no">Per location</div>
+        <div class="compare-cell no">Per location</div>
         <div class="compare-cell us">One flat sub</div>
-        <div class="compare-cell no">Per location</div>
-        <div class="compare-cell no">Per location</div>
-        <div class="compare-cell no">Per location</div>
       </div>
     </div>
   </div>
@@ -2338,7 +2338,7 @@
       <div class="tier">
         <div class="tier-name">Shop</div>
         <div class="tier-who">You're real now. You want a presence between events.</div>
-        <div class="tier-price">$39<small>/mo</small></div>
+        <div class="tier-price">$79<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">3.4%</span></div>
@@ -2347,7 +2347,8 @@
         <ul class="tier-feature-list">
           <li>Everything in Hustle</li>
           <li>yourname.cheqout.store</li>
-          <li>Photo enhancement (basic AI)</li>
+          <li>Background removal on photos</li>
+          <li>Buyer messaging via CHEQin</li>
           <li>SMS receipt opt-in</li>
           <li>Basic analytics</li>
         </ul>
@@ -2365,9 +2366,8 @@
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Shop</li>
-          <li>Editorial AI scenes</li>
-          <li>Holds + reservations</li>
-          <li>Buyer messaging via CHEQin</li>
+          <li>Ghost mannequin + editorial AI scenes</li>
+          <li>Holds</li>
           <li>Custom domain mapping</li>
           <li>Stacks → linked accounts</li>
           <li>Branding removed</li>
