@@ -2135,7 +2135,7 @@
     <div class="section-eyebrow"><span class="num">03</span> · The fee math</div>
     <h2 class="section-title">You set the price.<br><span class="green-text">The customer picks the rail.</span></h2>
     <p class="section-lede">
-      Set what you want to make. Pick a tier and a payment rail to see what your customer actually pays. <strong>Cash is always free.</strong> Digital rails are tier-priced. Card adds Stripe's processor fee on top — same as everywhere, but visible. The customer always has a cheaper option.
+      Set what you want to make. Pick a tier and a payment rail to see what your customer actually pays. <strong>Cash is always free.</strong> On Hustle, Venmo/Zelle/PayPal/Cash App and card both carry a 5% CHEQout cut — card adds Stripe on top. On paid tiers, every digital rail runs free of CHEQout and card is Stripe pass-through only. Either way, the buyer sees the real number.
     </p>
 
     <div class="math-card">
@@ -2184,7 +2184,7 @@
       <div class="killshot-text">
         <span class="strike-light">Square</span> charges you.&nbsp;
         <span class="strike-light">Shopify</span> charges you.<br>
-        We charge <span class="punch">the transaction</span> &mdash; and we tell the customer what it costs.
+        We charge <span class="punch">the transaction</span> &mdash; and on paid tiers, we don't even do that. The buyer just sees Stripe's number.
       </div>
     </div>
 
@@ -2521,7 +2521,7 @@
     <div class="section-eyebrow"><span class="num">07</span> · Pricing</div>
     <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
     <p class="section-lede">
-      Start free. Pay nothing until you're ready for more. Cash is free at every tier — always. On paid tiers, every digital transfer is also free of CHEQout. Card runs through Stripe at Stripe's rate; we don't add a cut on top. The buyer sees the real number, on every rail.
+      Start free. Pay nothing until you're ready for more. Cash is free at every tier — always. On Hustle, we earn 5% on Venmo/Zelle/PayPal/Cash App and on card sales — disclosed to the buyer. On paid tiers, every digital transfer is free of CHEQout and card is Stripe pass-through only. The buyer sees the real number, on every rail.
     </p>
 
     <div class="pricing-grid">
@@ -2529,10 +2529,10 @@
         <div class="tier-name">Hustle</div>
         <div class="tier-who">Pop-up vendor. Weekend markets. The side hustle that pays for the trip.</div>
         <div class="tier-price">$0<small>/mo</small></div>
-        <div class="tier-fee-eyebrow">Free until your buyer reaches for a card.</div>
+        <div class="tier-fee-eyebrow">Cash-only? Free forever. We earn 5% on the rest.</div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">5%</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">5% + 2.9% + 30¢</span></div>
         </div>
         <ul class="tier-feature-list">
@@ -2619,11 +2619,15 @@
     <div class="faq-list">
       <div class="faq-item open">
         <div class="faq-q">Is cash really free, or is there a catch? <span class="toggle">+</span></div>
-        <div class="faq-a">Really free. No fee on physical cash sales, ever, on every tier. Cash money in hand, log it in CHEQout, you keep 100%. We make our money on subscription, on digital P2P rails (Venmo, Zelle, PayPal, Cash App), and on card transactions where there's an actual processing cost. Cash gets you on the platform and in our data — that's the trade and we're happy with it.</div>
+        <div class="faq-a">Really free. No fee on physical cash sales, ever, on every tier. Cash money in hand, log it in CHEQout, you keep 100%. Sell only cash? You stay free forever — Hustle has no subscription, and cash has no per-sale cut. We make our money two other ways: a subscription on paid tiers (Shop/Pro/Empire), and on Hustle a 5% cut on Venmo/Zelle/PayPal/Cash App and on card sales — both disclosed to the buyer at checkout.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does CHEQout get paid on Hustle without a subscription? <span class="toggle">+</span></div>
+        <div class="faq-a">Two paths, depending on the rail. Card sales settle in-line: Stripe takes its 2.9% + 30¢ and our 5% out of the buyer's gross-up at the moment of sale, you net what you priced. Venmo/Zelle/PayPal/Cash App pay the vendor directly, so our 5% accrues as a balance you owe. Once that balance hits $50, we prompt you to add a card on file — we charge the $50, and from there the balance bills on a rolling basis. Sell only cash? You stay free forever. No balance, no card, no prompt.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Why does card cost more than the other rails? <span class="toggle">+</span></div>
-        <div class="faq-a">Because card actually costs more. Stripe charges 2.9% + 30¢ to run a credit card transaction — that's their network fee, not ours. We add our tier fee on top, and we show the customer the total honestly. They can always pick Cash (free), or Venmo/Zelle/PayPal/Cash App (cheaper than card). The customer has real choice. Square hides the card fee from the buyer and charges the vendor instead. We made it visible and gave the customer an out.</div>
+        <div class="faq-a">Because card actually costs more — Stripe charges 2.9% + 30¢ to run a credit card transaction. That's their network fee, not ours. On Hustle, we add 5% on top of that, and we show the buyer the total honestly. On paid tiers, we don't add anything — the buyer just sees Stripe's number. Either way the customer has real choice: cash is always free, and on Hustle Venmo/Zelle/PayPal/Cash App is the cheaper digital option. Square hides the card fee from the buyer and charges the vendor instead. We made it visible and gave the customer an out.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How does the gross-up actually work? <span class="toggle">+</span></div>
