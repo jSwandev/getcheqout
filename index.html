@@ -2169,8 +2169,8 @@
         </div>
         <div class="rail-card">
           <div class="rail-name">Card</div>
-          <div class="rail-amount" id="cardAmount">$108</div>
-          <div class="rail-breakdown" id="cardBreakdown">+ 5% CHEQout + 2.9% Stripe</div>
+          <div class="rail-amount" id="cardAmount">$109</div>
+          <div class="rail-breakdown" id="cardBreakdown">+ 5% CHEQout + 2.9% + 30¢ Stripe</div>
         </div>
       </div>
 
@@ -2669,9 +2669,9 @@
   // ===== Tier fee structure =====
   const TIER_FEES = {
     hustle: { vzp: 0.05, card: 0.05 },
-    shop:   { vzp: 0.034, card: 0.034 },
-    pro:    { vzp: 0.019, card: 0.019 },
-    empire: { vzp: 0.014, card: 0.014 }
+    shop:   { vzp: 0,    card: 0    },
+    pro:    { vzp: 0,    card: 0    },
+    empire: { vzp: 0,    card: 0    }
   };
   const STRIPE_PCT = 0.029;
   const STRIPE_FIXED = 0.30;
@@ -2698,17 +2698,25 @@
     cashAmount.textContent = '$' + net;
     cashBreakdown.textContent = 'no fee, ever';
 
-    // VZP: tier fee only
-    const vzpTotal = Math.ceil(net * (1 + fees.vzp));
-    vzpAmount.textContent = '$' + vzpTotal;
-    vzpBreakdown.textContent = '+ ' + (fees.vzp * 100).toFixed(1).replace('.0','') + '% CHEQout (' + tierLabel + ')';
+    // VZP: free on paid tiers, 5% on Hustle
+    if (fees.vzp === 0) {
+      vzpAmount.textContent = '$' + net;
+      vzpBreakdown.textContent = 'no CHEQout cut (' + tierLabel + ')';
+    } else {
+      const vzpTotal = Math.ceil(net * (1 + fees.vzp));
+      vzpAmount.textContent = '$' + vzpTotal;
+      vzpBreakdown.textContent = '+ ' + (fees.vzp * 100).toFixed(1).replace('.0','') + '% CHEQout (' + tierLabel + ')';
+    }
 
-    // Card: tier fee + Stripe fee, gross-up formula
+    // Card: Stripe pass-through on paid tiers, +5% CHEQout on Hustle
     const totalRate = fees.card + STRIPE_PCT;
     const cardTotal = Math.ceil((net + STRIPE_FIXED) / (1 - totalRate));
     cardAmount.textContent = '$' + cardTotal;
-    const totalPctDisplay = ((fees.card + STRIPE_PCT) * 100).toFixed(1);
-    cardBreakdown.textContent = '+ ' + (fees.card * 100).toFixed(1).replace('.0','') + '% CHEQout + 2.9% Stripe';
+    if (fees.card === 0) {
+      cardBreakdown.textContent = '+ 2.9% + 30¢ Stripe (no CHEQout on top)';
+    } else {
+      cardBreakdown.textContent = '+ ' + (fees.card * 100).toFixed(1).replace('.0','') + '% CHEQout + 2.9% + 30¢ Stripe';
+    }
   }
 
   netSlider.addEventListener('input', updateMath);
