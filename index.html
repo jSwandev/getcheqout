@@ -1783,6 +1783,17 @@
   }
   .tier.featured .tier-price small { color: rgba(245,239,226,0.5); }
 
+  .tier-fee-eyebrow {
+    margin-top: 18px;
+    margin-bottom: -8px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--green);
+  }
+  .tier.featured .tier-fee-eyebrow { color: var(--green-mint); }
   .tier-fee-table {
     margin-top: 20px;
     margin-bottom: 24px;
@@ -2363,7 +2374,7 @@
 
         <div class="storefront-tier-note">
           <span class="storefront-tier-tag">Shop tier and up</span>
-          <span class="storefront-tier-text">Included starting at <strong>$79/mo</strong>. Custom domain at Pro.</span>
+          <span class="storefront-tier-text">Included starting at <strong>$89/mo</strong>. Custom domain at Pro.</span>
         </div>
       </div>
 
@@ -2510,7 +2521,7 @@
     <div class="section-eyebrow"><span class="num">07</span> · Pricing</div>
     <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
     <p class="section-lede">
-      Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital rails get cheaper as you upgrade. Card always shows Stripe's processing as a separate line — no hidden math.
+      Start free. Pay nothing until you're ready for more. Cash is free at every tier — always. On paid tiers, every digital transfer is also free of CHEQout. Card runs through Stripe at Stripe's rate; we don't add a cut on top. The buyer sees the real number, on every rail.
     </p>
 
     <div class="pricing-grid">
@@ -2518,10 +2529,11 @@
         <div class="tier-name">Hustle</div>
         <div class="tier-who">Pop-up vendor. Weekend markets. The side hustle that pays for the trip.</div>
         <div class="tier-price">$0<small>/mo</small></div>
+        <div class="tier-fee-eyebrow">Free until your buyer reaches for a card.</div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">5%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">7.9%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">5% + 2.9% + 30¢</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Camera-first POS</li>
@@ -2536,11 +2548,11 @@
       <div class="tier">
         <div class="tier-name">Shop</div>
         <div class="tier-who">You're real now. You want a presence between events.</div>
-        <div class="tier-price">$79<small>/mo</small></div>
+        <div class="tier-price">$89<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">3.4%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">6.3%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">2.9% + 30¢</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Hustle</li>
@@ -2556,11 +2568,11 @@
       <div class="tier">
         <div class="tier-name">Pro</div>
         <div class="tier-who">This is your livelihood. You run it like one.</div>
-        <div class="tier-price">$129<small>/mo</small></div>
+        <div class="tier-price">$149<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">1.9%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">4.8%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">2.9% + 30¢</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Shop</li>
@@ -2576,11 +2588,11 @@
       <div class="tier featured">
         <div class="tier-name">Empire</div>
         <div class="tier-who">Multi-channel. Multi-location. The whole operation, one capture.</div>
-        <div class="tier-price">$249<small>/mo</small></div>
+        <div class="tier-price">$299<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">1.4%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">4.3%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">2.9% + 30¢</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Pro</li>
