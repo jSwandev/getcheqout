@@ -724,17 +724,23 @@
   }
 
   .checkout-phone {
+    position: relative;
     background: var(--ink);
-    border-radius: 32px;
+    border-radius: 48px;
     padding: 12px;
-    max-width: 360px;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 380 / 760;
     margin: 0 auto;
     box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
   }
   .checkout-phone-screen {
+    width: 100%;
+    height: 100%;
     background: var(--cream);
-    border-radius: 22px;
+    border-radius: 36px;
     padding: 24px 20px;
+    overflow: hidden;
   }
   .checkout-phone-vendor {
     font-size: 11px;
@@ -1094,11 +1100,11 @@
   .storefront-phone {
     position: relative;
     width: 100%;
-    max-width: 360px;
-    aspect-ratio: 360 / 720;
+    max-width: 380px;
+    aspect-ratio: 380 / 760;
     background: var(--ink);
     border-radius: 48px;
-    padding: 14px;
+    padding: 12px;
     box-shadow:
       0 30px 60px -12px rgba(0,0,0,0.3),
       0 18px 36px -18px rgba(0,0,0,0.4),
@@ -1981,6 +1987,8 @@
   @media (max-width: 1000px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-phone { transform: rotate(0deg); max-width: 320px; }
+    .checkout-phone { max-width: 320px; }
+    .storefront-phone { max-width: 320px; }
     .hero-annotation { display: none; }
     .stacks-demo { grid-template-columns: 1fr; gap: 32px; }
     .channels-grid { grid-template-columns: 1fr; }
@@ -2006,6 +2014,7 @@
     .one-capture-banner { padding: 28px; }
     .killshot { padding: 28px 20px; }
     .footer-meta { flex-direction: column; align-items: flex-start; }
+    .checkout-phone { max-width: 280px; }
     .storefront-phone { max-width: 280px; }
     .storefront-tag { font-size: 18px; }
   }
