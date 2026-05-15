@@ -1377,6 +1377,61 @@
     padding-top: 16px;
     border-top: 1px solid var(--rule-soft);
   }
+  .category-subhead {
+    font-family: var(--f-display);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.4;
+    color: var(--mute);
+    margin: 0 0 40px;
+    max-width: 760px;
+  }
+  .category-subhead em {
+    font-style: italic;
+    color: var(--ink);
+  }
+  .category-para {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    max-width: 820px;
+  }
+  .category-para strong { color: var(--ink); font-weight: 700; }
+  .category-para em { font-style: italic; }
+  .category-para code {
+    font-family: var(--f-mono);
+    font-size: 0.95em;
+    background: var(--cream-card);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* BLACK BANNER (full-width transition) */
+  .black-banner {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 96px 32px;
+    text-align: center;
+  }
+  .black-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .black-banner-line {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .black-banner-line-2 {
+    color: var(--green-mint);
+    font-style: italic;
+    font-weight: 700;
+  }
   .category-close-line.us em {
     color: var(--green);
     font-weight: 700;
@@ -2178,38 +2233,42 @@
   </div>
 </section>
 
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
 <!-- CATEGORY STATEMENT -->
 <section id="category" class="category">
   <div class="section-inner">
     <div class="category-wrap">
-      <h2 class="category-headline">A new category,<br><span class="green-text">on purpose.</span></h2>
+      <h2 class="category-headline">A new category, on purpose.</h2>
 
-      <p class="category-list">
-        Flea markets. Pop-ups. Craft fairs. Antique malls. Vintage shops. Salon racks. Estate sales. Friend's garage sales with intent. Curated boutiques.
+      <p class="category-subhead">
+        CHEQout supports the way <em>you</em> sell. Intuitive in your hand. AI builds your inventory like a pro.
       </p>
 
-      <p class="category-thesis">
-        The category nobody built for: vendors with <span class="hilite">unique inventory at scale.</span> 12 items or 12,000 — every single one different. No UPCs to scan. No catalog to import. Just a phone and a stack of stuff worth selling — and you accept payments the way you already do: <em class="rails">cash, Venmo, Zelle, PayPal, Cash App, card.</em> All in one checkout.
+      <p class="category-para">
+        <strong>Every kind of item. Every kind of payment.</strong> Vendors with unique inventory at scale — 12 items or 12,000, every single one different. No UPCs to scan. No catalog to import. Just a phone and a stack of stuff worth selling — and you accept payments the way you already do: <em>cash, Venmo, Zelle, PayPal, Cash App, card.</em> All in one checkout.
       </p>
 
-      <p class="category-storefront">
-        And when you close up shop, <em>your shop stays open.</em> Every item you log goes live on <strong>yourname.cheqout.store</strong> automatically. Buyers keep shopping while you're packing up, eating dinner, sleeping in.
+      <p class="category-para">
+        <strong>Your storefront sells while you sleep.</strong> Every item you log goes live on <code>yourname.cheqout.store</code> the moment you publish — automatically. No double-listing. No syncing. Buyers keep shopping while you're packing up the booth, eating dinner, or sleeping in.
       </p>
 
-      <p class="category-loop">
-        <em>And every sale becomes a returning customer.</em> At checkout, buyers enter their phone and email. The phone becomes their login for next time. A receipt hits their inbox with a link straight back to your store. <span class="tier-aside">(Shop tier and up, you can email them where your next pop-up is or when new finds drop on your store.)</span>
-      </p>
-
-      <div class="category-divider"></div>
-
-      <p class="category-close">
-        <span class="category-close-line">Shopify assumes you have <em>product lines.</em></span>
-        <span class="category-close-line">Square assumes you have <em>a register.</em></span>
-        <span class="category-close-line us">CHEQout assumes you have <em>a folding table, a phone, and an eye for finds.</em></span>
+      <p class="category-para">
+        <strong>And every sale becomes a returning customer.</strong> At checkout, buyers enter their phone and email. The phone becomes their login next time. A receipt hits their inbox with a link straight back to your store. <em>(Shop tier and up: email them when your next pop-up drops or new finds hit your store.)</em>
       </p>
     </div>
   </div>
 </section>
+
+<!-- BLACK BANNER 1 -->
+<section class="black-banner">
+  <div class="black-banner-inner">
+    <div class="black-banner-line">You decide what you're worth.</div>
+    <div class="black-banner-line black-banner-line-2">We make sure you get it.</div>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
 
 <!-- TRANSPARENCY / MATH -->
 <section id="how" class="transparency">
