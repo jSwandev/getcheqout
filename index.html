@@ -96,40 +96,43 @@
     margin: 0 auto;
     align-items: center;
   }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 14px;
-    background: var(--cream-card);
-    border-radius: var(--radius-pill);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 28px;
-    border: 1px solid var(--rule-soft);
-  }
-  .hero-eyebrow .dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(0.85); }
   }
 
-  .hero-scene {
-    font-family: var(--f-display);
-    font-size: clamp(15px, 1.4vw, 18px);
-    font-style: italic;
-    font-weight: 500;
+  .hero-marquee {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 0 28px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .hero-marquee-track {
+    display: inline-flex;
+    gap: 14px;
+    white-space: nowrap;
+    font-family: var(--f-mono);
+    font-size: 12px;
     color: var(--mute);
-    letter-spacing: -0.005em;
-    margin: 20px 0 24px;
-    line-height: 1.4;
+    letter-spacing: 0.02em;
+    animation: hero-marquee-scroll 60s linear infinite;
+  }
+  .hero-marquee-track span { padding-right: 14px; border-right: 1px solid var(--rule-soft); }
+  .hero-marquee-track span:last-child { border-right: 0; }
+  @keyframes hero-marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .hero-kicker {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-top: 18px;
   }
   .hero-headline {
     font-family: var(--f-display);
@@ -207,11 +210,11 @@
   .hero-phone {
     position: relative;
     width: 100%;
-    max-width: 380px;
+    max-width: 280px;
     margin: 0 auto;
-    aspect-ratio: 380 / 760;
-    border-radius: 48px;
-    background: var(--ink);
+    aspect-ratio: 240 / 520;
+    border-radius: 34px;
+    background: #0F0F0F;
     box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.3);
     transform: rotate(-3deg);
     transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
@@ -219,39 +222,97 @@
   .hero-phone:hover { transform: rotate(0deg) scale(1.02); }
   .hero-phone-screen {
     position: absolute;
-    inset: 12px;
-    border-radius: 36px;
-    background: var(--cream);
-    padding: 32px 18px 18px;
+    inset: 8px;
+    border-radius: 26px;
+    background: #F5EFE2;
+    padding: 22px 12px 12px;
     overflow: hidden;
   }
   .hero-phone-status {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     color: var(--ink);
-    margin-bottom: 24px;
-    padding: 0 8px;
+    margin-bottom: 14px;
+    padding: 0 4px;
   }
   .hero-phone-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 0 4px;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding: 0 2px;
   }
-  .hero-phone-header .wordmark { font-size: 20px; }
-  .hero-phone-header .skull {
-    width: 32px;
-    height: 32px;
+  .hero-phone-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: var(--cream-soft);
-    border: 2px solid var(--skull-red);
+    background: #0F0F0F;
+    color: var(--cream);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-family: var(--f-body);
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .hero-phone-avatar .unread {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--skull-red);
+    border: 2px solid #F5EFE2;
+  }
+  .hero-phone-booth {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .hero-phone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .hero-phone-cell {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .hero-phone-cell.wide {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+  .hero-phone-cell-meta {
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    color: var(--cream);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .hero-phone-cell-title {
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero-phone-cell-price {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 700;
   }
   .hero-phone-date {
     padding: 0 4px;
@@ -2045,20 +2106,20 @@
 <section class="hero">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span> Live · Beta open in LA</div>
-      <div class="hero-scene">Your pop-up. Your market. Your craft fair.</div>
+      <div class="hero-marquee">
+        <div class="hero-marquee-track">
+          <span>your pop-up</span><span>your weekend market</span><span>your vintage shop</span><span>your rack</span><span>your craft fair</span><span>your yard sale</span><span>your record store</span><span>your boutique</span><span>your studio sale</span><span>your gallery</span><span>your merch table</span><span>your antique mall</span><span>your estate sale</span><span>your brick-and-mortar</span><span>your pop-up</span><span>your weekend market</span><span>your vintage shop</span><span>your rack</span><span>your craft fair</span><span>your yard sale</span><span>your record store</span><span>your boutique</span><span>your studio sale</span><span>your gallery</span><span>your merch table</span><span>your antique mall</span><span>your estate sale</span><span>your brick-and-mortar</span>
+        </div>
+      </div>
       <h1 class="hero-headline">
-        Cataloged.<br>
-        Listed.<br>
-        <span class="out-brand">Sold.</span><br>
-        <span class="hero-tag">In one shot.</span>
+        Shoot it. List it. <span class="out-brand">Sold.</span>
       </h1>
+      <div class="hero-kicker">Your phone IS your POS.</div>
       <p class="hero-sub">
-        Camera-first POS for vintage, oddities, and one-of-a-kind finds. <strong>12 items or 12,000</strong> — every one different. Finally control your pop-up like a boss <em>and</em> live on your storefront the moment you log it.
+        CHEQout is the POS for independent vendors — the weekend pop-up hustler, the veteran flea market seller, the brick-and-mortar vintage shop. <strong>Camera-first. AI-powered. Hardware-free.</strong> Point your camera — AI does the data entry. You confirm and publish. 12 items or 12,000, you can finally run your store like you mean it. Four tiers — <strong>Hustle</strong>, <strong>Shop</strong>, <strong>Pro</strong>, <strong>Empire</strong>. It's time to CHEQout.
       </p>
       <div class="hero-ctas">
-        <a href="#pricing" class="btn btn-primary">Start free <span class="arrow">→</span></a>
-        <a href="#how" class="btn btn-ghost">See the math</a>
+        <a href="#pricing" class="btn btn-primary">Open your store <span class="arrow">→</span></a>
       </div>
     </div>
 
@@ -2070,42 +2131,49 @@
             <span>● ◗ ▮▮▯</span>
           </div>
           <div class="hero-phone-header">
-            <div class="wordmark">CHEQ<span class="out">out</span></div>
-            <div class="skull">💀</div>
+            <div class="hero-phone-avatar">VS<span class="unread"></span></div>
+            <div class="hero-phone-booth">THIS OR DIE BOUTIQUE</div>
           </div>
-          <div class="hero-phone-date">Thursday, May 7</div>
-          <div class="hero-phone-card">
-            <div class="hero-phone-card-label">TODAY</div>
-            <div class="hero-phone-card-amount">$1,420</div>
-            <div class="hero-phone-card-detail">Your profit · 12 sales</div>
-          </div>
-          <div class="hero-phone-tile-row">
-            <div class="hero-phone-tile">
-              <svg class="hero-phone-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-              <div class="hero-phone-tile-title">Sell</div>
-              <div class="hero-phone-tile-sub">Start a sale</div>
+          <div class="hero-phone-grid">
+            <div class="hero-phone-cell wide" style="background: linear-gradient(135deg, #8A4A3F 0%, #C8853F 50%, #6B3D32 100%);">
+              <div class="hero-phone-cell-meta">
+                <div class="hero-phone-cell-title">Leopard Faux Fur Coat</div>
+                <div class="hero-phone-cell-price">$145</div>
+              </div>
             </div>
-            <div class="hero-phone-tile">
-              <svg class="hero-phone-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <div class="hero-phone-tile-title">Quick sale</div>
-              <div class="hero-phone-tile-sub">42 in stock</div>
+            <div class="hero-phone-cell" style="background: linear-gradient(135deg, #2C3E50 0%, #4A6378 100%);">
+              <div class="hero-phone-cell-meta">
+                <div class="hero-phone-cell-title">Levi's Trucker</div>
+                <div class="hero-phone-cell-price">$45</div>
+              </div>
             </div>
-          </div>
-          <div class="hero-phone-section-label">
-            <span>PICKUPS</span>
-            <span class="hero-phone-pill">1 awaiting</span>
-          </div>
-          <div class="hero-phone-pickup">
-            <div class="hero-phone-pickup-thumb"></div>
-            <div class="hero-phone-pickup-info">
-              <div class="hero-phone-pickup-title">Leopard Faux Fur Coat</div>
-              <div class="hero-phone-pickup-meta">$85 · pickup by Jun 5</div>
+            <div class="hero-phone-cell" style="background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);">
+              <div class="hero-phone-cell-meta">
+                <div class="hero-phone-cell-title">Suede Boots</div>
+                <div class="hero-phone-cell-price">$80</div>
+              </div>
+            </div>
+            <div class="hero-phone-cell wide" style="background: linear-gradient(135deg, #D2691E 0%, #F4A460 50%, #C71585 100%);">
+              <div class="hero-phone-cell-meta">
+                <div class="hero-phone-cell-title">Silk Scarf</div>
+                <div class="hero-phone-cell-price">$25</div>
+              </div>
+            </div>
+            <div class="hero-phone-cell" style="background: linear-gradient(135deg, #4B0082 0%, #6A0DAD 100%);">
+              <div class="hero-phone-cell-meta">
+                <div class="hero-phone-cell-title">Vintage Tee</div>
+                <div class="hero-phone-cell-price">$32</div>
+              </div>
+            </div>
+            <div class="hero-phone-cell" style="background: linear-gradient(135deg, #708090 0%, #4F5F70 100%);">
+              <div class="hero-phone-cell-meta">
+                <div class="hero-phone-cell-title">Trucker Hat</div>
+                <div class="hero-phone-cell-price">$35</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="hero-annotation annotation-1">No card reader. No terminal.</div>
-      <div class="hero-annotation annotation-2">You net what you priced ✓</div>
     </div>
   </div>
 </section>
