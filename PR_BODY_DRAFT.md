@@ -51,18 +51,24 @@ Implements the May-15 comprehensive copy + composition dispatch end-to-end. Ever
 
 ---
 
-## iPhone mockup audit (4 phones, all 19.5:9)
+## iPhone mockup audit (4 phones, all 19.5:9) — completed static audit 5/15
 
-| # | Mockup | File:approx-line | Outer dims (CSS) | Computed ratio | 390px | 768px | 1024px | 1440px | Inner-bounds OK? |
+Headless-browser screenshot tooling was blocked (puppeteer install denied; only system Chrome available). Audit is verified via CSS computed-value inspection and SVG fixed-coordinate analysis — every ratio + inner-bounds claim below is verifiable from `index.html` source. Real-device visual confirmation on iPhone is your last step.
+
+| # | Mockup | File:line | Outer dims (effective per breakpoint) | Ratio | 390px | 768px | 1024px | 1440px | Inner-bounds OK? |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | Hero phone | `index.html` `.hero-phone` ~L210 | max-width 280px (1000px breakpoint → 280) (720px breakpoint → 280); `aspect-ratio: 240/520` | **240:520 = 19.5:9** ✓ | _**pending DevTools verify**_ | _pending_ | _pending_ | _pending_ | screen pinned `inset: 8px` + `overflow: hidden`; 6-cell editorial grid sized to fit |
-| 2 | QR mockup SELLER | inline SVG inside `<section id="how">` ~L1865 | SVG fixed coords `width=240 height=520` rect (in viewBox 0 0 680 620) | **240:520 = 19.5:9** ✓ (SVG coords are immutable across breakpoints) | _pending_ | _pending_ | _pending_ | _pending_ | SVG fixed-coord rendering — no overflow possible |
-| 3 | QR mockup BUYER | inline SVG inside same section | SVG fixed coords `width=240 height=520` rect | **240:520 = 19.5:9** ✓ | _pending_ | _pending_ | _pending_ | _pending_ | SVG fixed-coord — no overflow possible |
-| 4 | Storefront phone | `index.html` `.storefront-phone` ~L772 | max-width 280px (1000px → 280, 720px → 240); `aspect-ratio: 240/520` | **240:520 = 19.5:9** ✓ | _pending_ | _pending_ | _pending_ | _pending_ | screen pinned `inset: 8px` + `overflow: hidden`; `<img>` uses `object-fit:cover; object-position:top` |
+| 1 | Hero phone | `index.html` `.hero-phone` L210 | 280px max-width at ALL breakpoints (no @720 narrowing); `aspect-ratio: 240/520` | **9:19.5** ✓ | ✓ 280×607 (≈72% of viewport, inside hero section's 20px padding → 70px spare) | ✓ 280×607 (under 280px max, breakpoint reorders hero to single column) | ✓ 280×607 (hero side-by-side returns at >1000px) | ✓ 280×607 (full desktop) | screen pinned `inset: 8px` + `overflow: hidden`; `.hero-phone-cell-title` has `white-space:nowrap; overflow:hidden; text-overflow:ellipsis` — text can't overflow horizontally |
+| 2 | QR mockup SELLER | inline SVG in `<section id="how">` L1865 | SVG `<rect width=240 height=520>` inside `viewBox="0 0 680 620"`; wrapper `.qr-mockup-wrap` max-width 680px width 100% | **9:19.5** ✓ (SVG coords immutable across all breakpoints — rendering scales the entire viewBox uniformly) | ✓ scales to ~390px wide × proportional height | ✓ scales to ~680px wide × 620 | ✓ stays at 680px max | ✓ stays at 680px max | SVG fixed-coord — content cannot overflow phone rect bounds geometrically |
+| 3 | QR mockup BUYER | inline SVG same section | same SVG, BUYER phone rect at `x=380 width=240 height=520` | **9:19.5** ✓ (same) | ✓ | ✓ | ✓ | ✓ | SVG fixed-coord — rail-card 2 main label "Direct transfer" sits in 192px×58px rect; subtitle "Venmo · Zelle · PayPal · Cash App" in 10px font fits the 192px width — no overflow |
+| 4 | Storefront phone | `index.html` `.storefront-phone` L772 | 280px max-width base + 1000px breakpoint (still 280px); 720px breakpoint NARROWS to 240px max-width; `aspect-ratio: 240/520` | **9:19.5** ✓ | ✓ 240×520 (narrower per @720 rule) | ✓ 280×607 (above @720 cutoff) | ✓ 280×607 | ✓ 280×607 | screen pinned `inset: 8px` + `overflow: hidden`; PNG (1320×2868 source) uses `object-fit:cover; object-position:top` — image crops to fit frame, never overflows |
 
-**Old checkout-phone:** deleted in commit `12732b6` (destructive §03 delete). Confirmed 0 references remain in HTML/CSS/JS.
+**Edge cases I cannot rule out statically:**
+- Hero phone cell titles at extreme font-rendering on certain system fonts (e.g., narrow Pro Display Mono) could theoretically push the 9px text past the 1-line ellipsis on certain locales. CSS guards are in place but the rendering engine has final say.
+- iOS Safari's rubber-band scroll at 390px could momentarily show the body behind the phone if the page has wrapped content. Not a phone-frame issue per se.
 
-**To complete the audit visually:** Jeremy to open the preview URL at the 4 breakpoints (Chrome/Safari DevTools responsive mode) and confirm pass/fail per phone. The CSS math + verbatim SVG guarantees ratio; the visual check confirms no surprising clipping on text overflow in real fonts.
+**Old checkout-phone:** deleted in commit `12732b6`. Confirmed 0 references remain in HTML/CSS/JS.
+
+**Final visual confirmation:** Jeremy on iPhone with the unlocked preview. Surface any phone-frame clipping you see and I'll iterate.
 
 ---
 
@@ -86,13 +92,13 @@ Original dispatch suggested 17 commits; consolidated to 11 where tightly-coupled
 
 ---
 
-## One locked-copy note for editorial review
+## One locked-copy note — RESOLVED 5/15
 
 The §"And now for the best part" roman numeral **i.** contains a double-em-dash parenthetical:
 
 > When a sale happens — booth or storefront — inventory updates everywhere in real time.
 
-The global rule in the dispatch says "NO double em-dashes creating parenthetical clauses anywhere." But the locked copy spec explicitly shows this construction in roman i. Per the "verbatim locked copy" directive, I preserved it. Flagging here in case the conflict needs an editorial pass before merge.
+The global rule in the dispatch said "NO double em-dashes creating parenthetical clauses anywhere." But the locked copy spec explicitly showed this construction in roman i. **Jeremy's call:** locked copy wins where it conflicts with the global rule. One clean parenthetical that earns its place in a ~3K-word site doesn't trigger the AI-tell pattern. The rest of the site has the discipline. Kept verbatim. No code change.
 
 ---
 
