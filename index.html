@@ -208,17 +208,14 @@
 
   /* HERO PHONE */
   .hero-phone {
-    position: relative;
-    width: 100%;
-    max-width: 280px;
+    /* Explicit width/height — percentage padding-bottom resolves to 0 in
+       intrinsic-sizing grid contexts. Bezel-layer structure
+       (.hero-phone-frame + .hero-phone-screen) sits on top of this real-
+       sized container. */
+    width: 280px;
+    height: 607px;
     margin: 0 auto;
-    /* padding-bottom aspect-ratio guard — Safari grid context collapses
-       `aspect-ratio: 240/520` to 0 height; padding-bottom is bulletproof.
-       Both .hero-phone-frame AND .hero-phone-screen are absolute children
-       because Safari unreliably paints background on a height:0 +
-       padding-bottom element — the bezel needs its own positioned layer. */
-    padding-bottom: calc((520 / 240) * 100%);
-    height: 0;
+    position: relative;
     transform: rotate(-3deg);
     transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
   }
@@ -780,13 +777,11 @@
     top: 100px;
   }
   .storefront-phone {
+    /* Same explicit-dimensions strategy as .hero-phone — bezel layer
+       (.storefront-phone-frame) paints inside a real 280×607 box. */
+    width: 280px;
+    height: 607px;
     position: relative;
-    width: 100%;
-    max-width: 280px;
-    /* same Safari aspect-ratio + bezel-paint guard as .hero-phone — bezel
-       moves to .storefront-phone-frame so it paints reliably */
-    padding-bottom: calc((520 / 240) * 100%);
-    height: 0;
   }
   .storefront-phone-frame {
     position: absolute;
@@ -1781,8 +1776,7 @@
 
   @media (max-width: 1000px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero-phone { transform: rotate(0deg); max-width: 280px; }
-    .storefront-phone { max-width: 280px; }
+    .hero-phone { transform: rotate(0deg); }
     .stacks-demo { grid-template-columns: 1fr; gap: 32px; }
     .channels-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
@@ -1801,8 +1795,11 @@
     .pricing-grid { grid-template-columns: 1fr; }
     .one-capture-banner { padding: 28px; }
     .footer-meta { flex-direction: column; align-items: flex-start; }
-    .storefront-phone { max-width: 240px; }
+    .storefront-phone { width: 240px; height: 520px; }
     .storefront-tag { font-size: 18px; }
+  }
+  @media (max-width: 320px) {
+    .hero-phone { width: 240px; height: 520px; }
   }
 </style>
 </head>
