@@ -1474,8 +1474,31 @@
     padding: 5px 12px;
     font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.05em;
     border-radius: var(--radius-pill);
   }
+  .tier.popular { border-color: var(--ink); border-width: 2px; }
+  .tier.popular::before {
+    content: "Most Popular";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-pill);
+  }
+  .tier.mint-border { border-color: var(--green-mint); border-width: 2px; }
+  .tier-description {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 6px 0 16px;
+  }
+  .tier.featured .tier-description { color: rgba(245,239,226,0.75); }
   .tier-name {
     font-family: var(--f-display);
     font-weight: 800;
@@ -2384,40 +2407,41 @@
 <!-- PRICING -->
 <section id="pricing" class="pricing">
   <div class="section-inner">
-    <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
+    <h2 class="section-title">Four tiers.<br><span class="green-text"><em>No surprises.</em></span></h2>
     <p class="section-lede">
-      Start free. Pay nothing until you're ready for more. Cash is free at every tier — always. On Hustle, we earn 5% on Venmo/Zelle/PayPal/Cash App and on card sales — disclosed to the buyer. On paid tiers, every digital transfer is free of CHEQout and card is Stripe pass-through only. The buyer sees the real number, on every rail.
+      Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital and card are free on every paid tier — only Hustle has a platform fee. Card always shows Stripe's processing as a separate line. No hidden math. And on Pro and up: send marketing campaigns to the customers you've earned, direct — no algorithm, no ad spend.
     </p>
 
     <div class="pricing-grid">
-      <div class="tier">
+      <div class="tier mint-border">
         <div class="tier-name">Hustle</div>
         <div class="tier-who">Pop-up vendor. Weekend markets. The side hustle that pays for the trip.</div>
         <div class="tier-price">$0<small>/mo</small></div>
-        <div class="tier-fee-eyebrow">Cash-only? Free forever. We earn 5% on the rest.</div>
+        <div class="tier-description">Run on cash for free, all day long. We take 5% on digital and card to keep the basics running. Upgrade when you're ready to grow.</div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">5%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">5% + 2.9% + 30¢</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">7.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Camera-first POS</li>
           <li>Inventory + tags</li>
-          <li>Stacks (basic)</li>
           <li>All four payment rails</li>
+          <li>Stacks (up to 2)</li>
           <li>Tax data export</li>
         </ul>
-        <a href="https://cheqout.store/confirm-plan?plan=hustle" class="tier-cta">Start free</a>
+        <a href="https://cheqout.store/confirm-plan?plan=hustle" class="tier-cta">I Hustle</a>
       </div>
 
-      <div class="tier">
+      <div class="tier mint-border">
         <div class="tier-name">Shop</div>
-        <div class="tier-who">You're real now. You want a presence between events.</div>
+        <div class="tier-who">You want presence between events.</div>
         <div class="tier-price">$89<small>/mo</small></div>
+        <div class="tier-description">Claim your store at yourname.cheqout.store. Sell while you sleep.</div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">2.9% + 30¢</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Hustle</li>
@@ -2426,48 +2450,47 @@
           <li>Buyer messaging via CHEQin</li>
           <li>SMS receipt opt-in</li>
           <li>Basic analytics</li>
+          <li>Stacks (up to 3)</li>
         </ul>
-        <a href="https://cheqout.store/confirm-plan?plan=shop" class="tier-cta">Choose Shop</a>
+        <a href="https://cheqout.store/confirm-plan?plan=shop" class="tier-cta">Open Shop</a>
       </div>
 
-      <div class="tier">
+      <div class="tier popular">
         <div class="tier-name">Pro</div>
         <div class="tier-who">This is your livelihood. You run it like one.</div>
         <div class="tier-price">$149<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">2.9% + 30¢</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Shop</li>
           <li>Ghost mannequin + editorial AI scenes</li>
-          <li>Holds</li>
           <li>Custom domain mapping</li>
-          <li>Stacks → linked accounts</li>
           <li>Branding removed</li>
+          <li>Email marketing campaigns</li>
+          <li>Print shipping labels direct from Rollo</li>
+          <li>Stacks (up to 5)</li>
         </ul>
-        <a href="https://cheqout.store/confirm-plan?plan=pro" class="tier-cta">Choose Pro</a>
+        <a href="https://cheqout.store/confirm-plan?plan=pro" class="tier-cta">Go Pro</a>
       </div>
 
       <div class="tier featured">
         <div class="tier-name">Empire</div>
-        <div class="tier-who">Multi-channel. Multi-location. The whole operation, one capture.</div>
+        <div class="tier-who">The whole operation, one capture.</div>
         <div class="tier-price">$299<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">2.9% + 30¢</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Pro</li>
-          <li>One-capture multi-channel</li>
-          <li>TikTok Shop + Instagram</li>
+          <li>TikTok Shop integration</li>
+          <li>Instagram Shopping</li>
           <li>Multi-location hierarchy</li>
-          <li>Anomaly detection + analytics</li>
-          <li>Tax integration included</li>
-          <li>Unlimited Stack accounts</li>
-          <li>Direct human support</li>
+          <li>Unlimited Stacks</li>
         </ul>
         <a href="https://cheqout.store/confirm-plan?plan=empire" class="tier-cta">Build your Empire</a>
       </div>
