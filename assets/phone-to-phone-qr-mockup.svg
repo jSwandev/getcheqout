@@ -1,0 +1,180 @@
+<svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">CHEQout phone-to-phone QR payment mockup, version 2</title>
+  <desc id="d">Two iPhones with corrected 19.5:9 aspect ratio. Seller phone left shows store name THIS OR DIE BOUTIQUE with QR and $150 total. Buyer phone right shows scanned cart with Cash, Direct transfer (Venmo/Zelle/PayPal/Cash App), and Card rail options.</desc>
+
+  <rect width="680" height="620" rx="16" fill="#F5EFE2"/>
+
+  <!-- Phone labels -->
+  <text x="180" y="44" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#1F5C3F" letter-spacing="2.5">SELLER</text>
+  <text x="500" y="44" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#1F5C3F" letter-spacing="2.5">BUYER</text>
+
+  <!-- PHONE 1: SELLER (240x520, iPhone 15 Pro ratio) -->
+  <rect x="60" y="70" width="240" height="520" rx="34" fill="#0F0F0F"/>
+  <rect x="68" y="78" width="224" height="504" rx="26" fill="#F5EFE2"/>
+
+  <text x="84" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F0F0F">5:01</text>
+  <g transform="translate(252, 94)" fill="#0F0F0F">
+    <rect x="0" y="2" width="3" height="6" rx="0.5"/>
+    <rect x="5" y="0" width="3" height="8" rx="0.5"/>
+    <rect x="10" y="-2" width="3" height="10" rx="0.5"/>
+    <rect x="15" y="-4" width="3" height="12" rx="0.5"/>
+  </g>
+
+  <text x="180" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="500" fill="#888" letter-spacing="1.2">THIS OR DIE BOUTIQUE</text>
+  <text x="180" y="160" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#0F0F0F">Show this to your customer</text>
+
+  <rect x="100" y="178" width="160" height="160" rx="8" fill="#FFFFFF"/>
+
+  <g transform="translate(0, 8)">
+    <rect x="110" y="180" width="35" height="35" fill="#0F0F0F"/>
+    <rect x="115" y="185" width="25" height="25" fill="#FFFFFF"/>
+    <rect x="120" y="190" width="15" height="15" fill="#0F0F0F"/>
+    <rect x="215" y="180" width="35" height="35" fill="#0F0F0F"/>
+    <rect x="220" y="185" width="25" height="25" fill="#FFFFFF"/>
+    <rect x="225" y="190" width="15" height="15" fill="#0F0F0F"/>
+    <rect x="110" y="285" width="35" height="35" fill="#0F0F0F"/>
+    <rect x="115" y="290" width="25" height="25" fill="#FFFFFF"/>
+    <rect x="120" y="295" width="15" height="15" fill="#0F0F0F"/>
+
+    <g fill="#0F0F0F">
+      <rect x="150" y="180" width="5" height="5"/>
+      <rect x="165" y="180" width="5" height="5"/>
+      <rect x="180" y="180" width="5" height="5"/>
+      <rect x="200" y="180" width="5" height="5"/>
+      <rect x="155" y="190" width="5" height="5"/>
+      <rect x="170" y="190" width="5" height="5"/>
+      <rect x="190" y="190" width="5" height="5"/>
+      <rect x="205" y="190" width="5" height="5"/>
+      <rect x="150" y="200" width="5" height="5"/>
+      <rect x="160" y="200" width="5" height="5"/>
+      <rect x="170" y="200" width="5" height="5"/>
+      <rect x="180" y="200" width="5" height="5"/>
+      <rect x="195" y="200" width="5" height="5"/>
+      <rect x="205" y="200" width="5" height="5"/>
+      <rect x="150" y="210" width="5" height="5"/>
+      <rect x="165" y="210" width="5" height="5"/>
+      <rect x="180" y="210" width="5" height="5"/>
+      <rect x="200" y="210" width="5" height="5"/>
+      <rect x="135" y="225" width="5" height="5"/>
+      <rect x="150" y="225" width="5" height="5"/>
+      <rect x="165" y="225" width="5" height="5"/>
+      <rect x="175" y="225" width="5" height="5"/>
+      <rect x="190" y="225" width="5" height="5"/>
+      <rect x="210" y="225" width="5" height="5"/>
+      <rect x="225" y="225" width="5" height="5"/>
+      <rect x="240" y="225" width="5" height="5"/>
+      <rect x="115" y="235" width="5" height="5"/>
+      <rect x="130" y="235" width="5" height="5"/>
+      <rect x="145" y="235" width="5" height="5"/>
+      <rect x="160" y="235" width="5" height="5"/>
+      <rect x="175" y="235" width="5" height="5"/>
+      <rect x="195" y="235" width="5" height="5"/>
+      <rect x="215" y="235" width="5" height="5"/>
+      <rect x="230" y="235" width="5" height="5"/>
+      <rect x="245" y="235" width="5" height="5"/>
+      <rect x="135" y="245" width="5" height="5"/>
+      <rect x="155" y="245" width="5" height="5"/>
+      <rect x="170" y="245" width="5" height="5"/>
+      <rect x="185" y="245" width="5" height="5"/>
+      <rect x="200" y="245" width="5" height="5"/>
+      <rect x="220" y="245" width="5" height="5"/>
+      <rect x="240" y="245" width="5" height="5"/>
+      <rect x="115" y="255" width="5" height="5"/>
+      <rect x="135" y="255" width="5" height="5"/>
+      <rect x="150" y="255" width="5" height="5"/>
+      <rect x="165" y="255" width="5" height="5"/>
+      <rect x="180" y="255" width="5" height="5"/>
+      <rect x="195" y="255" width="5" height="5"/>
+      <rect x="215" y="255" width="5" height="5"/>
+      <rect x="230" y="255" width="5" height="5"/>
+      <rect x="245" y="255" width="5" height="5"/>
+      <rect x="135" y="265" width="5" height="5"/>
+      <rect x="155" y="265" width="5" height="5"/>
+      <rect x="170" y="265" width="5" height="5"/>
+      <rect x="190" y="265" width="5" height="5"/>
+      <rect x="200" y="265" width="5" height="5"/>
+      <rect x="225" y="265" width="5" height="5"/>
+      <rect x="240" y="265" width="5" height="5"/>
+      <rect x="120" y="275" width="5" height="5"/>
+      <rect x="135" y="275" width="5" height="5"/>
+      <rect x="160" y="275" width="5" height="5"/>
+      <rect x="175" y="275" width="5" height="5"/>
+      <rect x="195" y="275" width="5" height="5"/>
+      <rect x="210" y="275" width="5" height="5"/>
+      <rect x="230" y="275" width="5" height="5"/>
+      <rect x="245" y="275" width="5" height="5"/>
+      <rect x="155" y="290" width="5" height="5"/>
+      <rect x="170" y="290" width="5" height="5"/>
+      <rect x="190" y="290" width="5" height="5"/>
+      <rect x="240" y="290" width="5" height="5"/>
+      <rect x="150" y="300" width="5" height="5"/>
+      <rect x="165" y="300" width="5" height="5"/>
+      <rect x="180" y="300" width="5" height="5"/>
+      <rect x="240" y="300" width="5" height="5"/>
+      <rect x="150" y="310" width="5" height="5"/>
+      <rect x="170" y="310" width="5" height="5"/>
+      <rect x="185" y="310" width="5" height="5"/>
+      <rect x="245" y="310" width="5" height="5"/>
+      <rect x="215" y="290" width="20" height="20"/>
+      <rect x="220" y="295" width="10" height="10" fill="#FFFFFF"/>
+      <rect x="223" y="298" width="4" height="4"/>
+    </g>
+  </g>
+
+  <text x="180" y="385" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#0F0F0F">$150</text>
+  <text x="180" y="412" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">3 items · awaiting payment</text>
+
+  <rect x="100" y="510" width="160" height="40" rx="20" fill="none" stroke="#0F0F0F" stroke-width="1.5"/>
+  <text x="180" y="536" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#0F0F0F" letter-spacing="1.5">CANCEL SALE</text>
+
+  <!-- SCAN INDICATOR -->
+  <text x="340" y="220" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#1F5C3F" letter-spacing="2">SCAN</text>
+  <path d="M 310 260 Q 340 235, 370 260" fill="none" stroke="#1F5C3F" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+  <path d="M 364 254 L 372 260 L 364 266" fill="none" stroke="#1F5C3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- PHONE 2: BUYER -->
+  <rect x="380" y="70" width="240" height="520" rx="34" fill="#0F0F0F"/>
+  <rect x="388" y="78" width="224" height="504" rx="26" fill="#F5EFE2"/>
+
+  <text x="404" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F0F0F">5:01</text>
+  <g transform="translate(572, 94)" fill="#0F0F0F">
+    <rect x="0" y="2" width="3" height="6" rx="0.5"/>
+    <rect x="5" y="0" width="3" height="8" rx="0.5"/>
+    <rect x="10" y="-2" width="3" height="10" rx="0.5"/>
+    <rect x="15" y="-4" width="3" height="12" rx="0.5"/>
+  </g>
+
+  <text x="500" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="500" fill="#888" letter-spacing="1.2">THIS OR DIE BOUTIQUE</text>
+
+  <rect x="404" y="148" width="192" height="118" rx="10" fill="#FFFFFF"/>
+
+  <text x="420" y="173" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0F0F0F">Vintage Levi's Trucker</text>
+  <text x="580" y="173" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F">$45</text>
+  <text x="420" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0F0F0F">Silk Scarf</text>
+  <text x="580" y="195" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F">$25</text>
+  <text x="420" y="217" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0F0F0F">Suede Boots</text>
+  <text x="580" y="217" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F">$80</text>
+  <line x1="420" y1="232" x2="580" y2="232" stroke="#B8B0A0" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="420" y="253" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666">Subtotal · 3 items</text>
+  <text x="580" y="253" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#0F0F0F">$150</text>
+
+  <text x="404" y="293" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#666" letter-spacing="1.5">CHOOSE HOW TO PAY</text>
+
+  <rect x="404" y="306" width="192" height="58" rx="12" fill="#C8E5D2" stroke="#1F5C3F" stroke-width="2"/>
+  <text x="418" y="327" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0F0F0F">Cash</text>
+  <text x="582" y="327" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0F0F0F">$150</text>
+  <text x="418" y="349" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#1F5C3F">No fee · Vendor confirms receipt</text>
+
+  <rect x="404" y="374" width="192" height="58" rx="12" fill="none" stroke="#D4CDC0" stroke-width="1"/>
+  <text x="418" y="395" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0F0F0F">Direct transfer</text>
+  <text x="582" y="395" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#0F0F0F">$150</text>
+  <text x="418" y="417" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">Venmo · Zelle · PayPal · Cash App</text>
+
+  <rect x="404" y="442" width="192" height="58" rx="12" fill="none" stroke="#D4CDC0" stroke-width="1"/>
+  <text x="418" y="463" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0F0F0F">Card</text>
+  <text x="582" y="463" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#0F0F0F">$155</text>
+  <text x="418" y="485" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">Apple Pay · Google Pay · saved cards</text>
+
+  <rect x="404" y="510" width="192" height="40" rx="20" fill="#0F0F0F"/>
+  <text x="500" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F5EFE2">Pay $150 →</text>
+</svg>
