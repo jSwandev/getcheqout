@@ -772,72 +772,48 @@
   .storefront-phone {
     position: relative;
     width: 100%;
-    max-width: 380px;
-    aspect-ratio: 380 / 760;
-    background: var(--ink);
-    border-radius: 48px;
+    max-width: 280px;
+    aspect-ratio: 240 / 520;
+    background: #0F0F0F;
+    border-radius: 34px;
     box-shadow:
       0 30px 60px -12px rgba(0,0,0,0.3),
       0 18px 36px -18px rgba(0,0,0,0.4),
       inset 0 0 0 2px rgba(255,255,255,0.06);
   }
-  .storefront-phone-notch {
-    position: absolute;
-    top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 110px;
-    height: 28px;
-    background: var(--ink);
-    border-radius: 0 0 18px 18px;
-    z-index: 3;
-  }
   .storefront-phone-screen {
     position: absolute;
-    inset: 12px;
-    border-radius: 36px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: var(--cream);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--rule) transparent;
-  }
-  .storefront-phone-screen::-webkit-scrollbar {
-    width: 4px;
-  }
-  .storefront-phone-screen::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .storefront-phone-screen::-webkit-scrollbar-thumb {
-    background: var(--rule);
-    border-radius: 999px;
+    inset: 8px;
+    border-radius: 26px;
+    overflow: hidden;
+    background: #F5EFE2;
   }
   .storefront-phone-screen img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
     pointer-events: none;
     user-select: none;
   }
-  .storefront-phone-handle {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 130px;
-    height: 4px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 2px;
-    z-index: 3;
+  .forest-italic {
+    font-style: italic;
+    color: #1F5C3F;
+    font-weight: 700;
   }
-  .storefront-scroll-hint {
+  .storefront-tier-pill-wrap { margin-top: 32px; }
+  .tier-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--ink);
+    color: var(--cream);
     font-family: var(--f-mono);
     font-size: 11px;
-    color: var(--mute);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.12em;
   }
 
   /* CATEGORY STATEMENT — magazine-style positioning */
@@ -2192,34 +2168,34 @@
 
 <div class="section-divider-wrap"><hr class="section-divider"></div>
 
-<!-- STOREFRONT - The 24/7 store -->
+<!-- AND NOW FOR THE BEST PART -->
 <section id="storefront" class="storefront">
   <div class="section-inner">
     <div class="storefront-grid">
       <div class="storefront-copy">
-        <h2 class="section-title">And now for<br><span class="green-text">the best part.</span></h2>
-        <p class="storefront-tag">Your booth closes at 6. <em>Your storefront doesn't.</em></p>
+        <h2 class="section-title">And now for the best part.</h2>
+        <p class="storefront-tag">Your booth closes at 6. <em class="forest-italic">Your storefront doesn't.</em></p>
 
         <div class="storefront-points">
           <div class="storefront-point">
             <div class="storefront-point-num">i.</div>
             <div>
               <h4>Same item, two channels.</h4>
-              <p>Every item you log at the booth is live online the moment you tap publish. No double entry. No second app.</p>
+              <p>Every item you log at the booth goes live online the moment you tap publish. No double entry. No second app. When a sale happens — booth or storefront — inventory updates everywhere in real time. We watch out for your inventory no matter where it sells.</p>
             </div>
           </div>
           <div class="storefront-point">
             <div class="storefront-point-num">ii.</div>
             <div>
               <h4>yourname.cheqout.store</h4>
-              <p>Live the moment you have an item. Put it on your Instagram bio, your hangtags, the back of your business card. People shop with you when they get home.</p>
+              <p>With Shop tier or higher, your storefront goes live the moment you have an item. Put it on your Instagram bio, your hangtags, the back of your business card. People shop with you when they get home.</p>
             </div>
           </div>
           <div class="storefront-point">
             <div class="storefront-point-num">iii.</div>
             <div>
               <h4>Pickup or ship — buyer picks.</h4>
-              <p>Local buyer can put it on hold and grab it at your next pop-up. Out-of-state buyer can pay and you ship. Same inventory, two fulfillment paths.</p>
+              <p>A buyer can put it on hold and grab it at your next pop-up — or pay and you ship it to them. Same inventory, two fulfillment paths. Every item has its own live chat thread, so pickup timing or shipping questions stay tied to the item they're about.</p>
             </div>
           </div>
           <div class="storefront-point">
@@ -2231,21 +2207,17 @@
           </div>
         </div>
 
-        <div class="storefront-tier-note">
-          <span class="storefront-tier-tag">Shop tier and up</span>
-          <span class="storefront-tier-text">Included starting at <strong>$89/mo</strong>. Custom domain at Pro.</span>
+        <div class="storefront-tier-pill-wrap">
+          <span class="tier-tag-pill">SHOP TIER AND UP</span>
         </div>
       </div>
 
       <div class="storefront-phone-wrap">
         <div class="storefront-phone">
-          <div class="storefront-phone-notch"></div>
           <div class="storefront-phone-screen">
-            <img src="/storefront-stitched.jpg" alt="A real CHEQout storefront — Mister Swan" />
+            <img src="/assets/storefront-iphone-capture.png" alt="A real CHEQout storefront — swan-test.cheqout.store" />
           </div>
-          <div class="storefront-phone-handle"></div>
         </div>
-        <div class="storefront-scroll-hint">↕ Scroll inside the phone</div>
       </div>
     </div>
   </div>
