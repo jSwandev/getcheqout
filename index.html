@@ -207,6 +207,14 @@
   .btn:hover .arrow { transform: translateX(4px); }
 
   /* HERO PHONE */
+  .hero-phone-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    /* mirrors .storefront-phone-wrap (the empirically-working pattern),
+       minus position: sticky which is storefront-specific */
+  }
   .hero-phone {
     /* Explicit width/height — percentage padding-bottom resolves to 0 in
        intrinsic-sizing grid contexts. Bezel-layer structure
@@ -1839,9 +1847,10 @@
       </div>
     </div>
 
-    <div class="hero-phone">
-      <div class="hero-phone-frame"></div>
-      <div class="hero-phone-screen">
+    <div class="hero-phone-wrap">
+      <div class="hero-phone">
+        <div class="hero-phone-frame"></div>
+        <div class="hero-phone-screen">
           <div class="hero-phone-status">
             <span>9:54</span>
             <span>● ◗ ▮▮▯</span>
@@ -1890,6 +1899,7 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 </section>
 
