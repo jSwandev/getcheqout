@@ -206,17 +206,10 @@
   .btn .arrow { transition: transform 0.25s ease; }
   .btn:hover .arrow { transform: translateX(4px); }
 
-  /* HERO PHONE — single image, no wrapper chain (5-iteration cutoff hit) */
-  .hero-phone-image {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    border-radius: 36px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.22), 0 10px 24px rgba(0,0,0,0.12);
-    margin: 0 auto;
-    transform: rotate(-2deg);
-  }
+  /* HERO PHONE — styled inline on the <img> tag itself (iteration #7
+     cutoff hit; external CSS class kept failing to apply). No external
+     rule lives here. See the inline style attribute on the <img> in the
+     hero section. */
 
   /* SECTIONS */
   section { padding: 110px 32px; position: relative; }
@@ -1575,7 +1568,6 @@
     .hero-grid > * { max-width: 100%; overflow-wrap: anywhere; }
     .hero-grid > div:first-child { text-align: center; }
     .hero-marquee-track { font-size: 22px; }
-    .hero-phone-image { max-width: 260px; transform: none; }
     .pricing-grid { grid-template-columns: 1fr; }
     .one-capture-banner { padding: 28px; }
     .footer-meta { flex-direction: column; align-items: flex-start; }
@@ -1620,9 +1612,9 @@
       </div>
     </div>
 
-    <img class="hero-phone-image"
-         src="/assets/hero-phone-dashboard.png"
-         alt="CHEQout vendor dashboard — today's sales, pickups, shipping, inventory" />
+    <img src="/assets/hero-phone-dashboard.png"
+         alt="CHEQout vendor dashboard — today's sales, pickups, shipping, inventory"
+         style="display: block; max-width: 320px; width: 100%; height: auto; border: 8px solid #0F0F0F; border-radius: 44px; box-shadow: 0 30px 60px rgba(0,0,0,0.25), 0 12px 28px rgba(0,0,0,0.15); margin: 0 auto; transform: rotate(-3deg); box-sizing: border-box;" />
   </div>
 </section>
 
