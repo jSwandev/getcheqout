@@ -206,42 +206,16 @@
   .btn .arrow { transition: transform 0.25s ease; }
   .btn:hover .arrow { transform: translateX(4px); }
 
-  /* HERO PHONE */
-  .hero-phone-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    /* mirrors .storefront-phone-wrap (the empirically-working pattern),
-       minus position: sticky which is storefront-specific */
-  }
-  .hero-phone {
-    /* Explicit width/height — percentage padding-bottom resolves to 0 in
-       intrinsic-sizing grid contexts. Bezel-layer structure
-       (.hero-phone-frame + .hero-phone-screen) sits on top of this real-
-       sized container. */
-    width: 280px;
-    height: 607px;
+  /* HERO PHONE — single image, no wrapper chain (5-iteration cutoff hit) */
+  .hero-phone-image {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 36px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.22), 0 10px 24px rgba(0,0,0,0.12);
     margin: 0 auto;
-    position: relative;
-    transform: rotate(-3deg);
-    transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
-  }
-  .hero-phone:hover { transform: rotate(0deg) scale(1.02); }
-  .hero-phone-frame {
-    position: absolute;
-    inset: 0;
-    background: #0F0F0F;
-    border-radius: 34px;
-    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.3);
-  }
-  .hero-phone-screen {
-    position: absolute;
-    inset: 8px;
-    border-radius: 26px;
-    background: #F5EFE2;
-    padding: 22px 12px 12px;
-    overflow: hidden;
+    transform: rotate(-2deg);
   }
 
   /* SECTIONS */
@@ -582,8 +556,10 @@
     top: 100px;
   }
   .storefront-phone {
-    /* Same explicit-dimensions strategy as .hero-phone — bezel layer
-       (.storefront-phone-frame) paints inside a real 280×607 box. */
+    /* Explicit dimensions — bezel layer (.storefront-phone-frame) paints
+       inside a real 280×607 box. (Hero phone abandoned the bezel-frame
+       approach after 5 iterations of Safari grid-context bugs; it's now
+       a single <img class="hero-phone-image">.) */
     width: 280px;
     height: 607px;
     position: relative;
@@ -1581,7 +1557,6 @@
 
   @media (max-width: 1000px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero-phone { transform: rotate(0deg); }
     .stacks-demo { grid-template-columns: 1fr; gap: 32px; }
     .channels-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
@@ -1600,14 +1575,12 @@
     .hero-grid > * { max-width: 100%; overflow-wrap: anywhere; }
     .hero-grid > div:first-child { text-align: center; }
     .hero-marquee-track { font-size: 22px; }
+    .hero-phone-image { max-width: 260px; transform: none; }
     .pricing-grid { grid-template-columns: 1fr; }
     .one-capture-banner { padding: 28px; }
     .footer-meta { flex-direction: column; align-items: flex-start; }
     .storefront-phone { width: 240px; height: 520px; }
     .storefront-tag { font-size: 18px; }
-  }
-  @media (max-width: 320px) {
-    .hero-phone { width: 240px; height: 520px; }
   }
 </style>
 </head>
@@ -1647,16 +1620,9 @@
       </div>
     </div>
 
-    <div class="hero-phone-wrap">
-      <div class="hero-phone">
-        <div class="hero-phone-frame"></div>
-        <div class="hero-phone-screen">
-          <img src="/assets/hero-phone-dashboard.png"
-               alt="CHEQout vendor dashboard — today's sales, pickups, shipping, inventory"
-               style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
-        </div>
-      </div>
-    </div>
+    <img class="hero-phone-image"
+         src="/assets/hero-phone-dashboard.png"
+         alt="CHEQout vendor dashboard — today's sales, pickups, shipping, inventory" />
   </div>
 </section>
 
