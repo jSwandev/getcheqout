@@ -388,6 +388,10 @@
     align-self: center;
   }
 
+  /* THE CARD FEE QUESTION — gas-station framing */
+  .gas-station { background: var(--cream); }
+  .gas-station .section-eyebrow { margin-top: 0; }
+
   /* SET YOUR PRICE. NET YOUR PRICE. */
   .set-your-price { background: var(--cream); }
   .set-your-price-headline {
@@ -1365,6 +1369,14 @@
     font-size: 13px;
   }
   .tier-fee-value.free { color: var(--green); }
+  .tier-fee-note {
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
+    margin: -16px 0 18px;
+    padding: 0 2px;
+  }
+  .tier.featured .tier-fee-note { color: rgba(245,239,226,0.55); }
 
   .tier-feature-list {
     list-style: none;
@@ -1978,6 +1990,28 @@
 
 <div class="section-divider-wrap"><hr class="section-divider"></div>
 
+<!-- THE CARD FEE QUESTION — gas-station framing -->
+<section class="gas-station">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span class="num">02</span> — The card fee question</div>
+    <h2 class="set-your-price-headline">Every gas station in America figured this out.</h2>
+
+    <p class="set-your-price-para">
+      Gas stations post two prices on the sign: one for cash, one for card. Restaurants set card minimums. Airlines pass swipe fees through to passengers. Every industry that handles card payments figured out the same answer decades ago — card processing is a real cost, and the buyer sees it.
+    </p>
+
+    <p class="set-your-price-para">
+      CHEQout just does it transparently. On a card sale, the buyer sees the actual price plus Stripe's 2.9% + 30¢ processing — clearly broken out at checkout. They can also pick cash and skip it entirely, or use Venmo / Zelle / PayPal / Cash App where the vendor pays no platform fee on Shop / Pro / Empire tiers.
+    </p>
+
+    <p class="set-your-price-para">
+      What CHEQout doesn't do is silently eat the fee and bake it into the sticker. That's how Square and Shopify work — and that's how vendors end up netting less than they thought on every sale.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
 <!-- AND NOW FOR THE BEST PART -->
 <section id="storefront" class="storefront">
   <div class="section-inner">
@@ -2199,6 +2233,7 @@
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">5%</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">7.9%</span></div>
         </div>
+        <p class="tier-fee-note">Buyer pays card processing (2.9% + 30¢)</p>
         <ul class="tier-feature-list">
           <li>Camera-first POS</li>
           <li>Inventory + tags</li>
@@ -2219,6 +2254,7 @@
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
+        <p class="tier-fee-note">Buyer pays card processing (2.9% + 30¢)</p>
         <ul class="tier-feature-list">
           <li>Everything in Hustle</li>
           <li>yourname.cheqout.store</li>
@@ -2240,6 +2276,7 @@
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
+        <p class="tier-fee-note">Buyer pays card processing (2.9% + 30¢)</p>
         <ul class="tier-feature-list">
           <li>Everything in Shop</li>
           <li>Ghost mannequin + editorial AI scenes</li>
@@ -2260,6 +2297,7 @@
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
+        <p class="tier-fee-note">Buyer pays card processing (2.9% + 30¢)</p>
         <ul class="tier-feature-list">
           <li>Everything in Pro</li>
           <li>TikTok Shop integration</li>
@@ -2284,6 +2322,10 @@
       <div class="faq-item open">
         <div class="faq-q">Is cash really free, or is there a catch? <span class="toggle">+</span></div>
         <div class="faq-a">No catch. Cash is 0% on every tier — Hustle, Shop, Pro, and Empire. When a buyer taps Cash, your phone confirms the handshake, the sale is recorded, and you keep every dollar. We made cash the loss leader on purpose: fewer sellers dodge logging it, so your inventory stays accurate across every channel.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why does the buyer pay card processing fees on CHEQout? <span class="toggle">+</span></div>
+        <div class="faq-a">Because that's how every gas station, every restaurant card-minimum, and every airline already handles it. Card processing is a real cost — Stripe charges 2.9% + 30¢ per swipe and we never absorb it. The buyer sees that cost transparently at checkout and has three cheaper alternatives: cash (always free), or Venmo / Zelle / PayPal / Cash App (free on Shop, Pro, and Empire). Vendors don't lose margin to silent fees, and buyers know exactly what they're paying for.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Why does card cost more than the other rails? <span class="toggle">+</span></div>
