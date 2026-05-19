@@ -90,46 +90,47 @@
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1fr;
     gap: 60px;
     max-width: 1400px;
     margin: 0 auto;
     align-items: center;
-  }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 14px;
-    background: var(--cream-card);
-    border-radius: var(--radius-pill);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 28px;
-    border: 1px solid var(--rule-soft);
-  }
-  .hero-eyebrow .dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
   }
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(0.85); }
   }
 
-  .hero-scene {
-    font-family: var(--f-display);
-    font-size: clamp(15px, 1.4vw, 18px);
-    font-style: italic;
-    font-weight: 500;
+  .hero-marquee {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 0 28px;
+  }
+  .hero-marquee-track {
+    display: inline-flex;
+    gap: 14px;
+    white-space: nowrap;
+    font-family: var(--f-mono);
+    font-size: 12px;
     color: var(--mute);
-    letter-spacing: -0.005em;
-    margin: 20px 0 24px;
-    line-height: 1.4;
+    letter-spacing: 0.02em;
+    animation: hero-marquee-scroll 60s linear infinite;
+  }
+  .hero-marquee-track span { padding-right: 14px; border-right: 1px solid var(--rule-soft); }
+  .hero-marquee-track span:last-child { border-right: 0; }
+  @keyframes hero-marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .hero-kicker {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-top: 18px;
   }
   .hero-headline {
     font-family: var(--f-display);
@@ -203,179 +204,25 @@
   .btn .arrow { transition: transform 0.25s ease; }
   .btn:hover .arrow { transform: translateX(4px); }
 
-  /* HERO PHONE */
-  .hero-phone {
-    position: relative;
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    aspect-ratio: 380 / 760;
-    border-radius: 48px;
-    background: var(--ink);
-    padding: 12px;
-    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.3);
-    transform: rotate(-3deg);
-    transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
-  }
-  .hero-phone:hover { transform: rotate(0deg) scale(1.02); }
-  .hero-phone-screen {
-    width: 100%;
-    height: 100%;
-    border-radius: 36px;
-    background: var(--cream);
-    padding: 32px 18px 18px;
-    overflow: hidden;
-    position: relative;
-  }
-  .hero-phone-status {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 24px;
-    padding: 0 8px;
-  }
-  .hero-phone-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 0 4px;
-  }
-  .hero-phone-header .wordmark { font-size: 20px; }
-  .hero-phone-header .skull {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--cream-soft);
-    border: 2px solid var(--skull-red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-  .hero-phone-date {
-    padding: 0 4px;
-    font-size: 11px;
-    color: var(--mute);
-    margin-bottom: 14px;
-  }
-  .hero-phone-card {
-    background: var(--ink);
-    color: var(--cream);
-    border-radius: 18px;
-    padding: 18px;
-    margin-bottom: 14px;
-  }
-  .hero-phone-card-label {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: rgba(245,239,226,0.6);
-    margin-bottom: 6px;
-  }
-  .hero-phone-card-amount {
-    font-family: var(--f-display);
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-  }
-  .hero-phone-card-detail {
-    font-size: 11px;
-    color: rgba(245,239,226,0.55);
-    margin-top: 4px;
-  }
-  .hero-phone-tile-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
-  .hero-phone-tile {
-    background: var(--cream-card);
-    border-radius: 14px;
-    padding: 14px;
-  }
-  .hero-phone-tile-icon { width: 24px; height: 24px; margin-bottom: 8px; color: var(--ink); }
-  .hero-phone-tile-title { font-size: 13px; font-weight: 600; }
-  .hero-phone-tile-sub { font-size: 10px; color: var(--mute); margin-top: 2px; }
-  .hero-phone-pill {
-    display: inline-flex;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    font-size: 9px;
-    font-weight: 700;
-    background: var(--green-mint);
-    color: var(--green-mint-text);
-  }
-  .hero-phone-section-label {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--mute);
-    padding: 0 4px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .hero-phone-pickup {
-    background: var(--cream-card);
-    border-radius: 14px;
-    padding: 12px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  .hero-phone-pickup-thumb {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #8A4A3F, #C8853F);
-    flex-shrink: 0;
-  }
-  .hero-phone-pickup-info { flex: 1; min-width: 0; }
-  .hero-phone-pickup-title {
-    font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .hero-phone-pickup-meta { font-size: 9px; color: var(--mute); margin-top: 2px; }
-
-  .hero-annotation {
-    position: absolute;
-    background: var(--ink);
-    color: var(--cream);
-    padding: 10px 16px;
-    border-radius: var(--radius-pill);
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.3);
-    z-index: 5;
-  }
-  .hero-annotation::before {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--ink);
-    transform: rotate(45deg);
-  }
-  .annotation-1 {
-    top: 10%;
-    right: -8%;
-    transform: rotate(4deg);
-  }
-  .annotation-1::before { left: -4px; top: 50%; margin-top: -6px; }
-  .annotation-2 {
-    bottom: 18%;
-    left: -10%;
-    transform: rotate(-3deg);
-    background: var(--green);
-  }
-  .annotation-2::before { background: var(--green); right: -4px; top: 50%; margin-top: -6px; }
+  /* HERO PHONE — styled inline on the <img> tag itself (iteration #7
+     cutoff hit; external CSS class kept failing to apply). No external
+     rule lives here. See the inline style attribute on the <img> in the
+     hero section. */
 
   /* SECTIONS */
   section { padding: 110px 32px; position: relative; }
   .section-inner { max-width: 1400px; margin: 0 auto; }
+  .section-divider {
+    width: 60px;
+    height: 1px;
+    margin: 0 auto;
+    background: #D4CDC0;
+    border: 0;
+  }
+  .section-divider-wrap {
+    padding: 0 32px;
+    background: var(--cream);
+  }
   .section-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -409,580 +256,188 @@
     margin-bottom: 56px;
   }
 
-  /* MATH (4-rail interactive) */
-  .transparency { background: var(--cream-soft); }
-  .math-card {
-    background: var(--cream-card);
-    border-radius: var(--radius-lg);
-    padding: 56px 48px;
-    box-shadow: 0 1px 0 var(--rule-soft);
+  /* A NEW WAY TO PAY */
+  .how-to-pay { background: var(--cream); }
+  .how-to-pay-headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
+    max-width: 900px;
   }
-  .math-control {
+  .how-to-pay-para {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    max-width: 820px;
+  }
+  .how-to-pay-para strong { color: var(--ink); font-weight: 700; }
+  .qr-mockup-wrap {
+    margin: 56px auto 0;
+    max-width: 680px;
+    width: 100%;
+  }
+  .qr-mockup-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* AFTER THEY TAP PAY */
+  .after-tap { background: var(--cream-soft); }
+  .after-tap-headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 32px;
+  }
+  .after-tap-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 820px;
+    margin: 0 0 56px;
+  }
+  .after-tap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 1000px) {
+    .after-tap-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 720px) {
+    .after-tap-grid { grid-template-columns: 1fr; }
+  }
+  .after-tap-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--rule-soft);
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    margin-bottom: 40px;
-    max-width: 720px;
+    gap: 14px;
   }
-  .math-control-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .math-control-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--mute);
-    text-transform: uppercase;
-    min-width: 100px;
-  }
-  .math-slider {
-    flex: 1;
-    min-width: 200px;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 6px;
-    background: var(--cream-soft);
-    border-radius: var(--radius-pill);
-    outline: none;
-  }
-  .math-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    background: var(--ink);
+  .after-tap-icon-row { display: flex; align-items: center; gap: 10px; }
+  .after-tap-icon {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    cursor: pointer;
-    border: 4px solid var(--cream-card);
-    box-shadow: 0 0 0 1px var(--ink);
-    transition: transform 0.15s;
-  }
-  .math-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
-  .math-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    background: var(--ink);
-    border-radius: 50%;
-    cursor: pointer;
-    border: 4px solid var(--cream-card);
-    box-shadow: 0 0 0 1px var(--ink);
-  }
-
-  .math-tier-toggle, .math-rail-toggle {
-    display: flex;
-    background: var(--cream-soft);
-    border-radius: var(--radius-pill);
-    padding: 4px;
-    gap: 4px;
-    flex-wrap: wrap;
-  }
-  .math-toggle-btn {
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    border: none;
-    background: transparent;
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    color: var(--ink);
-    transition: all 0.2s;
-    font-family: var(--f-body);
-  }
-  .math-toggle-btn.active {
-    background: var(--ink);
-    color: var(--cream);
-  }
-
-  .math-rails-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 8px;
-  }
-  .rail-card {
-    background: var(--cream-soft);
-    border-radius: var(--radius);
-    padding: 20px 18px;
-    text-align: center;
-    border: 2px solid transparent;
-    transition: all 0.3s;
-    position: relative;
-  }
-  .rail-card.featured {
-    background: var(--green-mint);
-    border-color: var(--green);
-  }
-  .rail-card.featured .rail-name { color: var(--green-deep); }
-  .rail-card.featured::before {
-    content: "Always free";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--green);
-    color: var(--cream);
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .rail-name {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--mute);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .rail-amount {
-    font-family: var(--f-display);
-    font-weight: 800;
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    transition: all 0.3s;
-  }
-  .rail-breakdown {
-    margin-top: 8px;
-    font-family: var(--f-mono);
-    font-size: 11px;
-    color: var(--mute);
-    line-height: 1.4;
-    min-height: 28px;
-  }
-  .rail-breakdown .info-tip {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--rule);
-    color: var(--cream-card);
-    font-size: 10px;
-    line-height: 14px;
-    cursor: help;
-    margin-left: 4px;
-    vertical-align: middle;
-  }
-
-  .math-flow {
-    margin-top: 40px;
-    padding-top: 32px;
-    border-top: 1px solid var(--rule-soft);
-    display: grid;
-    grid-template-columns: 1fr auto 2fr auto 1fr;
-    gap: 24px;
-    align-items: center;
-  }
-  .math-cell { text-align: center; padding: 20px 8px; }
-  .math-cell-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--mute);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .math-amount {
-    font-family: var(--f-display);
-    font-weight: 800;
-    font-size: clamp(36px, 5vw, 72px);
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .math-amount.win {
-    color: var(--ink);
-    position: relative;
-    display: inline-block;
-    z-index: 1;
-  }
-  .math-amount.win::after {
-    content: "";
-    position: absolute;
-    left: -8px;
-    right: -8px;
-    bottom: 2px;
-    height: 38%;
-    background: var(--yellow-hilite);
-    z-index: -1;
-    border-radius: 4px;
-  }
-  .math-detail {
-    font-family: var(--f-mono);
-    font-size: 12px;
-    color: var(--mute);
-    margin-top: 8px;
-  }
-  .math-arrow {
-    font-size: 32px;
-    color: var(--green);
-    font-weight: 600;
-    opacity: 0.5;
-  }
-  .math-bottom-line {
-    margin-top: 32px;
-    padding-top: 28px;
-    border-top: 1px solid var(--rule-soft);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .math-bottom-pill {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 10px 20px;
-    border-radius: var(--radius-pill);
-    font-family: var(--f-display);
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: -0.01em;
-    position: relative;
-  }
-  .math-bottom-pill::before {
-    content: "";
-    position: absolute;
-    inset: -3px -8px;
-    background: var(--yellow-hilite);
-    border-radius: var(--radius-pill);
-    z-index: -1;
-  }
-  .math-bottom-text {
-    font-family: var(--f-mono);
-    font-size: 13px;
-    color: var(--mute);
-    font-weight: 500;
-  }
-
-  .killshot {
-    margin-top: 64px;
-    padding: 40px 32px;
-    background: var(--ink);
-    color: var(--cream);
-    border-radius: var(--radius-lg);
-    text-align: center;
-  }
-  .killshot-text {
-    font-family: var(--f-display);
-    font-weight: 700;
-    font-size: clamp(24px, 3.5vw, 44px);
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .killshot-text .strike-light { color: rgba(245,239,226,0.4); position: relative; }
-  .killshot-text .strike-light::after {
-    content: "";
-    position: absolute;
-    left: -2px; right: -2px; top: 52%;
-    height: 4px; background: var(--skull-red);
-    transform: rotate(-2deg);
-    border-radius: 2px;
-  }
-  .killshot-text .punch { color: var(--green-mint); }
-
-  /* CHECKOUT MOCKUP */
-  .checkout-mockup {
-    margin-top: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-  .checkout-text h3 {
-    font-family: var(--f-display);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .checkout-text h3 .green-text { color: var(--green); }
-  .checkout-text p {
-    font-size: 17px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin-bottom: 18px;
-  }
-  .checkout-text .small-note {
-    font-size: 14px;
-    color: var(--mute);
-    border-left: 3px solid var(--green);
-    padding: 8px 14px;
-    margin-top: 16px;
-    background: var(--cream-card);
-    border-radius: 0 8px 8px 0;
-  }
-
-  .checkout-phone {
-    background: var(--ink);
-    border-radius: 32px;
-    padding: 12px;
-    max-width: 360px;
-    margin: 0 auto;
-    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
-  }
-  .checkout-phone-screen {
-    background: var(--cream);
-    border-radius: 22px;
-    padding: 24px 20px;
-  }
-  .checkout-phone-vendor {
-    font-size: 11px;
-    color: var(--mute);
-    margin-bottom: 6px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .checkout-phone-item {
-    font-family: var(--f-display);
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-  }
-  .checkout-cart {
-    background: var(--cream-card);
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-bottom: 20px;
-    margin-top: 4px;
-  }
-  .checkout-cart-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0;
-    font-size: 14px;
-  }
-  .checkout-cart-name {
-    font-weight: 500;
-    color: var(--ink);
-  }
-  .checkout-cart-price {
-    font-family: var(--f-display);
-    font-weight: 600;
-    color: var(--ink);
-    font-size: 14px;
-  }
-  .checkout-cart-subtotal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    margin-top: 6px;
-    border-top: 1px dashed var(--rule);
-    font-size: 13px;
-    color: var(--mute);
-    font-weight: 600;
-  }
-  .checkout-cart-subtotal span:last-child {
-    font-family: var(--f-display);
-    font-size: 16px;
-    color: var(--ink);
-    font-weight: 700;
-  }
-  .checkout-phone-rails-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--mute);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .checkout-rail-option {
-    background: var(--cream-card);
-    border: 2px solid var(--rule-soft);
-    border-radius: 14px;
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .checkout-rail-option:hover { border-color: var(--green); }
-  .checkout-rail-option.selected {
-    border-color: var(--ink);
-    background: var(--cream-soft);
-  }
-  .checkout-rail-option .rail-info { display: flex; flex-direction: column; gap: 2px; }
-  .checkout-rail-option .rail-title { font-size: 14px; font-weight: 600; }
-  .checkout-rail-option .rail-meta { font-size: 11px; color: var(--mute); }
-  .checkout-rail-option .rail-price-tag {
-    font-family: var(--f-display);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .checkout-rail-option .rail-price-tag .info-i {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--rule);
-    color: var(--cream-card);
-    font-size: 10px;
-    font-weight: 600;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: help;
-    font-style: italic;
-  }
-  .checkout-rail-option.featured {
-    background: var(--green-mint);
-    border-color: var(--green);
-  }
-  .checkout-rail-option.featured .rail-meta { color: var(--green-deep); font-weight: 600; }
-
-  .checkout-phone-confirm {
-    background: var(--ink);
     color: var(--cream);
-    border-radius: var(--radius-pill);
-    padding: 14px;
-    text-align: center;
-    font-weight: 600;
-    margin-top: 16px;
+    font-weight: 700;
     font-size: 14px;
+    flex-shrink: 0;
   }
-
-  /* AFTER-PAY RAIL FLOW */
-  .afterpay-section {
-    margin-top: 96px;
-    padding-top: 64px;
-    border-top: 1px solid var(--rule-soft);
-  }
-  .afterpay-headline {
-    font-family: var(--f-display);
-    font-weight: 800;
-    font-size: clamp(32px, 4.5vw, 56px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    margin-bottom: 20px;
-  }
-  .afterpay-headline .green-text { color: var(--green); }
-  .afterpay-sub {
-    font-size: 17px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
-  .afterpay-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .afterpay-card {
-    background: var(--cream-card);
-    border: 1px solid var(--rule-soft);
-    border-radius: var(--radius-lg);
-    padding: 28px 28px 24px;
-    transition: all 0.3s cubic-bezier(.2,.8,.2,1);
-  }
-  .afterpay-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 32px -16px rgba(0,0,0,0.1);
-    border-color: var(--green);
-  }
-  .afterpay-icon-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  .afterpay-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--f-display);
-    font-weight: 800;
-    font-size: 22px;
-    color: var(--cream);
-  }
-  .afterpay-icon-cash { background: var(--green); }
-  .afterpay-icon-venmo { background: #008CFF; }
-  .afterpay-icon-zelle { background: #6D1ED4; }
-  .afterpay-icon-card { background: var(--ink); }
-  .afterpay-tag {
-    background: var(--cream-soft);
+  .after-tap-icon-cash { background: var(--green); }
+  .after-tap-icon-venmo { background: #008CFF; }
+  .after-tap-icon-zelle { background: #6D1ED4; }
+  .after-tap-icon-card { background: var(--ink); }
+  .after-tap-tag {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     color: var(--mute);
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
-  .afterpay-card-title {
+  .after-tap-title {
     font-family: var(--f-display);
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0;
   }
-  .afterpay-card-text {
+  .after-tap-text {
     font-size: 14px;
     line-height: 1.55;
     color: var(--ink-soft);
-    margin-bottom: 18px;
+    margin: 0;
   }
-  .afterpay-card-text em {
-    background: var(--yellow-hilite);
-    padding: 1px 5px;
-    border-radius: 3px;
-    font-style: normal;
-    font-weight: 500;
-  }
-  .afterpay-flow {
+  .after-tap-flow {
     display: flex;
-    align-items: center;
     gap: 6px;
     flex-wrap: wrap;
-    padding-top: 16px;
-    border-top: 1px dashed var(--rule);
+    margin-top: auto;
   }
-  .afterpay-step {
-    background: var(--cream-soft);
-    color: var(--ink-soft);
-    padding: 6px 12px;
+  .after-tap-step {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    padding: 4px 9px;
     border-radius: var(--radius-pill);
+    background: var(--cream-soft);
+    color: var(--ink);
+    letter-spacing: 0.05em;
+  }
+  .after-tap-step.done {
+    background: var(--green-mint);
+    color: var(--green-mint-text);
+    font-weight: 700;
+  }
+  .after-tap-step-arrow {
+    font-size: 12px;
+    color: var(--mute);
+    align-self: center;
+  }
+
+  /* SET YOUR PRICE. NET YOUR PRICE. */
+  .set-your-price { background: var(--cream); }
+  .set-your-price-headline {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
+    max-width: 900px;
+  }
+  .set-your-price-para {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    max-width: 820px;
+  }
+  .set-your-price-para strong { color: var(--ink); font-weight: 700; }
+  .set-your-price-table {
+    width: 100%;
+    max-width: 560px;
+    margin: 32px 0 12px;
+    border-collapse: collapse;
+    font-family: var(--f-display);
+  }
+  .set-your-price-table th,
+  .set-your-price-table td {
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .set-your-price-table th {
     font-family: var(--f-mono);
     font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-bottom: 1px solid var(--rule);
   }
-  .afterpay-step.done {
-    background: var(--green);
-    color: var(--cream);
-  }
-  .afterpay-step-arrow {
+  .set-your-price-table tr:last-child td { border-bottom: none; }
+  .set-your-price-caption {
+    font-style: italic;
     color: var(--mute);
     font-size: 14px;
-    font-weight: 600;
-  }
-  @media (max-width: 1000px) {
-    .afterpay-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 720px) {
-    .afterpay-flow { flex-direction: column; align-items: flex-start; }
-    .afterpay-step-arrow { transform: rotate(90deg); margin-left: 16px; }
+    margin: 0 0 40px;
   }
 
   /* STOREFRONT — the 24/7 store */
@@ -1092,76 +547,57 @@
     top: 100px;
   }
   .storefront-phone {
+    /* Explicit dimensions — bezel layer (.storefront-phone-frame) paints
+       inside a real 280×607 box. (Hero phone abandoned the bezel-frame
+       approach after 7 iterations of Safari grid-context bugs; it now
+       ships as a single inline-styled img tag — see hero section.) */
+    width: 280px;
+    height: 607px;
     position: relative;
-    width: 100%;
-    max-width: 360px;
-    aspect-ratio: 360 / 720;
-    background: var(--ink);
-    border-radius: 48px;
-    padding: 14px;
+  }
+  .storefront-phone-frame {
+    position: absolute;
+    inset: 0;
+    background: #0F0F0F;
+    border-radius: 34px;
     box-shadow:
       0 30px 60px -12px rgba(0,0,0,0.3),
       0 18px 36px -18px rgba(0,0,0,0.4),
       inset 0 0 0 2px rgba(255,255,255,0.06);
   }
-  .storefront-phone-notch {
-    position: absolute;
-    top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 110px;
-    height: 28px;
-    background: var(--ink);
-    border-radius: 0 0 18px 18px;
-    z-index: 3;
-  }
   .storefront-phone-screen {
-    width: 100%;
-    height: 100%;
-    border-radius: 36px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: var(--cream);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--rule) transparent;
-    position: relative;
-  }
-  .storefront-phone-screen::-webkit-scrollbar {
-    width: 4px;
-  }
-  .storefront-phone-screen::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .storefront-phone-screen::-webkit-scrollbar-thumb {
-    background: var(--rule);
-    border-radius: 999px;
+    position: absolute;
+    inset: 8px;
+    border-radius: 26px;
+    overflow: hidden;
+    background: #F5EFE2;
   }
   .storefront-phone-screen img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
     pointer-events: none;
     user-select: none;
   }
-  .storefront-phone-handle {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 130px;
-    height: 4px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 2px;
-    z-index: 3;
+  .forest-italic {
+    font-style: italic;
+    color: #1F5C3F;
+    font-weight: 700;
   }
-  .storefront-scroll-hint {
+  .storefront-tier-pill-wrap { margin-top: 32px; }
+  .tier-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--ink);
+    color: var(--cream);
     font-family: var(--f-mono);
     font-size: 11px;
-    color: var(--mute);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.12em;
   }
 
   /* CATEGORY STATEMENT — magazine-style positioning */
@@ -1303,6 +739,66 @@
     margin-top: 8px;
     padding-top: 16px;
     border-top: 1px solid var(--rule-soft);
+  }
+  .category-subhead {
+    font-family: var(--f-display);
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.4;
+    color: var(--mute);
+    margin: 0 0 40px;
+    max-width: 760px;
+  }
+  .category-subhead em {
+    font-style: italic;
+    color: var(--ink);
+  }
+  .category-para {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    max-width: 820px;
+  }
+  .category-para strong { color: var(--ink); font-weight: 700; }
+  .category-para em { font-style: italic; }
+  .category-para code {
+    font-family: var(--f-mono);
+    font-size: 0.95em;
+    background: var(--cream-card);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* BLACK BANNER (full-width transition) */
+  .black-banner {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 96px 32px;
+    text-align: center;
+  }
+  .black-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .black-banner-line {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .black-banner-line-2 {
+    color: var(--green-mint);
+    font-style: italic;
+    font-weight: 700;
+  }
+  .green-mint-italic {
+    color: var(--green-mint);
+    font-style: italic;
+    font-weight: 700;
   }
   .category-close-line.us em {
     color: var(--green);
@@ -1488,6 +984,30 @@
   .stacks .section-title { color: var(--cream); }
   .stacks .section-title .green-text { color: var(--green-mint); }
   .stacks .section-lede { color: rgba(245,239,226,0.7); }
+  .stacks .stacks-para {
+    color: rgba(245,239,226,0.85);
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+    max-width: 820px;
+  }
+  .stacks .stacks-para strong { color: var(--cream); font-weight: 700; }
+  .stacks .stacks-para em { font-style: italic; }
+  .stacks-eyebrow {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-mint);
+    margin-bottom: 14px;
+  }
+  .brand-stacks {
+    font-family: var(--f-mono);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--green-mint);
+  }
   .stacks-demo {
     display: grid;
     grid-template-columns: 0.9fr 1.4fr;
@@ -1753,8 +1273,31 @@
     padding: 5px 12px;
     font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.05em;
     border-radius: var(--radius-pill);
   }
+  .tier.popular { border-color: var(--ink); border-width: 2px; }
+  .tier.popular::before {
+    content: "Most Popular";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-pill);
+  }
+  .tier.mint-border { border-color: var(--green-mint); border-width: 2px; }
+  .tier-description {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 6px 0 16px;
+  }
+  .tier.featured .tier-description { color: rgba(245,239,226,0.75); }
   .tier-name {
     font-family: var(--f-display);
     font-weight: 800;
@@ -1783,6 +1326,17 @@
   }
   .tier.featured .tier-price small { color: rgba(245,239,226,0.5); }
 
+  .tier-fee-eyebrow {
+    margin-top: 18px;
+    margin-bottom: -8px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--green);
+  }
+  .tier.featured .tier-fee-eyebrow { color: var(--green-mint); }
   .tier-fee-table {
     margin-top: 20px;
     margin-bottom: 24px;
@@ -1908,6 +1462,31 @@
   }
 
   /* CTA FOOTER */
+  /* FOUNDER NOTE — letter-style narrow column between FAQ and CTA footer */
+  .founder-note {
+    background: var(--cream);
+    padding: 96px 32px;
+  }
+  .founder-note-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .founder-note-body {
+    font-family: var(--f-display);
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 22px;
+  }
+  .founder-note-signature {
+    font-family: var(--f-display);
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.4;
+    font-style: italic;
+    color: #1F5C3F;
+    margin: 0;
+  }
+
   .cta-footer {
     background: var(--ink);
     color: var(--cream);
@@ -1968,18 +1547,13 @@
   .footer-meta .wordmark .out { color: var(--green-mint); }
 
   @media (max-width: 1000px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero-phone { transform: rotate(0deg); max-width: 320px; }
-    .hero-annotation { display: none; }
+    .hero-grid { gap: 40px; }
     .stacks-demo { grid-template-columns: 1fr; gap: 32px; }
     .channels-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
     .compare-header, .compare-row { grid-template-columns: 2fr 1fr 1.2fr; }
     .compare-cell:nth-child(3), .compare-cell:nth-child(4),
     .compare-header-cell:nth-child(3), .compare-header-cell:nth-child(4) { display: none; }
-    .checkout-mockup { grid-template-columns: 1fr; }
-    .math-flow { grid-template-columns: 1fr; gap: 24px; }
-    .math-arrow { transform: rotate(90deg); }
     .storefront-grid { grid-template-columns: 1fr; gap: 48px; }
     .storefront-phone-wrap { position: static; }
   }
@@ -1988,14 +1562,14 @@
     .topnav { gap: 12px; }
     .topnav a:not(.cta) { display: none; }
     section { padding: 64px 20px; }
-    .hero { padding: 40px 20px 60px; }
-    .math-card { padding: 32px 24px; }
-    .math-rails-grid { grid-template-columns: 1fr; }
+    .hero { padding: 40px 24px 60px; }
+    .hero-grid > * { max-width: 100%; overflow-wrap: anywhere; }
+    .hero-grid > div:first-child { text-align: center; }
+    .hero-marquee-track { font-size: 22px; }
     .pricing-grid { grid-template-columns: 1fr; }
     .one-capture-banner { padding: 28px; }
-    .killshot { padding: 28px 20px; }
     .footer-meta { flex-direction: column; align-items: flex-start; }
-    .storefront-phone { max-width: 280px; }
+    .storefront-phone { width: 240px; height: 520px; }
     .storefront-tag { font-size: 18px; }
   }
 </style>
@@ -2019,337 +1593,419 @@
 <section class="hero">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span> Live · Beta open in LA</div>
-      <div class="hero-scene">Your pop-up. Your market. Your craft fair.</div>
+      <div class="hero-marquee">
+        <div class="hero-marquee-track">
+          <span>your pop-up</span><span>your weekend market</span><span>your vintage shop</span><span>your rack</span><span>your craft fair</span><span>your yard sale</span><span>your record store</span><span>your boutique</span><span>your studio sale</span><span>your gallery</span><span>your merch table</span><span>your antique mall</span><span>your estate sale</span><span>your brick-and-mortar</span><span>your pop-up</span><span>your weekend market</span><span>your vintage shop</span><span>your rack</span><span>your craft fair</span><span>your yard sale</span><span>your record store</span><span>your boutique</span><span>your studio sale</span><span>your gallery</span><span>your merch table</span><span>your antique mall</span><span>your estate sale</span><span>your brick-and-mortar</span>
+        </div>
+      </div>
       <h1 class="hero-headline">
-        Cataloged.<br>
-        Listed.<br>
-        <span class="out-brand">Sold.</span><br>
-        <span class="hero-tag">In one shot.</span>
+        Shoot it. List it. <span class="out-brand">Sold.</span>
       </h1>
+      <div class="hero-kicker">Your phone IS your POS.</div>
       <p class="hero-sub">
-        Camera-first POS for vintage, oddities, and one-of-a-kind finds. <strong>12 items or 12,000</strong> — every one different. Finally control your pop-up like a boss <em>and</em> live on your storefront the moment you log it.
+        CHEQout is the POS for independent vendors — the weekend pop-up hustler, the veteran flea market seller, the brick-and-mortar vintage shop. <strong>Camera-first. AI-powered. Hardware-free.</strong> Point your camera — AI does the data entry. You confirm and publish. 12 items or 12,000, you can finally run your store like you mean it. Four tiers — <strong>Hustle</strong>, <strong>Shop</strong>, <strong>Pro</strong>, <strong>Empire</strong>. It's time to CHEQout.
       </p>
       <div class="hero-ctas">
-        <a href="#pricing" class="btn btn-primary">Start free <span class="arrow">→</span></a>
-        <a href="#how" class="btn btn-ghost">See the math</a>
+        <a href="#pricing" class="btn btn-primary">Open your store <span class="arrow">→</span></a>
       </div>
     </div>
 
-    <div style="position: relative;">
-      <div class="hero-phone">
-        <div class="hero-phone-screen">
-          <div class="hero-phone-status">
-            <span>9:54</span>
-            <span>● ◗ ▮▮▯</span>
-          </div>
-          <div class="hero-phone-header">
-            <div class="wordmark">CHEQ<span class="out">out</span></div>
-            <div class="skull">💀</div>
-          </div>
-          <div class="hero-phone-date">Thursday, May 7</div>
-          <div class="hero-phone-card">
-            <div class="hero-phone-card-label">TODAY</div>
-            <div class="hero-phone-card-amount">$1,420</div>
-            <div class="hero-phone-card-detail">Your profit · 12 sales</div>
-          </div>
-          <div class="hero-phone-tile-row">
-            <div class="hero-phone-tile">
-              <svg class="hero-phone-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-              <div class="hero-phone-tile-title">Sell</div>
-              <div class="hero-phone-tile-sub">Start a sale</div>
-            </div>
-            <div class="hero-phone-tile">
-              <svg class="hero-phone-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <div class="hero-phone-tile-title">Quick sale</div>
-              <div class="hero-phone-tile-sub">42 in stock</div>
-            </div>
-          </div>
-          <div class="hero-phone-section-label">
-            <span>PICKUPS</span>
-            <span class="hero-phone-pill">1 awaiting</span>
-          </div>
-          <div class="hero-phone-pickup">
-            <div class="hero-phone-pickup-thumb"></div>
-            <div class="hero-phone-pickup-info">
-              <div class="hero-phone-pickup-title">Leopard Faux Fur Coat</div>
-              <div class="hero-phone-pickup-meta">$85 · pickup by Jun 5</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-annotation annotation-1">No card reader. No terminal.</div>
-      <div class="hero-annotation annotation-2">You net what you priced ✓</div>
-    </div>
   </div>
 </section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
 
 <!-- CATEGORY STATEMENT -->
 <section id="category" class="category">
   <div class="section-inner">
     <div class="category-wrap">
-      <div class="section-eyebrow"><span class="num">02</span> · Who it's for</div>
-      <h2 class="category-headline">A new category,<br><span class="green-text">on purpose.</span></h2>
+      <h2 class="category-headline">A new category, on purpose.</h2>
 
-      <p class="category-list">
-        Flea markets. Pop-ups. Craft fairs. Antique malls. Vintage shops. Salon racks. Estate sales. Friend's garage sales with intent. Curated boutiques.
+      <p class="category-subhead">
+        CHEQout supports the way <em>you</em> sell. Intuitive in your hand. AI builds your inventory like a pro.
       </p>
 
-      <p class="category-thesis">
-        The category nobody built for: vendors with <span class="hilite">unique inventory at scale.</span> 12 items or 12,000 — every single one different. No UPCs to scan. No catalog to import. Just a phone and a stack of stuff worth selling — and you accept payments the way you already do: <em class="rails">cash, Venmo, Zelle, PayPal, Cash App, card.</em> All in one checkout.
+      <p class="category-para">
+        <strong>Every kind of item. Every kind of payment.</strong> Vendors with unique inventory at scale — 12 items or 12,000, every single one different. No UPCs to scan. No catalog to import. Just a phone and a stack of stuff worth selling — and you accept payments the way you already do: <em>cash, Venmo, Zelle, PayPal, Cash App, card.</em> All in one checkout.
       </p>
 
-      <p class="category-storefront">
-        And when you close up shop, <em>your shop stays open.</em> Every item you log goes live on <strong>yourname.cheqout.store</strong> automatically. Buyers keep shopping while you're packing up, eating dinner, sleeping in.
+      <p class="category-para">
+        <strong>Your storefront sells while you sleep.</strong> Every item you log goes live on <code>yourname.cheqout.store</code> the moment you publish — automatically. No double-listing. No syncing. Buyers keep shopping while you're packing up the booth, eating dinner, or sleeping in.
       </p>
 
-      <p class="category-loop">
-        <em>And every sale becomes a returning customer.</em> At checkout, buyers enter their phone and email. The phone becomes their login for next time. A receipt hits their inbox with a link straight back to your store. <span class="tier-aside">(Shop tier and up, you can email them where your next pop-up is or when new finds drop on your store.)</span>
-      </p>
-
-      <div class="category-divider"></div>
-
-      <p class="category-close">
-        <span class="category-close-line">Shopify assumes you have <em>product lines.</em></span>
-        <span class="category-close-line">Square assumes you have <em>a register.</em></span>
-        <span class="category-close-line us">CHEQout assumes you have <em>a folding table, a phone, and an eye for finds.</em></span>
+      <p class="category-para">
+        <strong>And every sale becomes a returning customer.</strong> At checkout, buyers enter their phone and email. The phone becomes their login next time. A receipt hits their inbox with a link straight back to your store. <em>(Shop tier and up: email them when your next pop-up drops or new finds hit your store.)</em>
       </p>
     </div>
   </div>
 </section>
 
-<!-- TRANSPARENCY / MATH -->
-<section id="how" class="transparency">
+<!-- BLACK BANNER 1 -->
+<section class="black-banner">
+  <div class="black-banner-inner">
+    <div class="black-banner-line">You decide what you're worth.</div>
+    <div class="black-banner-line black-banner-line-2">We make sure you get it.</div>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
+<!-- A NEW WAY TO PAY -->
+<section id="how" class="how-to-pay">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">03</span> · The fee math</div>
-    <h2 class="section-title">You set the price.<br><span class="green-text">The customer picks the rail.</span></h2>
-    <p class="section-lede">
-      Set what you want to make. Pick a tier and a payment rail to see what your customer actually pays. <strong>Cash is always free.</strong> Digital rails are tier-priced. Card adds Stripe's processor fee on top — same as everywhere, but visible. The customer always has a cheaper option.
+    <h2 class="how-to-pay-headline">A new way to pay.</h2>
+
+    <p class="how-to-pay-para">
+      <strong>No reader. No printer. No counter.</strong> CHEQout pioneered phone-to-phone payment — the first POS where the customer pays from their own phone. You ring up the sale on your end, your screen displays a QR code, the buyer scans it, and the cart opens in their browser. No app to download. No hardware to share.
     </p>
 
-    <div class="math-card">
-      <div class="math-control">
-        <div class="math-control-row">
-          <span class="math-control-label">Net price</span>
-          <input type="range" min="10" max="500" value="100" step="5" class="math-slider" id="netSlider">
-          <span style="font-family: var(--f-mono); font-size: 14px; min-width: 60px; text-align: right; font-weight: 600;">$<span id="netDisplay">100</span></span>
-        </div>
-        <div class="math-control-row">
-          <span class="math-control-label">Your tier</span>
-          <div class="math-tier-toggle">
-            <button class="math-toggle-btn active" data-tier="hustle">Hustle</button>
-            <button class="math-toggle-btn" data-tier="shop">Shop</button>
-            <button class="math-toggle-btn" data-tier="pro">Pro</button>
-            <button class="math-toggle-btn" data-tier="empire">Empire</button>
-          </div>
-        </div>
-      </div>
+    <p class="how-to-pay-para">
+      <strong>They see every option, side by side.</strong> Cash. Venmo. Zelle. PayPal. Cash App. Card. Every price, every rail, all at once. They tap the one that fits, pay from their phone, and your phone confirms in realtime — vendor-confirmed for cash, auto-confirmed for digital and card.
+    </p>
 
-      <div class="math-rails-grid">
-        <div class="rail-card featured">
-          <div class="rail-name">Cash</div>
-          <div class="rail-amount" id="cashAmount">$100</div>
-          <div class="rail-breakdown" id="cashBreakdown">no fee, ever</div>
-        </div>
-        <div class="rail-card">
-          <div class="rail-name">Venmo · Zelle · PayPal · Cash App</div>
-          <div class="rail-amount" id="vzpAmount">$105</div>
-          <div class="rail-breakdown" id="vzpBreakdown">+ 5% CHEQout</div>
-        </div>
-        <div class="rail-card">
-          <div class="rail-name">Card</div>
-          <div class="rail-amount" id="cardAmount">$108</div>
-          <div class="rail-breakdown" id="cardBreakdown">+ 5% CHEQout + 2.9% Stripe</div>
-        </div>
-      </div>
+    <p class="how-to-pay-para">
+      <strong>No paper, either.</strong> Receipts arrive by SMS or email — never on a roll of thermal paper. There's no printer, no register tape, no countertop hardware to keep running. The whole transaction lives on the two phones that ran it.
+    </p>
 
-      <div class="math-bottom-line">
-        <span class="math-bottom-pill">You always net the price you set</span>
-        <span class="math-bottom-text">— every. single. time.</span>
-      </div>
+    <p class="how-to-pay-para">
+      <strong>Two phones. One QR code. No hardware.</strong> That's the entire system. The checkout counter got replaced with a screen the customer was already holding.
+    </p>
+
+    <div class="qr-mockup-wrap">
+      <svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="qr-mockup-title qr-mockup-desc">
+        <title id="qr-mockup-title">CHEQout phone-to-phone QR payment mockup, version 2</title>
+        <desc id="qr-mockup-desc">Two iPhones with corrected 19.5:9 aspect ratio. Seller phone left shows store name THIS OR DIE BOUTIQUE with QR and $150 total. Buyer phone right shows scanned cart with Cash, Direct transfer (Venmo/Zelle/PayPal/Cash App), and Card rail options.</desc>
+
+        <rect width="680" height="620" rx="16" fill="#F5EFE2"/>
+
+        <!-- Phone labels -->
+        <text x="180" y="44" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#1F5C3F" letter-spacing="2.5">SELLER</text>
+        <text x="500" y="44" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#1F5C3F" letter-spacing="2.5">BUYER</text>
+
+        <!-- PHONE 1: SELLER (240x520, iPhone 15 Pro ratio) -->
+        <rect x="60" y="70" width="240" height="520" rx="34" fill="#0F0F0F"/>
+        <rect x="68" y="78" width="224" height="504" rx="26" fill="#F5EFE2"/>
+
+        <text x="84" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F0F0F">5:01</text>
+        <g transform="translate(252, 94)" fill="#0F0F0F">
+          <rect x="0" y="2" width="3" height="6" rx="0.5"/>
+          <rect x="5" y="0" width="3" height="8" rx="0.5"/>
+          <rect x="10" y="-2" width="3" height="10" rx="0.5"/>
+          <rect x="15" y="-4" width="3" height="12" rx="0.5"/>
+        </g>
+
+        <text x="180" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="500" fill="#888" letter-spacing="1.2">THIS OR DIE BOUTIQUE</text>
+        <text x="180" y="160" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#0F0F0F">Show this to your customer</text>
+
+        <rect x="100" y="178" width="160" height="160" rx="8" fill="#FFFFFF"/>
+
+        <g transform="translate(0, 8)">
+          <rect x="110" y="180" width="35" height="35" fill="#0F0F0F"/>
+          <rect x="115" y="185" width="25" height="25" fill="#FFFFFF"/>
+          <rect x="120" y="190" width="15" height="15" fill="#0F0F0F"/>
+          <rect x="215" y="180" width="35" height="35" fill="#0F0F0F"/>
+          <rect x="220" y="185" width="25" height="25" fill="#FFFFFF"/>
+          <rect x="225" y="190" width="15" height="15" fill="#0F0F0F"/>
+          <rect x="110" y="285" width="35" height="35" fill="#0F0F0F"/>
+          <rect x="115" y="290" width="25" height="25" fill="#FFFFFF"/>
+          <rect x="120" y="295" width="15" height="15" fill="#0F0F0F"/>
+
+          <g fill="#0F0F0F">
+            <rect x="150" y="180" width="5" height="5"/>
+            <rect x="165" y="180" width="5" height="5"/>
+            <rect x="180" y="180" width="5" height="5"/>
+            <rect x="200" y="180" width="5" height="5"/>
+            <rect x="155" y="190" width="5" height="5"/>
+            <rect x="170" y="190" width="5" height="5"/>
+            <rect x="190" y="190" width="5" height="5"/>
+            <rect x="205" y="190" width="5" height="5"/>
+            <rect x="150" y="200" width="5" height="5"/>
+            <rect x="160" y="200" width="5" height="5"/>
+            <rect x="170" y="200" width="5" height="5"/>
+            <rect x="180" y="200" width="5" height="5"/>
+            <rect x="195" y="200" width="5" height="5"/>
+            <rect x="205" y="200" width="5" height="5"/>
+            <rect x="150" y="210" width="5" height="5"/>
+            <rect x="165" y="210" width="5" height="5"/>
+            <rect x="180" y="210" width="5" height="5"/>
+            <rect x="200" y="210" width="5" height="5"/>
+            <rect x="135" y="225" width="5" height="5"/>
+            <rect x="150" y="225" width="5" height="5"/>
+            <rect x="165" y="225" width="5" height="5"/>
+            <rect x="175" y="225" width="5" height="5"/>
+            <rect x="190" y="225" width="5" height="5"/>
+            <rect x="210" y="225" width="5" height="5"/>
+            <rect x="225" y="225" width="5" height="5"/>
+            <rect x="240" y="225" width="5" height="5"/>
+            <rect x="115" y="235" width="5" height="5"/>
+            <rect x="130" y="235" width="5" height="5"/>
+            <rect x="145" y="235" width="5" height="5"/>
+            <rect x="160" y="235" width="5" height="5"/>
+            <rect x="175" y="235" width="5" height="5"/>
+            <rect x="195" y="235" width="5" height="5"/>
+            <rect x="215" y="235" width="5" height="5"/>
+            <rect x="230" y="235" width="5" height="5"/>
+            <rect x="245" y="235" width="5" height="5"/>
+            <rect x="135" y="245" width="5" height="5"/>
+            <rect x="155" y="245" width="5" height="5"/>
+            <rect x="170" y="245" width="5" height="5"/>
+            <rect x="185" y="245" width="5" height="5"/>
+            <rect x="200" y="245" width="5" height="5"/>
+            <rect x="220" y="245" width="5" height="5"/>
+            <rect x="240" y="245" width="5" height="5"/>
+            <rect x="115" y="255" width="5" height="5"/>
+            <rect x="135" y="255" width="5" height="5"/>
+            <rect x="150" y="255" width="5" height="5"/>
+            <rect x="165" y="255" width="5" height="5"/>
+            <rect x="180" y="255" width="5" height="5"/>
+            <rect x="195" y="255" width="5" height="5"/>
+            <rect x="215" y="255" width="5" height="5"/>
+            <rect x="230" y="255" width="5" height="5"/>
+            <rect x="245" y="255" width="5" height="5"/>
+            <rect x="135" y="265" width="5" height="5"/>
+            <rect x="155" y="265" width="5" height="5"/>
+            <rect x="170" y="265" width="5" height="5"/>
+            <rect x="190" y="265" width="5" height="5"/>
+            <rect x="200" y="265" width="5" height="5"/>
+            <rect x="225" y="265" width="5" height="5"/>
+            <rect x="240" y="265" width="5" height="5"/>
+            <rect x="120" y="275" width="5" height="5"/>
+            <rect x="135" y="275" width="5" height="5"/>
+            <rect x="160" y="275" width="5" height="5"/>
+            <rect x="175" y="275" width="5" height="5"/>
+            <rect x="195" y="275" width="5" height="5"/>
+            <rect x="210" y="275" width="5" height="5"/>
+            <rect x="230" y="275" width="5" height="5"/>
+            <rect x="245" y="275" width="5" height="5"/>
+            <rect x="155" y="290" width="5" height="5"/>
+            <rect x="170" y="290" width="5" height="5"/>
+            <rect x="190" y="290" width="5" height="5"/>
+            <rect x="240" y="290" width="5" height="5"/>
+            <rect x="150" y="300" width="5" height="5"/>
+            <rect x="165" y="300" width="5" height="5"/>
+            <rect x="180" y="300" width="5" height="5"/>
+            <rect x="240" y="300" width="5" height="5"/>
+            <rect x="150" y="310" width="5" height="5"/>
+            <rect x="170" y="310" width="5" height="5"/>
+            <rect x="185" y="310" width="5" height="5"/>
+            <rect x="245" y="310" width="5" height="5"/>
+            <rect x="215" y="290" width="20" height="20"/>
+            <rect x="220" y="295" width="10" height="10" fill="#FFFFFF"/>
+            <rect x="223" y="298" width="4" height="4"/>
+          </g>
+        </g>
+
+        <text x="180" y="385" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#0F0F0F">$150</text>
+        <text x="180" y="412" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">3 items · awaiting payment</text>
+
+        <rect x="100" y="510" width="160" height="40" rx="20" fill="none" stroke="#0F0F0F" stroke-width="1.5"/>
+        <text x="180" y="536" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#0F0F0F" letter-spacing="1.5">CANCEL SALE</text>
+
+        <!-- SCAN INDICATOR -->
+        <text x="340" y="220" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#1F5C3F" letter-spacing="2">SCAN</text>
+        <path d="M 310 260 Q 340 235, 370 260" fill="none" stroke="#1F5C3F" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+        <path d="M 364 254 L 372 260 L 364 266" fill="none" stroke="#1F5C3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- PHONE 2: BUYER -->
+        <rect x="380" y="70" width="240" height="520" rx="34" fill="#0F0F0F"/>
+        <rect x="388" y="78" width="224" height="504" rx="26" fill="#F5EFE2"/>
+
+        <text x="404" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F0F0F">5:01</text>
+        <g transform="translate(572, 94)" fill="#0F0F0F">
+          <rect x="0" y="2" width="3" height="6" rx="0.5"/>
+          <rect x="5" y="0" width="3" height="8" rx="0.5"/>
+          <rect x="10" y="-2" width="3" height="10" rx="0.5"/>
+          <rect x="15" y="-4" width="3" height="12" rx="0.5"/>
+        </g>
+
+        <text x="500" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="500" fill="#888" letter-spacing="1.2">THIS OR DIE BOUTIQUE</text>
+
+        <rect x="404" y="148" width="192" height="118" rx="10" fill="#FFFFFF"/>
+
+        <text x="420" y="173" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0F0F0F">Vintage Levi's Trucker</text>
+        <text x="580" y="173" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F">$45</text>
+        <text x="420" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0F0F0F">Silk Scarf</text>
+        <text x="580" y="195" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F">$25</text>
+        <text x="420" y="217" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0F0F0F">Suede Boots</text>
+        <text x="580" y="217" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F">$80</text>
+        <line x1="420" y1="232" x2="580" y2="232" stroke="#B8B0A0" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="420" y="253" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666">Subtotal · 3 items</text>
+        <text x="580" y="253" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#0F0F0F">$150</text>
+
+        <text x="404" y="293" font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#666" letter-spacing="1.5">CHOOSE HOW TO PAY</text>
+
+        <rect x="404" y="306" width="192" height="58" rx="12" fill="#C8E5D2" stroke="#1F5C3F" stroke-width="2"/>
+        <text x="418" y="327" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0F0F0F">Cash</text>
+        <text x="582" y="327" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0F0F0F">$150</text>
+        <text x="418" y="349" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#1F5C3F">No fee · Vendor confirms receipt</text>
+
+        <rect x="404" y="374" width="192" height="58" rx="12" fill="none" stroke="#D4CDC0" stroke-width="1"/>
+        <text x="418" y="395" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0F0F0F">Direct transfer</text>
+        <text x="582" y="395" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#0F0F0F">$150</text>
+        <text x="418" y="417" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">Venmo · Zelle · PayPal · Cash App</text>
+
+        <rect x="404" y="442" width="192" height="58" rx="12" fill="none" stroke="#D4CDC0" stroke-width="1"/>
+        <text x="418" y="463" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0F0F0F">Card</text>
+        <text x="582" y="463" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#0F0F0F">$155</text>
+        <text x="418" y="485" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">Apple Pay · Google Pay · saved cards</text>
+
+        <rect x="404" y="510" width="192" height="40" rx="20" fill="#0F0F0F"/>
+        <text x="500" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F5EFE2">Pay $150 →</text>
+      </svg>
     </div>
-
-    <div class="killshot">
-      <div class="killshot-text">
-        <span class="strike-light">Square</span> charges you.&nbsp;
-        <span class="strike-light">Shopify</span> charges you.<br>
-        We charge <span class="punch">the transaction</span> &mdash; and we tell the customer what it costs.
-      </div>
-    </div>
-
-    <!-- CHECKOUT MOCKUP -->
-    <div class="checkout-mockup">
-      <div class="checkout-text">
-        <h3>Honest checkout. <span class="green-text">Customer picks.</span></h3>
-        <p>
-          When your buyer pays, they see every option side by side. Cash is free. Digital rails are cheap. Card costs the most because card <em>actually costs the most</em> — Stripe charges 2.9% + 30¢ to run that network and we don't hide it.
-        </p>
-        <p>
-          They tap the price they want to pay. One clean number. The (i) shows the breakdown if they want to see it. Most won't. They'll just pick the rail that fits.
-        </p>
-        <div class="small-note">
-          <strong>The kicker:</strong> Square hides the fee from the customer and charges you instead. We made it visible to the customer and gave them three cheaper alternatives. That's not extraction — that's choice.
-        </div>
-      </div>
-
-      <div class="checkout-phone">
-        <div class="checkout-phone-screen">
-          <div class="checkout-phone-vendor">VANESSA · THIS OR DIE BOUTIQUE</div>
-
-          <div class="checkout-cart">
-            <div class="checkout-cart-row">
-              <span class="checkout-cart-name">Vintage Levi's Trucker</span>
-              <span class="checkout-cart-price">$45</span>
-            </div>
-            <div class="checkout-cart-row">
-              <span class="checkout-cart-name">Silk Scarf</span>
-              <span class="checkout-cart-price">$25</span>
-            </div>
-            <div class="checkout-cart-row">
-              <span class="checkout-cart-name">Suede Boots</span>
-              <span class="checkout-cart-price">$80</span>
-            </div>
-            <div class="checkout-cart-subtotal">
-              <span>Subtotal · 3 items</span>
-              <span>$150</span>
-            </div>
-          </div>
-
-          <div class="checkout-phone-rails-label">Choose how to pay</div>
-
-          <div class="checkout-rail-option featured">
-            <div class="rail-info">
-              <span class="rail-title">Cash</span>
-              <span class="rail-meta">No fee · Vendor confirms receipt</span>
-            </div>
-            <div class="rail-price-tag">$150</div>
-          </div>
-
-          <div class="checkout-rail-option">
-            <div class="rail-info">
-              <span class="rail-title">Venmo · Zelle · PayPal · Cash App</span>
-              <span class="rail-meta">No card processor</span>
-            </div>
-            <div class="rail-price-tag">$158 <span class="info-i">i</span></div>
-          </div>
-
-          <div class="checkout-rail-option selected">
-            <div class="rail-info">
-              <span class="rail-title">Card</span>
-              <span class="rail-meta">Apple Pay · Google Pay · saved cards</span>
-            </div>
-            <div class="rail-price-tag">$164 <span class="info-i">i</span></div>
-          </div>
-
-          <div class="checkout-phone-confirm">Pay $164 →</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AFTER PAY — what happens when each rail is tapped -->
-    <div class="afterpay-section">
-      <h3 class="afterpay-headline">After they tap pay,<br><span class="green-text">each rail does its job.</span></h3>
-      <p class="afterpay-sub">No app to download. No card to type. Each payment method takes the buyer where they already are — their banking app, their wallet, or just back to the vendor for a cash handshake.</p>
-
-      <div class="afterpay-grid">
-        <div class="afterpay-card">
-          <div class="afterpay-icon-row">
-            <div class="afterpay-icon afterpay-icon-cash">$</div>
-            <div class="afterpay-tag">Cash</div>
-          </div>
-          <h4 class="afterpay-card-title">The handshake</h4>
-          <p class="afterpay-card-text">Buyer taps Cash → vendor's phone lights up with <em>"Confirm $150 cash from this buyer?"</em> → vendor taps yes when bills hit hand. Both phones confirm at the same time. CHEQout records the sale.</p>
-          <div class="afterpay-flow">
-            <div class="afterpay-step">Tap Cash</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step">Vendor confirms</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step done">Sale logged</div>
-          </div>
-        </div>
-
-        <div class="afterpay-card">
-          <div class="afterpay-icon-row">
-            <div class="afterpay-icon afterpay-icon-venmo">V</div>
-            <div class="afterpay-tag">Venmo · PayPal · Cash App</div>
-          </div>
-          <h4 class="afterpay-card-title">Deep-link autofill</h4>
-          <p class="afterpay-card-text">Tap Venmo → Venmo opens with the amount, vendor handle, and note <em>"Great finds at Vanessa's"</em> already filled in. Buyer hits send. CHEQout watches for the receipt and closes the sale.</p>
-          <div class="afterpay-flow">
-            <div class="afterpay-step">Tap Venmo</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step">App autofills</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step done">Send · done</div>
-          </div>
-        </div>
-
-        <div class="afterpay-card">
-          <div class="afterpay-icon-row">
-            <div class="afterpay-icon afterpay-icon-zelle">Z</div>
-            <div class="afterpay-tag">Zelle</div>
-          </div>
-          <h4 class="afterpay-card-title">One-tap copy</h4>
-          <p class="afterpay-card-text">Zelle has no public deep link, so we get as close as anyone can. Tap Zelle → vendor's email is copied to the buyer's clipboard with a prompt: <em>"Open your bank app, paste in Zelle"</em>. About as frictionless as Zelle gets.</p>
-          <div class="afterpay-flow">
-            <div class="afterpay-step">Tap Zelle</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step">Email copied</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step done">Paste in bank</div>
-          </div>
-        </div>
-
-        <div class="afterpay-card">
-          <div class="afterpay-icon-row">
-            <div class="afterpay-icon afterpay-icon-card">⌬</div>
-            <div class="afterpay-tag">Card</div>
-          </div>
-          <h4 class="afterpay-card-title">Wallet autofill</h4>
-          <p class="afterpay-card-text">Tap Card → Apple Pay or Google Pay sheet pops up with the buyer's saved cards. Face ID, done. No card to type. (If they don't have a saved card, they can type one — but most won't need to.)</p>
-          <div class="afterpay-flow">
-            <div class="afterpay-step">Tap Card</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step">Wallet pops up</div>
-            <div class="afterpay-step-arrow">→</div>
-            <div class="afterpay-step done">Face ID · paid</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- STOREFRONT - The 24/7 store -->
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
+<!-- AFTER THEY TAP PAY -->
+<section class="after-tap">
+  <div class="section-inner">
+    <h2 class="after-tap-headline">After they tap pay.</h2>
+    <p class="after-tap-intro">
+      When the buyer picks how they want to pay, CHEQout opens the right path for that rail. No typing card numbers. No fumbling with cash apps. No "how do I send to you again?" CHEQout is the first POS to take payments the way you get paid.
+    </p>
+
+    <div class="after-tap-grid">
+      <div class="after-tap-card">
+        <div class="after-tap-icon-row">
+          <div class="after-tap-icon after-tap-icon-cash">$</div>
+          <span class="after-tap-tag">Cash</span>
+        </div>
+        <h3 class="after-tap-title">The handshake.</h3>
+        <p class="after-tap-text">Buyer taps Cash. Your phone lights up: "Confirm $150 cash from this buyer?" You tap yes when the bills hit your hand. Both phones confirm simultaneously. Sale recorded, inventory updated, P&amp;L moves in real time. No more guessing what you have. No more trying to remember what sold.</p>
+        <div class="after-tap-flow">
+          <span class="after-tap-step">Tap Cash</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step">Vendor confirms</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step done">Sale recorded · inventory updated</span>
+        </div>
+      </div>
+
+      <div class="after-tap-card">
+        <div class="after-tap-icon-row">
+          <div class="after-tap-icon after-tap-icon-venmo">V</div>
+          <span class="after-tap-tag">Venmo / PayPal / Cash App</span>
+        </div>
+        <h3 class="after-tap-title">Deep-link autofill.</h3>
+        <p class="after-tap-text">Buyer taps the rail. The app opens with your handle, the amount, and a note already filled in. They hit send. CHEQout watches for the payment notification and auto-closes the sale.</p>
+        <div class="after-tap-flow">
+          <span class="after-tap-step">Tap rail</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step">App opens prefilled</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step done">Auto-closed</span>
+        </div>
+      </div>
+
+      <div class="after-tap-card">
+        <div class="after-tap-icon-row">
+          <div class="after-tap-icon after-tap-icon-zelle">Z</div>
+          <span class="after-tap-tag">Zelle</span>
+        </div>
+        <h3 class="after-tap-title">The Zelle scan.</h3>
+        <p class="after-tap-text">Buyer taps Zelle. Your phone displays a Zelle-spec QR code. They scan it in their bank app's Zelle scanner — the recipient auto-fills, they enter the amount, send. About as frictionless as Zelle gets.</p>
+        <div class="after-tap-flow">
+          <span class="after-tap-step">Tap Zelle</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step">Bank app scans</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step done">Sent</span>
+        </div>
+      </div>
+
+      <div class="after-tap-card">
+        <div class="after-tap-icon-row">
+          <div class="after-tap-icon after-tap-icon-card">C</div>
+          <span class="after-tap-tag">Card</span>
+        </div>
+        <h3 class="after-tap-title">Wallet autofill.</h3>
+        <p class="after-tap-text">Buyer taps Card. Apple Pay or Google Pay pops up with their saved cards. Face ID, done. Fallback to manual entry if no saved cards.</p>
+        <div class="after-tap-flow">
+          <span class="after-tap-step">Tap Card</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step">Wallet autofills</span>
+          <span class="after-tap-step-arrow">→</span>
+          <span class="after-tap-step done">Face ID · paid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
+<!-- SET YOUR PRICE. NET YOUR PRICE. -->
+<section class="set-your-price">
+  <div class="section-inner">
+    <h2 class="set-your-price-headline">Set your price. Net your price.</h2>
+
+    <p class="set-your-price-para">
+      <strong>Net what you set.</strong> Set the net price on every item. When a customer pays cash or direct transfer, they pay your number. When they choose card, the Stripe processor fee gets added on top — automatically. You always net the price you set.
+    </p>
+
+    <table class="set-your-price-table">
+      <thead>
+        <tr>
+          <th>You set</th>
+          <th>Card customer pays</th>
+          <th>You net</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>$50</td><td>$52</td><td>$50</td></tr>
+        <tr><td>$100</td><td>$104</td><td>$100</td></tr>
+        <tr><td>$250</td><td>$258</td><td>$250</td></tr>
+      </tbody>
+    </table>
+
+    <p class="set-your-price-caption">Same column twice. By design.</p>
+
+    <p class="set-your-price-para">
+      <strong>Most POS apps treat fees as the vendor's problem.</strong> Square, Shopify, Toast — they take 2.9% off the top of every card sale. You set $100, you net $97.10. The fee is your problem.
+    </p>
+
+    <p class="set-your-price-para">
+      <strong>CHEQout treats fees as the rail's problem.</strong> Card is more expensive to run than cash or direct transfer — so the customer who chooses card sees that cost in their total. The customer who pays cash or direct transfer pays less. You always net your price, regardless of how they pay.
+    </p>
+
+    <p class="set-your-price-para">
+      <strong>Vendor-first, so you can put the customer first.</strong> Your prices stay clean. Your margins stay yours. The customer always has cheaper options if they want them.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
+<!-- AND NOW FOR THE BEST PART -->
 <section id="storefront" class="storefront">
   <div class="section-inner">
     <div class="storefront-grid">
       <div class="storefront-copy">
-        <div class="section-eyebrow"><span class="num">04</span> · Your 24/7 store</div>
-        <h2 class="section-title">And now for<br><span class="green-text">the best part.</span></h2>
-        <p class="storefront-tag">Your booth closes at 6. <em>Your storefront doesn't.</em></p>
+        <h2 class="section-title">And now for the best part.</h2>
+        <p class="storefront-tag">Your booth closes at 6. <em class="forest-italic">Your storefront doesn't.</em></p>
 
         <div class="storefront-points">
           <div class="storefront-point">
             <div class="storefront-point-num">i.</div>
             <div>
               <h4>Same item, two channels.</h4>
-              <p>Every item you log at the booth is live online the moment you tap publish. No double entry. No second app.</p>
+              <p>Every item you log at the booth goes live online the moment you tap publish. No double entry. No second app. When a sale happens — booth or storefront — inventory updates everywhere in real time. We watch out for your inventory no matter where it sells.</p>
             </div>
           </div>
           <div class="storefront-point">
             <div class="storefront-point-num">ii.</div>
             <div>
               <h4>yourname.cheqout.store</h4>
-              <p>Live the moment you have an item. Put it on your Instagram bio, your hangtags, the back of your business card. People shop with you when they get home.</p>
+              <p>With Shop tier or higher, your storefront goes live the moment you have an item. Put it on your Instagram bio, your hangtags, the back of your business card. People shop with you when they get home.</p>
             </div>
           </div>
           <div class="storefront-point">
             <div class="storefront-point-num">iii.</div>
             <div>
               <h4>Pickup or ship — buyer picks.</h4>
-              <p>Local buyer can put it on hold and grab it at your next pop-up. Out-of-state buyer can pay and you ship. Same inventory, two fulfillment paths.</p>
+              <p>A buyer can put it on hold and grab it at your next pop-up — or pay and you ship it to them. Same inventory, two fulfillment paths. Every item has its own live chat thread, so pickup timing or shipping questions stay tied to the item they're about.</p>
             </div>
           </div>
           <div class="storefront-point">
@@ -2361,33 +2017,41 @@
           </div>
         </div>
 
-        <div class="storefront-tier-note">
-          <span class="storefront-tier-tag">Shop tier and up</span>
-          <span class="storefront-tier-text">Included starting at <strong>$79/mo</strong>. Custom domain at Pro.</span>
+        <div class="storefront-tier-pill-wrap">
+          <span class="tier-tag-pill">SHOP TIER AND UP</span>
         </div>
       </div>
 
       <div class="storefront-phone-wrap">
         <div class="storefront-phone">
-          <div class="storefront-phone-notch"></div>
+          <div class="storefront-phone-frame"></div>
           <div class="storefront-phone-screen">
-            <img src="/storefront-stitched.jpg" alt="A real CHEQout storefront — Mister Swan" />
+            <img src="/assets/storefront-iphone-capture.png" alt="A real CHEQout storefront — swan-test.cheqout.store" />
           </div>
-          <div class="storefront-phone-handle"></div>
         </div>
-        <div class="storefront-scroll-hint">↕ Scroll inside the phone</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- STACKS -->
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
 <section id="stacks" class="stacks">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">05</span> · Stacks</div>
-    <h2 class="section-title">Every dollar<br><span class="green-text">knows where to go.</span></h2>
-    <p class="section-lede">
-      Making money is the easy part. <em>Keeping</em> it is where most small businesses lose. <strong style="color:var(--cream)">Stacks</strong> automatically routes every sale's net proceeds into the buckets that matter — taxes, savings, equipment, payroll — by percentages you set once. Track them. Route them to real bank accounts. Stop scrambling on April 14th.
+    <div class="stacks-eyebrow">STACKS</div>
+    <h2 class="section-title">Every dollar knows where to go.</h2>
+
+    <p class="stacks-para">
+      <strong>Making money is the easy part.</strong> <em>Keeping</em> it is where most small businesses lose.
+    </p>
+
+    <p class="stacks-para">
+      <strong>CHEQout doesn't collect taxes for you — that's your business.</strong> But Stacks makes the hardest part of running your own books feel easy. Save your state and city sales tax rate to its own Stack. Open a Quarterly Tax Stack at whatever percentage your accountant tells you. Add Stacks for equipment, savings, payroll — anything you're trying to keep separate from the money you actually take home. Every sale auto-routes into the buckets you set. Track them in CHEQout. Move them to whatever bank accounts you want.
+    </p>
+
+    <p class="stacks-para">
+      <strong>Stop scrambling on April 14th.</strong>
     </p>
 
     <div class="stacks-demo">
@@ -2399,23 +2063,30 @@
       </div>
 
       <div class="stacks-buckets" id="stacksBuckets">
-        <div class="stack-row" style="--target-fill: 25%;">
+        <div class="stack-row" style="--target-fill: 9%;">
           <div class="stack-info">
-            <div class="stack-name">Tax Stack <small>Set aside for quarterly filings</small></div>
+            <div class="stack-name">Sales Tax <small>LA county rate</small></div>
           </div>
-          <div class="stack-pct">25%</div>
-          <div class="stack-amount">$710</div>
+          <div class="stack-pct">9%</div>
+          <div class="stack-amount">$256</div>
+        </div>
+        <div class="stack-row" style="--target-fill: 16%;">
+          <div class="stack-info">
+            <div class="stack-name">Quarterly Tax <small>Income tax estimation</small></div>
+          </div>
+          <div class="stack-pct">16%</div>
+          <div class="stack-amount">$454</div>
         </div>
         <div class="stack-row" style="--target-fill: 15%;">
           <div class="stack-info">
-            <div class="stack-name">Rainy Day Stack <small>Emergency reserve</small></div>
+            <div class="stack-name">Rainy Day <small>Emergency reserve</small></div>
           </div>
           <div class="stack-pct">15%</div>
           <div class="stack-amount">$426</div>
         </div>
         <div class="stack-row" style="--target-fill: 10%;">
           <div class="stack-info">
-            <div class="stack-name">Equipment Stack <small>New camera fund</small></div>
+            <div class="stack-name">Equipment <small>New camera fund</small></div>
           </div>
           <div class="stack-pct">10%</div>
           <div class="stack-amount">$284</div>
@@ -2431,18 +2102,19 @@
     </div>
 
     <div class="stacks-cta">
-      <div class="stacks-cta-text">Name them whatever you want. <em>Make them however you want.</em></div>
+      <div class="stacks-cta-text">Name them whatever you want. <span class="brand-stacks">STACK</span> your cash accordingly.</div>
     </div>
   </div>
 </section>
 
 <!-- CHANNELS -->
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
 <section id="channels" class="channels">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">06</span> · One capture, everywhere live</div>
-    <h2 class="section-title">One photo.<br><span class="green-text">Every shelf you have.</span></h2>
+    <h2 class="section-title">One photo.<br><span class="green-text"><em>Everywhere you sell.</em></span></h2>
     <p class="section-lede">
-      Take the picture once. The item shows up at your booth, on your storefront, on TikTok Shop, on Instagram — instantly, with the right crop and metadata for each. Sell it on any channel, the others know in seconds. No double-booking. No second app.
+      <strong>Take the picture once.</strong> When you log an item, our AI generates the polished photos your storefront needs — clean product shots and editorial scene shots. This is what your shoppers see when they visit your store. The same item shows up at your in-person booth and on your storefront automatically, each with the right crop for the channel. Sell it on either, the other knows in seconds. No double-listing. No second app.
     </p>
 
     <div class="channels-grid">
@@ -2454,7 +2126,7 @@
           <div class="channel-tag">Every tier</div>
         </div>
         <div class="channel-name">In-person POS</div>
-        <div class="channel-desc">Hardware-free phone-to-phone checkout. Booth, shop, show, anywhere there's cell signal. Buyer scans, picks how to pay, you're paid.</div>
+        <div class="channel-desc">Hardware-free phone-to-phone checkout. Booth, shop, show — anywhere there's cell signal. Buyer scans your QR, picks how to pay, you're paid.</div>
         <div class="pulse-line"></div>
       </div>
 
@@ -2466,7 +2138,7 @@
           <div class="channel-tag">Shop tier and up</div>
         </div>
         <div class="channel-name">Your storefront</div>
-        <div class="channel-desc">yourname.cheqout.store, live the moment you have an item. Custom domain mapping at Pro and above.</div>
+        <div class="channel-desc">Your own shopping site at yourname.cheqout.store. Goes live the moment you log your first item. Custom domain mapping at Pro and above.</div>
         <div class="pulse-line"></div>
       </div>
 
@@ -2475,10 +2147,10 @@
           <div class="channel-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
           </div>
-          <div class="channel-tag empire">Empire only</div>
+          <div class="channel-tag empire">Empire</div>
         </div>
         <div class="channel-name">TikTok Shop</div>
-        <div class="channel-desc">One photo, automatically formatted. Sales reconcile to your CHEQout dashboard. You never log into TikTok Seller Center.</div>
+        <div class="channel-desc">One capture, live on TikTok Shop. Sales reconcile to your CHEQout dashboard. You never log into TikTok Seller Center.</div>
         <div class="pulse-line"></div>
       </div>
 
@@ -2487,37 +2159,41 @@
           <div class="channel-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </div>
-          <div class="channel-tag empire">Empire only</div>
+          <div class="channel-tag empire">Empire</div>
         </div>
         <div class="channel-name">Instagram Shopping</div>
-        <div class="channel-desc">Catalog feeds Meta directly. Buyers tap, buy, you fulfill. Inventory updates everywhere the moment it sells.</div>
+        <div class="channel-desc">Same capture, live on Instagram. Tap-to-buy on your IG feed without the cross-listing chore.</div>
         <div class="pulse-line"></div>
       </div>
-    </div>
-
-    <div class="one-capture-banner">
-      <div class="one-capture-text">
-        Other platforms make you sync. <em>We make you appear.</em>
-      </div>
-      <a href="#pricing" class="btn btn-primary" style="background: var(--green-mint); color: var(--ink);">See Empire tier <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
+<!-- BLACK BANNER 2 -->
+<section class="black-banner">
+  <div class="black-banner-inner">
+    <div class="black-banner-line">Other platforms make you sync inventory across five tabs.</div>
+    <div class="black-banner-line black-banner-line-2">We do it from one photo.</div>
+    <a href="#pricing" class="btn btn-primary" style="background: var(--green-mint); color: var(--ink); margin-top: 18px;">See Empire tier <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
 <!-- PRICING -->
 <section id="pricing" class="pricing">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">07</span> · Pricing</div>
-    <h2 class="section-title">Four tiers.<br><span class="green-text">No surprises.</span></h2>
+    <h2 class="section-title">Four tiers.<br><span class="green-text"><em>No surprises.</em></span></h2>
     <p class="section-lede">
-      Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital rails get cheaper as you upgrade. Card always shows Stripe's processing as a separate line — no hidden math.
+      Start free. Pay nothing until you're ready for more. Cash is free at every tier. Digital and card are free on every paid tier — only Hustle has a platform fee. Card always shows Stripe's processing as a separate line. No hidden math. And on Pro and up: send marketing campaigns to the customers you've earned, direct — no algorithm, no ad spend.
     </p>
 
     <div class="pricing-grid">
-      <div class="tier">
+      <div class="tier mint-border">
         <div class="tier-name">Hustle</div>
         <div class="tier-who">Pop-up vendor. Weekend markets. The side hustle that pays for the trip.</div>
         <div class="tier-price">$0<small>/mo</small></div>
+        <div class="tier-description">Run on cash for free, all day long. We take 5% on digital and card to keep the basics running. Upgrade when you're ready to grow.</div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
           <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">5%</span></div>
@@ -2526,21 +2202,22 @@
         <ul class="tier-feature-list">
           <li>Camera-first POS</li>
           <li>Inventory + tags</li>
-          <li>Stacks (basic)</li>
           <li>All four payment rails</li>
+          <li>Stacks (up to 2)</li>
           <li>Tax data export</li>
         </ul>
-        <a href="https://cheqout.store/confirm-plan?plan=hustle" class="tier-cta">Start free</a>
+        <a href="https://cheqout.store/confirm-plan?plan=hustle" class="tier-cta">I Hustle</a>
       </div>
 
-      <div class="tier">
+      <div class="tier mint-border">
         <div class="tier-name">Shop</div>
-        <div class="tier-who">You're real now. You want a presence between events.</div>
-        <div class="tier-price">$79<small>/mo</small></div>
+        <div class="tier-who">You want presence between events.</div>
+        <div class="tier-price">$89<small>/mo</small></div>
+        <div class="tier-description">Claim your store at yourname.cheqout.store. Sell while you sleep.</div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">3.4%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">6.3%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Hustle</li>
@@ -2549,48 +2226,46 @@
           <li>Buyer messaging via CHEQin</li>
           <li>SMS receipt opt-in</li>
           <li>Basic analytics</li>
+          <li>Stacks (up to 3)</li>
         </ul>
-        <a href="https://cheqout.store/confirm-plan?plan=shop" class="tier-cta">Choose Shop</a>
+        <a href="https://cheqout.store/confirm-plan?plan=shop" class="tier-cta">Open Shop</a>
       </div>
 
-      <div class="tier">
+      <div class="tier popular">
         <div class="tier-name">Pro</div>
         <div class="tier-who">This is your livelihood. You run it like one.</div>
-        <div class="tier-price">$129<small>/mo</small></div>
+        <div class="tier-price">$149<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">1.9%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">4.8%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Shop</li>
           <li>Ghost mannequin + editorial AI scenes</li>
-          <li>Holds</li>
           <li>Custom domain mapping</li>
-          <li>Stacks → linked accounts</li>
-          <li>Branding removed</li>
+          <li>Email marketing campaigns</li>
+          <li>Print shipping labels direct from Rollo</li>
+          <li>Stacks (up to 5)</li>
         </ul>
-        <a href="https://cheqout.store/confirm-plan?plan=pro" class="tier-cta">Choose Pro</a>
+        <a href="https://cheqout.store/confirm-plan?plan=pro" class="tier-cta">Go Pro</a>
       </div>
 
       <div class="tier featured">
         <div class="tier-name">Empire</div>
-        <div class="tier-who">Multi-channel. Multi-location. The whole operation, one capture.</div>
-        <div class="tier-price">$249<small>/mo</small></div>
+        <div class="tier-who">The whole operation, one capture.</div>
+        <div class="tier-price">$299<small>/mo</small></div>
         <div class="tier-fee-table">
           <div class="tier-fee-row"><span class="tier-fee-label">Cash</span><span class="tier-fee-value free">Free</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value">1.4%</span></div>
-          <div class="tier-fee-row"><span class="tier-fee-label">Card (incl. Stripe)</span><span class="tier-fee-value">4.3%</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Venmo · Zelle · etc</span><span class="tier-fee-value free">Free</span></div>
+          <div class="tier-fee-row"><span class="tier-fee-label">Card (Stripe only)</span><span class="tier-fee-value">2.9%</span></div>
         </div>
         <ul class="tier-feature-list">
           <li>Everything in Pro</li>
-          <li>One-capture multi-channel</li>
-          <li>TikTok Shop + Instagram</li>
+          <li>TikTok Shop integration</li>
+          <li>Instagram Shopping</li>
           <li>Multi-location hierarchy</li>
-          <li>Anomaly detection + analytics</li>
-          <li>Tax integration included</li>
-          <li>Unlimited Stack accounts</li>
-          <li>Direct human support</li>
+          <li>Unlimited Stacks</li>
         </ul>
         <a href="https://cheqout.store/confirm-plan?plan=empire" class="tier-cta">Build your Empire</a>
       </div>
@@ -2598,38 +2273,59 @@
   </div>
 </section>
 
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
 <!-- FAQ -->
 <section class="faq">
   <div class="section-inner">
-    <div class="section-eyebrow"><span class="num">08</span> · Questions</div>
-    <h2 class="section-title">Plain English,<br><span class="green-text">no fine print.</span></h2>
+    <h2 class="section-title">Plain English, no fine print.</h2>
 
     <div class="faq-list">
       <div class="faq-item open">
         <div class="faq-q">Is cash really free, or is there a catch? <span class="toggle">+</span></div>
-        <div class="faq-a">Really free. No fee on physical cash sales, ever, on every tier. Cash money in hand, log it in CHEQout, you keep 100%. We make our money on subscription, on digital P2P rails (Venmo, Zelle, PayPal, Cash App), and on card transactions where there's an actual processing cost. Cash gets you on the platform and in our data — that's the trade and we're happy with it.</div>
+        <div class="faq-a">No catch. Cash is 0% on every tier — Hustle, Shop, Pro, and Empire. When a buyer taps Cash, your phone confirms the handshake, the sale is recorded, and you keep every dollar. We made cash the loss leader on purpose: fewer sellers dodge logging it, so your inventory stays accurate across every channel.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Why does card cost more than the other rails? <span class="toggle">+</span></div>
-        <div class="faq-a">Because card actually costs more. Stripe charges 2.9% + 30¢ to run a credit card transaction — that's their network fee, not ours. We add our tier fee on top, and we show the customer the total honestly. They can always pick Cash (free), or Venmo/Zelle/PayPal/Cash App (cheaper than card). The customer has real choice. Square hides the card fee from the buyer and charges the vendor instead. We made it visible and gave the customer an out.</div>
+        <div class="faq-a">Because card actually costs more to run. Stripe charges 2.9% + 30¢ to process every card transaction — that fee exists whether anyone hides it or not. Most POS apps pull it quietly out of your pocket. We pass it through to the customer paying card, so the customer who chooses a cheaper rail (cash, Venmo, Zelle, PayPal, Cash App) actually pays less. On Hustle, there's a 5% platform fee on top of Stripe; on Shop, Pro, and Empire, it's just Stripe.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How does the gross-up actually work? <span class="toggle">+</span></div>
-        <div class="faq-a">You set a net price — what you want to make. At checkout, we calculate what the customer needs to pay so that after our fee (and Stripe's, on cards), you're left with exactly what you priced. The customer picks a rail and sees one clean number. The (i) tooltip breaks it down if they want to see it. You always net what you set. No deduction from your payout, no surprise reconciliation.</div>
+        <div class="faq-a">You post a net price — the amount you want to end up with. When a buyer picks card, the Stripe fee gets added to their total. Same item, different rail prices: cash and direct transfer pay the net you posted, card pays the net plus Stripe's cut. You net what you posted, regardless of which rail they pick. The customer who chooses the expensive rail covers the cost of running it.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do I need any hardware? <span class="toggle">+</span></div>
-        <div class="faq-a">No. Your phone is the POS. The buyer's phone is the card reader. They scan a QR, pick how they want to pay, confirm. No $300 terminal to ship. No reader to lose at the booth. The architecture was designed this way from day one.</div>
+        <div class="faq-a">No card reader, no countertop terminal, no docking station. Just your phone with cell signal. Pro and Empire vendors can add a Rollo label printer for one-tap shipping labels on online orders — that's optional, and there's no other hardware in the stack.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I switch tiers? <span class="toggle">+</span></div>
-        <div class="faq-a">Up or down, any time, no penalty. Stay on the right tier for where your business actually is.</div>
+        <div class="faq-a">Anytime. Upgrade when you're ready, downgrade if your season ends. Your storefront URL, your customer database, your inventory, and your Stacks all stay yours across the change. Features turn on and off based on your current tier — your data never gets reset.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What does CHEQout actually take? <span class="toggle">+</span></div>
-        <div class="faq-a">A subscription ($0–$249/mo) and a percentage on non-cash sales (built into the customer-facing price via gross-up). Cash is free across every tier. We don't charge per-transaction fixed fees, per-location surcharges, or onboarding fees. We don't sell your data.</div>
+        <div class="faq-q">How does CHEQout make money? <span class="toggle">+</span></div>
+        <div class="faq-a">On paid tiers, CHEQout takes $0 per sale. Our income comes from the monthly subscription, not your transactions. Square and Shopify charge 2.9% on every card forever — and most of them also charge a monthly subscription on top. We charge a flat monthly fee. Once your sales pass roughly $3,000 a month, you're paying yourself the difference. In-person, your cash and direct-transfer rails don't touch card fees at all. On Hustle (free), we take 5% to cover the basics. Cash is always free, every tier.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the CHEQout inbox I get when I sign up? <span class="toggle">+</span></div>
+        <div class="faq-a">Every vendor gets <code>yourhandle@cheqout.store</code> the moment they claim a handle. Read-only inbox in your dashboard — it's where the payment confirmation emails from Venmo, PayPal, Cash App, and Zelle land so CHEQout can auto-close sales for you. Not a general-purpose email account, but your handle is yours to use on hangtags, social bios, anywhere you want.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I have to deal with sales tax myself? <span class="toggle">+</span></div>
+        <div class="faq-a">Yes. CHEQout is a POS tool, not a tax authority. But Stacks makes it the easy part: set your state and city sales tax rate to its own Stack, and every sale auto-allocates the right amount. You'll never be short come filing day.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="section-divider-wrap"><hr class="section-divider"></div>
+
+<!-- FOUNDER NOTE -->
+<section class="founder-note">
+  <div class="founder-note-inner">
+    <p class="founder-note-body">
+      CHEQout is POS for the people. Thirty years on the wrong side of every POS pitch taught me what I wanted to build. Terminals you don't need. Processors that take a piece of every sale. Dashboards that route your customers to somebody else's algorithm. This is it. Built for the operator. Built for the little guy.
+    </p>
+    <p class="founder-note-signature">— J. Swan, Upsetting Industries</p>
   </div>
 </section>
 
@@ -2643,75 +2339,16 @@
   </h2>
   <p class="cta-sub">Built in LA by people who actually run this software. Free to start. Cancel any time. No reader to ship.</p>
   <div class="cta-ctas">
-    <a href="https://cheqout.store/confirm-plan?plan=hustle" class="btn btn-primary">Start free <span class="arrow">→</span></a>
+    <a href="https://cheqout.store/confirm-plan?plan=hustle" class="btn btn-primary">Open your store <span class="arrow">→</span></a>
   </div>
 
   <div class="footer-meta">
     <div class="wordmark">CHEQ<span class="out">out</span></div>
-    <span>© 2026 · Upsetting Industries · Los Angeles</span>
-    <span>cheqout.store · upsetting.software</span>
+    <span>© 2026 · Upsetting Industries · Los Angeles · cheqout.store · upsetting.software</span>
   </div>
 </section>
 
 <script>
-  // ===== Tier fee structure =====
-  const TIER_FEES = {
-    hustle: { vzp: 0.05, card: 0.05 },
-    shop:   { vzp: 0.034, card: 0.034 },
-    pro:    { vzp: 0.019, card: 0.019 },
-    empire: { vzp: 0.014, card: 0.014 }
-  };
-  const STRIPE_PCT = 0.029;
-  const STRIPE_FIXED = 0.30;
-
-  let currentTier = 'hustle';
-
-  const netSlider = document.getElementById('netSlider');
-  const netDisplay = document.getElementById('netDisplay');
-  const cashAmount = document.getElementById('cashAmount');
-  const vzpAmount = document.getElementById('vzpAmount');
-  const cardAmount = document.getElementById('cardAmount');
-  const cashBreakdown = document.getElementById('cashBreakdown');
-  const vzpBreakdown = document.getElementById('vzpBreakdown');
-  const cardBreakdown = document.getElementById('cardBreakdown');
-
-  function updateMath() {
-    const net = parseInt(netSlider.value);
-    const fees = TIER_FEES[currentTier];
-    const tierLabel = currentTier.charAt(0).toUpperCase() + currentTier.slice(1);
-
-    netDisplay.textContent = net;
-
-    // Cash always free
-    cashAmount.textContent = '$' + net;
-    cashBreakdown.textContent = 'no fee, ever';
-
-    // VZP: tier fee only
-    const vzpTotal = Math.ceil(net * (1 + fees.vzp));
-    vzpAmount.textContent = '$' + vzpTotal;
-    vzpBreakdown.textContent = '+ ' + (fees.vzp * 100).toFixed(1).replace('.0','') + '% CHEQout (' + tierLabel + ')';
-
-    // Card: tier fee + Stripe fee, gross-up formula
-    const totalRate = fees.card + STRIPE_PCT;
-    const cardTotal = Math.ceil((net + STRIPE_FIXED) / (1 - totalRate));
-    cardAmount.textContent = '$' + cardTotal;
-    const totalPctDisplay = ((fees.card + STRIPE_PCT) * 100).toFixed(1);
-    cardBreakdown.textContent = '+ ' + (fees.card * 100).toFixed(1).replace('.0','') + '% CHEQout + 2.9% Stripe';
-  }
-
-  netSlider.addEventListener('input', updateMath);
-
-  document.querySelectorAll('.math-toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.math-toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentTier = btn.dataset.tier;
-      updateMath();
-    });
-  });
-
-  updateMath();
-
   // Stacks animation
   const stacksObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
